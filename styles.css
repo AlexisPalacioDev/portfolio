@@ -350,7 +350,7 @@ textarea:focus,
   }
 
   .nav-item {
-    margin: 1rem 0;
+    margin: 0rem 0;
     width: 100%;
     text-align: center;
     opacity: 0;
@@ -397,7 +397,6 @@ textarea:focus,
 
 @media (max-width: 576px) {
   .container {
-    padding: 0 1rem;
   }
 
   .section {
@@ -883,12 +882,12 @@ textarea:focus,
     ============================================= */
 #theme-toggle,
 #cb-toggle {
+  width: 3rem;
   background: none;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
   border-radius: var(--border-radius-full);
   padding: 0.3rem 0.6rem;
-  margin-left: 0.5rem;
   cursor: pointer;
   font-size: 0.9rem;
 }
