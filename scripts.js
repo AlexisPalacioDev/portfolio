@@ -78,11 +78,11 @@ $(function () {
   const translations = {
     en: {
       download_cv: "Download CV",
-      cv_path: "/portfolio/assets/cv/CV-AlexisPalacio-EN.pdf",
+      cv_path: "assets/cv/CV-AlexisPalacio-ES.pdf",
     },
     es: {
       download_cv: "Descargar CV",
-      cv_path: "/portfolio/assets/cv/CV-AlexisPalacio-ES.pdf",
+      cv_path: "assets/cv/CV-AlexisPalacio-ES.pdf",
     },
   };
 
