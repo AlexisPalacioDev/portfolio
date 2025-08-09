@@ -47,4 +47,44 @@ describe('PortfolioApp', () => {
     portfolioApp.updateFooterYear();
     expect(document.getElementById('year').textContent).toBe(new Date().getFullYear().toString());
   });
+
+  // Add new tests for language functionality
+  describe('Language functionality', () => {
+    beforeEach(() => {
+      document.body.innerHTML += `
+        <button id="language-toggle">ES</button>
+        <h1 data-i18n="title">Título</h1>
+        <p data-i18n="description">Descripción</p>
+        <a href="assets/cv/CV-AlexisPalacio-ES.pdf" class="download-cv">
+          <span data-i18n="download">Descargar CV</span>
+        </a>
+      `;
+    });
+
+    test('initializes with correct default language', () => {
+      expect(portfolioApp.settings.language).toBe('es');
+      expect(document.documentElement.lang).toBe('es');
+    });
+
+    test('toggles language correctly', () => {
+      portfolioApp.toggleLanguage();
+      expect(portfolioApp.settings.language).toBe('en');
+      expect(document.documentElement.lang).toBe('en');
+      expect(localStorage.getItem('language')).toBe('en');
+    });
+
+    test('updates CV link when language changes', () => {
+      portfolioApp.toggleLanguage();
+      const cvLink = document.querySelector('.download-cv');
+      expect(cvLink.href).toContain('CV-AlexisPalacio-EN.pdf');
+    });
+
+    test('translates content when language changes', () => {
+      portfolioApp.toggleLanguage();
+      const title = document.querySelector('[data-i18n="title"]');
+      const description = document.querySelector('[data-i18n="description"]');
+      expect(title.textContent).toBe(portfolioApp.translations.en.title);
+      expect(description.textContent).toBe(portfolioApp.translations.en.description);
+    });
+  });
 });

@@ -31,11 +31,12 @@
           <a href="#home" class="nav-logo">AP</a>
         </div>
         <ul class="nav-list">
-          <li class="nav-item"><a href="#home" class="nav-link">Inicio</a></li>
-          <li class="nav-item"><a href="#about" class="nav-link">Sobre mí</a></li>
-          <li class="nav-item"><a href="#experience" class="nav-link">Experiencia</a></li>
-          <li class="nav-item"><a href="#projects" class="nav-link">Proyectos</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link">Contacto</a></li>
+          <li class="nav-item"><a href="#home" class="nav-link" data-i18n="nav.home">Inicio</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link" data-i18n="nav.about">Sobre mí</a></li>
+          <li class="nav-item"><a href="#experience" class="nav-link" data-i18n="nav.experience">Experiencia</a>
+          </li>
+          <li class="nav-item"><a href="#projects" class="nav-link" data-i18n="nav.projects">Proyectos</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link" data-i18n="nav.contact">Contacto</a></li>
           <li class="nav-item">
             <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
               <i class="fas fa-moon"></i>
@@ -44,10 +45,16 @@
               <i class="fas fa-eye"></i>
             </button>
           </li>
+          <li class="nav-item">
+            <button id="language-toggle" class="btn btn-language" aria-label="Cambiar idioma">
+              ES
+            </button>
+          </li>
           <li class="nav-item download-item">
-<a href="assets/cv/CV-AlexisPalacio-ES.pdf" class="btn btn-primary download-cv" target="_blank" rel="noopener noreferrer">
-  <i class="fas fa-download"></i> Descargar CV
-</a>
+            <a href="assets/cv/CV-AlexisPalacio-ES.pdf" class="btn btn-primary download-cv" target="_blank"
+              rel="noopener noreferrer">
+              <i class="fas fa-download"></i> Descargar CV
+            </a>
           </li>
         </ul>
         <button class="mobile-menu-btn" aria-label="Abrir menú">
@@ -64,8 +71,8 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="container hero-content">
-      <h1 class="animate fade-in">Alexis Palacio</h1>
-      <h2 class="animate fade-in delay-1">Desarrollador Full-Stack</h2>
+      <h1 class="animate fade-in" data-i18n="title">Alexis Palacio</h1>
+      <h2 class="animate fade-in delay-1" data-i18n="hero.role">Desarrollador Full-Stack</h2>
       <!-- Sección de contacto en el hero -->
       <div class="contact-info animate fade-in delay-2">
         <span><i class="fas fa-envelope"></i> alexis26-93@live.com</span>
@@ -86,17 +93,12 @@
   <!-- About Section -->
   <section id="about" class="section about">
     <div class="container">
-      <h2 class="section-title">Resumen Profesional</h2>
+      <h2 class="section-title" data-i18n="about.title">Resumen Profesional</h2>
       <div class="about-content">
         <div class="about-image animate fade-in">
           <!-- Optimización de imagen -->
-          <img src="assets/image/profile.jpg" 
-               alt="Alexis Palacio" 
-               class="profile-img"
-               width="250" 
-               height="250"
-               loading="lazy"
-               decoding="async">
+          <img src="assets/image/profile.jpg" alt="Alexis Palacio" class="profile-img" width="250" height="250"
+            loading="lazy" decoding="async">
           <div class="social-links">
             <a href="https://github.com/alexispalaciodev" target="_blank" class="social-link">
               <i class="fab fa-github"></i>
@@ -107,24 +109,24 @@
           </div>
         </div>
         <div class="about-text animate slide-in-right">
-          <p>
+          <p data-i18n="about.description" data-i18n-html="true">
             Desarrollador con <strong>4+ años de experiencia</strong> en desarrollo web frontend y backend.
             Manejo de <strong>HTML, CSS, JavaScript, PHP</strong> y plataformas como <strong>Shopify y WordPress</strong>.
             Experiencia creando interfaces de usuario, integrando APIs y desarrollando aplicaciones web.
             Actualmente especializándome en desarrollo backend con <strong>PHP</strong> y <strong>CakePHP</strong>.
             Conocimientos en automatización de procesos con <strong>n8n</strong>.
           </p>
+          <strong data-i18n="about.technologies">Tecnologías:</strong>
           <div class="technologies">
-            <strong>Tecnologías:</strong> 
-            <span class="tech-icon"><i class="fab fa-html5"></i> HTML5</span> • 
-            <span class="tech-icon"><i class="fab fa-css3-alt"></i> CSS3</span> • 
-            <span class="tech-icon"><i class="fab fa-js"></i> JavaScript</span> • 
-            <span class="tech-icon"><i class="fab fa-php"></i> PHP</span> • 
-            <span class="tech-icon"><i class="fas fa-cube"></i> CakePHP</span> • 
-            <span class="tech-icon"><i class="fas fa-database"></i> MySQL</span> • 
-            <span class="tech-icon"><i class="fab fa-shopify"></i> Shopify</span> • 
-            <span class="tech-icon"><i class="fab fa-wordpress"></i> WordPress</span> • 
-            <span class="tech-icon"><i class="fas fa-robot"></i> n8n</span> • 
+            <span class="tech-icon"><i class="fab fa-html5"></i> HTML5</span> •
+            <span class="tech-icon"><i class="fab fa-css3-alt"></i> CSS3</span> •
+            <span class="tech-icon"><i class="fab fa-js"></i> JavaScript</span> •
+            <span class="tech-icon"><i class="fab fa-php"></i> PHP</span> •
+            <span class="tech-icon"><i class="fas fa-cube"></i> CakePHP</span> •
+            <span class="tech-icon"><i class="fas fa-database"></i> MySQL</span> •
+            <span class="tech-icon"><i class="fab fa-shopify"></i> Shopify</span> •
+            <span class="tech-icon"><i class="fab fa-wordpress"></i> WordPress</span> •
+            <span class="tech-icon"><i class="fas fa-robot"></i> n8n</span> •
             <span class="tech-icon"><i class="fab fa-git-alt"></i> Git</span>
           </div>
         </div>
@@ -133,26 +135,26 @@
   </section>
 
   <!-- Experience Section -->
-   <section id="experience" class="section experience">
+  <section id="experience" class="section experience">
     <div class="container">
-      <h2 class="section-title">Experiencia</h2>
+      <h2 class="section-title" data-i18n="experience.title">Experiencia</h2>
       <div class="projects-grid">
 
         <!-- iMometrics -->
         <div class="experience-card">
           <div class="card-header">
-            <h3>Backend PHP Developer | iMometrics</h3>
-            <p class="period">Diciembre 2024 - Actualidad</p>
+            <h3 data-i18n="experience.roles.backend">Backend PHP Developer | iMometrics</h3>
+            <p class="period" data-i18n="experience.period.current">Diciembre 2024 - Actualidad</p>
           </div>
-          
+
           <div class="card-content">
             <ul>
-              <li>Desarrollo de aplicaciones internas usando <strong>CakePHP 4.6</strong> y <strong>PHP 7+</strong></li>
-              <li>Trabajo con bases de datos <strong>MySQL</strong></li>
-              <li>Automatización con <strong>n8n</strong></li>
+              <li data-i18n="experience.descriptions.backend1">Desarrollo de aplicaciones internas usando <strong>CakePHP 4.6</strong> y <strong>PHP 7+</strong></li>
+              <li data-i18n="experience.descriptions.backend2">Trabajo con bases de datos <strong>MySQL</strong></li>
+              <li data-i18n="experience.descriptions.backend3">Automatización con <strong>n8n</strong></li>
             </ul>
             <div class="technologies">
-              <strong>Tecnologías:</strong> CakePHP 4.6, PHP 7+, MySQL, Docker, Git
+              <strong data-i18n="experience.technologies">Tecnologías:</strong> CakePHP 4.6, PHP 7+, MySQL, Docker, Git
             </div>
           </div>
         </div>
@@ -160,84 +162,77 @@
         <!-- K Gumi -->
         <div class="experience-card">
           <div class="card-header">
-            <h3>Frontend Developer | K Gumi SAS</h3>
-            <p class="period">Enero 2021 - Diciembre 2024</p>
+            <h3 data-i18n="experience.roles.frontend">Frontend Developer | K Gumi SAS</h3>
+            <p class="period" data-i18n="experience.period.kgumi">Enero 2021 - Diciembre 2024</p>
           </div>
-          
+
           <div class="card-preview">
-            <p>Desarrollo frontend con HTML, CSS y JavaScript</p>
+            <p data-i18n="experience.preview.frontend">Desarrollo frontend con HTML, CSS y JavaScript</p>
           </div>
 
           <div class="card-content">
             <ul>
-              <li>Desarrollo de páginas web con <strong>HTML, CSS y JavaScript</strong></li>
-              <li>Creación de sitios usando <strong>Tailwind CSS</strong></li>
-              <li>Mantenimiento de sitios web</li>
+              <li data-i18n="experience.descriptions.frontend1">Desarrollo de páginas web con <strong>HTML, CSS y JavaScript</strong></li>
+              <li data-i18n="experience.descriptions.frontend2">Creación de sitios usando <strong>Tailwind CSS</strong></li>
+              <li data-i18n="experience.descriptions.frontend3">Mantenimiento de sitios web</li>
             </ul>
             <div class="technologies">
-              <strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, Tailwind CSS, Git
+              <strong data-i18n="experience.technologies">Tecnologías:</strong> HTML5, CSS3, JavaScript, Tailwind CSS, Git
             </div>
           </div>
 
           <button class="expand-btn">
-            Ver más <i class="fas fa-chevron-down"></i>
+            <span data-i18n="experience.viewMore">Ver más</span> <i class="fas fa-chevron-down"></i>
           </button>
         </div>
 
         <!-- Carl Jung AI - Freelance -->
         <div class="experience-card">
           <div class="card-header">
-            <h3>Full-Stack Developer | Carl Jung AI</h3>
-            <p class="period">Julio 2023 - Septiembre 2023</p>
+            <h3 data-i18n="experience.roles.fullstack">Full-Stack Developer | Carl Jung AI</h3>
+            <p class="period" data-i18n="experience.period.carljung">Julio 2023 - Septiembre 2023</p>
           </div>
-          
+
           <div class="card-preview">
-            <p>Desarrollo full-stack de plataforma educativa con Next.js y Supabase</p>
+            <p data-i18n="experience.preview.fullstack">Desarrollo full-stack de plataforma educativa con Next.js y Supabase</p>
           </div>
 
           <div class="card-content">
             <ul>
-              <li>Integración con <strong>ChatGPT</strong> para contenido</li>
-              <li>Base de datos con <strong>Supabase</strong></li>
-              <li>Frontend con <strong>Next.js</strong> y <strong>React</strong></li>
+              <li data-i18n="experience.descriptions.fullstack1">Integración con <strong>ChatGPT</strong> para contenido</li>
+              <li data-i18n="experience.descriptions.fullstack2">Base de datos con <strong>Supabase</strong></li>
+              <li data-i18n="experience.descriptions.fullstack3">Frontend con <strong>Next.js</strong> y <strong>React</strong></li>
             </ul>
             <div class="technologies">
-              <strong>Tecnologías:</strong> Next.js, React, Tailwind CSS, Supabase
+              <strong data-i18n="experience.technologies">Tecnologías:</strong> Next.js, React, Tailwind CSS, Supabase
             </div>
-            <a href="https://carljung.app/home" target="_blank" class="project-link">
-              <i class="fas fa-external-link-alt"></i> Ver Proyecto
-            </a>
           </div>
-
-          <button class="expand-btn">
-            Ver más <i class="fas fa-chevron-down"></i>
-          </button>
         </div>
 
         <!-- Wiptool -->
         <div class="experience-card">
           <div class="card-header">
-            <h3>Frontend Developer | Wiptool</h3>
-            <p class="period">Marzo 2020 - Diciembre 2020</p>
+            <h3 data-i18n="experience.roles.wiptool">Frontend Developer | Wiptool</h3>
+            <p class="period" data-i18n="experience.period.wiptool">Marzo 2020 - Diciembre 2020</p>
           </div>
-          
+
           <div class="card-preview">
-            <p>Desarrollo frontend con integración de Mapbox API</p>
+            <p data-i18n="experience.preview.wiptool">Desarrollo frontend con integración de Mapbox API</p>
           </div>
 
           <div class="card-content">
             <ul>
-              <li>Desarrollo de interfaz de usuario</li>
-              <li>Integración con <strong>API de Mapbox</strong></li>
-              <li>Diseño responsivo</li>
+              <li data-i18n="experience.descriptions.wiptool1">Desarrollo de interfaz de usuario</li>
+              <li data-i18n="experience.descriptions.wiptool2">Integración con <strong>API de Mapbox</strong></li>
+              <li data-i18n="experience.descriptions.wiptool3">Diseño responsivo</li>
             </ul>
             <div class="technologies">
-              <strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, Mapbox API
+              <strong data-i18n="experience.technologies">Tecnologías:</strong> HTML5, CSS3, JavaScript, Mapbox API
             </div>
           </div>
 
           <button class="expand-btn">
-            Ver más <i class="fas fa-chevron-down"></i>
+            <span data-i18n="experience.viewMore">Ver más</span> <i class="fas fa-chevron-down"></i>
           </button>
         </div>
       </div>
@@ -247,22 +242,22 @@
   <!-- Projects Section -->
   <section id="projects" class="section projects">
     <div class="container">
-      <h2 class="section-title">Proyectos Destacados</h2>
+      <h2 class="section-title" data-i18n="projects.title">Proyectos Destacados</h2>
       <div class="projects-grid">
         <!-- Carl Jung AI -->
         <div class="project-card animate fade-in">
           <div class="project-info">
-            <h3>
+            <h3 data-i18n="projects.carljung.title">
               <i class="fas fa-brain"></i>
               Carl Jung AI
             </h3>
-            <p class="project-description">
+            <p class="project-description" data-i18n="projects.carljung.description">
               Plataforma educativa que genera contenido formativo basado en los arquetipos de Carl Jung.
             </p>
             <div class="project-tech">
-              <strong>Tecnologías:</strong> Next.js, React, Tailwind CSS, Supabase, ChatGPT API
+              <strong data-i18n="projects.technologies">Tecnologías:</strong> Next.js, React, Tailwind CSS, Supabase, ChatGPT API
             </div>
-            <a href="https://carljung.app/home" target="_blank" class="project-link">
+            <a href="https://carljung.app/home" target="_blank" class="project-link" data-i18n="projects.viewProject">
               <i class="fas fa-external-link-alt"></i> Ver Proyecto
             </a>
           </div>
@@ -271,30 +266,27 @@
         <!-- PoisoneD Merch -->
         <div class="project-card animate fade-in delay-1">
           <div class="project-info">
-            <h3>PoisoneD Merch - E-commerce</h3>
+            <h3 data-i18n="projects.poisoned.title">PoisoneD Merch - E-commerce</h3>
             <ul>
-              <li>Tienda online personalizada con Shopify</li>
-              <li>Personalización de tema <strong>Dawn</strong></li>
-              <li>Diseño responsivo y optimizado</li>
-              <li>Gestión de inventario y productos</li>
+              <li data-i18n="projects.poisoned.items.0">Tienda online personalizada con Shopify</li>
+              <li data-i18n="projects.poisoned.items.1">Personalización de tema <strong>Dawn</strong></li>
+              <li data-i18n="projects.poisoned.items.2">Diseño responsivo y optimizado</li>
+              <li data-i18n="projects.poisoned.items.3">Gestión de inventario y productos</li>
             </ul>
-            <p><strong>Tecnologías:</strong> Shopify, JavaScript, CSS3</p>
+            <p><strong data-i18n="projects.technologies">Tecnologías:</strong> Shopify, JavaScript, CSS3</p>
           </div>
         </div>
 
         <!-- Portfolio -->
         <div class="project-card animate fade-in delay-2">
           <div class="project-info">
-            <h3>Portfolio Personal</h3>
-            <a href="https://alexispalacio.vercel.app/" target="_blank" class="project-link">
-              <i class="fas fa-external-link-alt"></i> Ver Sitio
-            </a>
+            <h3 data-i18n="projects.portfolio.title">Portfolio Personal</h3>
             <ul>
-              <li>Diseño responsivo mobile-first</li>
-              <li>Optimización de imágenes y carga</li>
-              <li>Interfaz limpia y profesional</li>
+              <li data-i18n="projects.portfolio.items.0">Diseño responsivo mobile-first</li>
+              <li data-i18n="projects.portfolio.items.1">Optimización de imágenes y carga</li>
+              <li data-i18n="projects.portfolio.items.2">Interfaz limpia y profesional</li>
             </ul>
-            <p><strong>Tecnologías:</strong> HTML5, CSS3, JavaScript</p>
+            <p><strong data-i18n="projects.technologies">Tecnologías:</strong> HTML5, CSS3, JavaScript</p>
           </div>
         </div>
       </div>
@@ -304,57 +296,57 @@
   <!-- Skills Section -->
   <section id="skills" class="section skills">
     <div class="container">
-      <h2 class="section-title">Habilidades Técnicas</h2>
+      <h2 class="section-title" data-i18n="skills.title">Habilidades Técnicas</h2>
       <div class="skills-grid">
         <!-- Frontend -->
         <div class="skill-item">
           <i class="skill-icon fab fa-html5"></i>
           <h3 class="skill-name">HTML5</h3>
-          <span class="skill-level">Avanzado</span>
+          <span class="skill-level" data-i18n="skills.levels.advanced">Avanzado</span>
         </div>
-        
+
         <div class="skill-item">
           <i class="skill-icon fab fa-css3-alt"></i>
           <h3 class="skill-name">CSS3</h3>
-          <span class="skill-level">Avanzado</span>
+          <span class="skill-level" data-i18n="skills.levels.advanced">Avanzado</span>
         </div>
-        
+
         <div class="skill-item">
           <i class="skill-icon fab fa-js"></i>
           <h3 class="skill-name">JavaScript</h3>
-          <span class="skill-level">Intermedio</span>
+          <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
         </div>
-        
+
         <!-- Backend -->
         <div class="skill-item">
           <i class="skill-icon fab fa-php"></i>
           <h3 class="skill-name">PHP</h3>
-          <span class="skill-level">Avanzado</span>
+          <span class="skill-level" data-i18n="skills.levels.advanced">Avanzado</span>
         </div>
-        
+
         <div class="skill-item">
-          <i class="skill-icon fas fa-database"></i>
+          <i class="skill-icon fab fa-mysql"></i>
           <h3 class="skill-name">MySQL</h3>
-          <span class="skill-level">Intermedio</span>
+          <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
         </div>
-        
+
         <!-- Frameworks y Herramientas -->
         <div class="skill-item">
           <i class="skill-icon fab fa-react"></i>
           <h3 class="skill-name">React</h3>
-          <span class="skill-level">Básico</span>
+          <span class="skill-level" data-i18n="skills.levels.basic">Básico</span>
         </div>
-        
+
         <div class="skill-item">
           <i class="skill-icon fab fa-wordpress"></i>
           <h3 class="skill-name">WordPress</h3>
-          <span class="skill-level">Intermedio</span>
+          <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
         </div>
-        
+
         <div class="skill-item">
           <i class="skill-icon fab fa-git-alt"></i>
           <h3 class="skill-name">Git</h3>
-          <span class="skill-level">Intermedio</span>
+          <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
         </div>
       </div>
     </div>
@@ -363,19 +355,22 @@
   <!-- Education Section -->
   <section class="section education">
     <div class="container">
-      <h2 class="section-title">Educación</h2>
+      <h2 class="section-title" data-i18n="education.title">Educación</h2>
       <div class="education-card animate fade-in">
-        <h3>Tecnólogo en Desarrollo de Software</h3>
-        <p><strong>Tecnológico de Antioquia</strong> | 2016 - 2020</p>
-        <p><em>8/10 semestres completados</em></p>
+        <h3 data-i18n="education.degree">Tecnólogo en Desarrollo de Software</h3>
+        <p>
+          <strong data-i18n="education.institution">Tecnológico de Antioquia</strong> | 
+          <span data-i18n="education.period">2016 - 2020</span>
+        </p>
+        <p><em data-i18n="education.completed">8/10 semestres completados</em></p>
       </div>
 
-      <h2 class="section-title">Certificaciones</h2>
+      <h2 class="section-title" data-i18n="education.certifications">Certificaciones</h2>
       <div class="certifications animate fade-in">
         <ul>
-          <li><strong>React - The Complete Guide</strong> - Udemy (2023)</li>
-          <li><strong>JavaScript Algorithms and Data Structures</strong> - freeCodeCamp (2022)</li>
-          <li><strong>Responsive Web Design</strong> - freeCodeCamp (2021)</li>
+          <li data-i18n="education.certList.0">React - The Complete Guide - Udemy (2023)</li>
+          <li data-i18n="education.certList.1">JavaScript Algorithms and Data Structures - freeCodeCamp (2022)</li>
+          <li data-i18n="education.certList.2">Responsive Web Design - freeCodeCamp (2021)</li>
         </ul>
       </div>
     </div>
@@ -384,14 +379,23 @@
   <!-- Contact Section -->
   <section id="contact" class="section contact">
     <div class="container">
-      <h2 class="section-title">Contacto</h2>
+      <h2 class="section-title" data-i18n="contact.title">Contacto</h2>
       <div class="contact-content">
         <div class="contact-info animate fade-in">
-          <h3>Información de Contacto</h3>
+          <h3 data-i18n="contact.info">Información de Contacto</h3>
           <ul>
-            <li><i class="fas fa-envelope"></i> alexis26-93@live.com</li>
-            <li><i class="fas fa-phone"></i> 3216551350</li>
-            <li><i class="fas fa-map-marker-alt"></i> Medellín, Colombia</li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span data-i18n="contact.email">Correo:</span> alexis26-93@live.com
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span data-i18n="contact.phone">Teléfono:</span> +57 3216551350
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span data-i18n="contact.location">Ubicación:</span> Medellín, Colombia
+            </li>
           </ul>
         </div>
       </div>
@@ -403,8 +407,8 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-info">
-          <h3>Alexis Palacio</h3>
-          <p>Desarrollador Full-Stack | PHP, JavaScript, WordPress, Shopify</p>
+          <h3 data-i18n="footer.name">Alexis Palacio</h3>
+          <p data-i18n="footer.role">Desarrollador Full-Stack | PHP, JavaScript, WordPress, Shopify</p>
         </div>
         <div class="footer-social">
           <a href="https://github.com/alexispalaciodev" target="_blank" class="social-link">
@@ -416,7 +420,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="year"></span> Alexis Palacio. Todos los derechos reservados.</p>
+        <p data-i18n="footer.rights">&copy; <span id="year"></span> Alexis Palacio. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
