@@ -1,154 +1,163 @@
-$(function () {
-  // Cache DOM elements
-  const $html = $("html");
-  const $header = $("#header");
-  const $backToTopBtn = $("#back-to-top");
-  const $themeToggle = $("#theme-toggle");
-  const $cbToggle = $("#cb-toggle");
-  const $mobileMenuBtn = $('.mobile-menu-btn');
-  const $navList = $('.nav-list');
-  const $body = $('body');
+class PortfolioApp {
+  constructor() {
+    // Cache DOM elements
+    this.elements = {
+      html: $("html"),
+      header: $("#header"),
+      backToTopBtn: $("#back-to-top"),
+      themeToggle: $("#theme-toggle"),
+      cbToggle: $("#cb-toggle"),
+      mobileMenuBtn: $('.mobile-menu-btn'),
+      navList: $('.nav-list'),
+      body: $('body')
+    };
 
-  // Initialize theme and colorblind settings
-  $html.attr("data-theme", localStorage.getItem("theme") || "dark");
-  if (localStorage.getItem("colorblind") === "true") {
-    $html.attr("data-colorblind", "true");
+    this.settings = {
+      theme: localStorage.getItem("theme") || "dark",
+      colorblind: localStorage.getItem("colorblind") === "true"
+    };
+
+    this.init();
   }
 
-  // Scroll handler
-  $(window).on("scroll", () => {
+  init() {
+    this.initializeTheme();
+    this.initializeAnimations();
+    this.setupEventListeners();
+    this.updateFooterYear();
+  }
+
+  initializeTheme() {
+    this.elements.html.attr("data-theme", this.settings.theme);
+    if (this.settings.colorblind) {
+      this.elements.html.attr("data-colorblind", "true");
+    }
+  }
+
+  setupEventListeners() {
+    // Scroll handler
+    $(window).on("scroll", () => this.handleScroll());
+
+    // Theme toggle
+    this.elements.themeToggle.on("click", () => this.toggleTheme());
+
+    // Colorblind toggle
+    this.elements.cbToggle.on("click", () => this.toggleColorblind());
+
+    // Mobile menu
+    this.setupMobileMenu();
+
+    // Smooth scroll
+    this.setupSmoothScroll();
+
+    // Back to top
+    this.elements.backToTopBtn.on("click", (e) => this.scrollToTop(e));
+  }
+
+  handleScroll() {
     const scrolled = $(window).scrollTop() > 100;
-    $header.toggleClass("scrolled", scrolled);
-    $backToTopBtn.toggleClass("show", scrolled > 300);
-  });
+    this.elements.header.toggleClass("scrolled", scrolled);
+    this.elements.backToTopBtn.toggleClass("show", scrolled > 300);
+  }
 
-  // Smooth scroll
-  $('a[href^="#"]').on("click", function (e) {
-    const targetId = $(this).attr("href");
-    if (targetId === "#") return;
+  toggleTheme() {
+    const newTheme = this.settings.theme === "light" ? "dark" : "light";
+    this.settings.theme = newTheme;
+    this.elements.html.attr("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    
+    const $icon = this.elements.themeToggle.find('i');
+    $icon.toggleClass('fa-sun fa-moon');
+  }
 
-    e.preventDefault();
+  toggleColorblind() {
+    this.settings.colorblind = !this.settings.colorblind;
+    this.elements.html.attr("data-colorblind", this.settings.colorblind);
+    localStorage.setItem("colorblind", this.settings.colorblind);
+  }
+
+  setupMobileMenu() {
+    this.elements.mobileMenuBtn.on('click', (e) => {
+      e.stopPropagation();
+      this.toggleMobileMenu();
+    });
+
+    $('.nav-link, .download-cv').on('click', () => this.closeMobileMenu());
+
+    $(document).on('click', (e) => {
+      if (!$(e.target).closest('.nav').length) {
+        this.closeMobileMenu();
+      }
+    });
+
+    this.elements.body.on('touchmove', (e) => {
+      if (this.elements.body.hasClass('menu-open')) {
+        e.preventDefault();
+      }
+    });
+  }
+
+  toggleMobileMenu() {
+    this.elements.mobileMenuBtn.toggleClass('active');
+    this.elements.navList.toggleClass('active');
+    this.elements.body.toggleClass('menu-open');
+  }
+
+  closeMobileMenu() {
+    this.elements.mobileMenuBtn.removeClass('active');
+    this.elements.navList.removeClass('active');
+    this.elements.body.removeClass('menu-open');
+  }
+
+  setupSmoothScroll() {
+    $('a[href^="#"]').on("click", (e) => {
+      const targetId = $(e.currentTarget).attr("href");
+      if (targetId === "#") return;
+
+      e.preventDefault();
+      this.scrollToElement(targetId);
+    });
+  }
+
+  scrollToElement(targetId) {
     const $target = $(targetId);
     if ($target.length) {
-      const headerHeight = $header.outerHeight();
+      const headerHeight = this.elements.header.outerHeight();
       $("html, body").animate(
         { scrollTop: $target.offset().top - headerHeight },
         500
       );
     }
-  });
-
-  // Back to Top functionality
-  const $backToTop = $("#back-to-top");
-
-  $(window).on("scroll", function () {
-    if ($(this).scrollTop() > 300) {
-      $backToTop.addClass("show");
-    } else {
-      $backToTop.removeClass("show");
-    }
-  });
-
-  $backToTop.on("click", function (e) {
-    e.preventDefault();
-    $("html, body").animate({ scrollTop: 0 }, 500);
-  });
-
-  // Intersection Observer for animations
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          $(entry.target).addClass("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
-  );
-
-  $(".animate").each(function () {
-    observer.observe(this);
-  });
-
-  // Update year
-  $("#year").text(new Date().getFullYear());
-
-  // Language switcher
-  const translations = {
-    en: {
-      download_cv: "Download CV",
-      cv_path: "assets/cv/CV-AlexisPalacio-ES.pdf",
-    },
-    es: {
-      download_cv: "Descargar CV",
-      cv_path: "assets/cv/CV-AlexisPalacio-ES.pdf",
-    },
-  };
-
-  let currentLang = "es";
-
-  $("#btn-idioma").on("click", function () {
-    currentLang = currentLang === "es" ? "en" : "es";
-    $(this).text(currentLang.toUpperCase());
-    $html.attr("lang", currentLang);
-    updateCV();
-  });
-
-  // Theme toggler
-  $themeToggle.on("click", () => {
-    const newTheme = $html.attr("data-theme") === "light" ? "dark" : "light";
-    $html.attr("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  });
-
-  // Colorblind toggler
-  $cbToggle.on("click", () => {
-    const isCB = $html.attr("data-colorblind") === "true";
-    $html[isCB ? "removeAttr" : "attr"]("data-colorblind", "true");
-    localStorage.setItem("colorblind", !isCB);
-  });
-
-  // CV updater
-  function updateCV() {
-    const $cvLink = $(".download-cv");
-    if ($cvLink.length) {
-      $cvLink
-        .attr("href", translations[currentLang].cv_path)
-        .text(translations[currentLang].download_cv);
-    }
   }
 
-  // Initial CV setup
-  updateCV();
+  scrollToTop(e) {
+    e.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, 500);
+  }
 
-  // Mobile Menu functionality
-  $mobileMenuBtn.on('click', function(e) {
-    e.stopPropagation();
-    $(this).toggleClass('active');
-    $navList.toggleClass('active');
-    $body.toggleClass('menu-open');
-  });
+  initializeAnimations() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
 
-  // Close menu when clicking a link or outside
-  $('.nav-link, .download-cv').on('click', function() {
-    $mobileMenuBtn.removeClass('active');
-    $navList.removeClass('active');
-    $body.removeClass('menu-open');
-  });
+    $(".animate").each(function () {
+      observer.observe(this);
+    });
+  }
 
-  $(document).on('click', function(e) {
-    if (!$(e.target).closest('.nav').length && $navList.hasClass('active')) {
-      $mobileMenuBtn.removeClass('active');
-      $navList.removeClass('active');
-      $body.removeClass('menu-open');
-    }
-  });
+  updateFooterYear() {
+    $("#year").text(new Date().getFullYear());
+  }
+}
 
-  // Prevent scroll when menu is open
-  $body.on('touchmove', function(e) {
-    if ($body.hasClass('menu-open')) {
-      e.preventDefault();
-    }
-  });
+// Initialize app
+$(function() {
+  window.portfolioApp = new PortfolioApp();
 });
