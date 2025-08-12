@@ -25,6 +25,9 @@ class PortfolioApp {
           title: "Alexis Palacio | Desarrollador Full-Stack",
           description: "Desarrollador Full-Stack especializado en PHP, WordPress y Shopify"
         },
+        buttons: {
+          downloadCV: "Descargar CV"
+        },
         nav: {
           home: "Inicio",
           about: "Sobre mí",
@@ -147,6 +150,9 @@ class PortfolioApp {
         meta: {
           title: "Alexis Palacio | Full-Stack Developer",
           description: "Full-Stack Developer specialized in PHP, WordPress and Shopify"
+        },
+        buttons: {
+          downloadCV: "Download CV"
         },
         nav: {
           home: "Home",
@@ -290,6 +296,7 @@ class PortfolioApp {
     document.documentElement.lang = this.settings.language;
     this.elements.languageToggle.text(this.settings.language.toUpperCase() === 'ES' ? 'EN' : 'ES');
     this.updateTranslations();
+    this.updateCVLink();
   }
 
   setupEventListeners() {
@@ -375,6 +382,13 @@ class PortfolioApp {
         }
       }
     });
+
+    // Update download CV button text
+    const downloadBtn = document.querySelector('.download-cv');
+    if (downloadBtn) {
+      const downloadText = currentTranslations.buttons.downloadCV;
+      downloadBtn.innerHTML = `<i class="fas fa-download"></i> ${downloadText}`;
+    }
   }
 
   updateCVLink() {
