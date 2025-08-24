@@ -75,15 +75,26 @@
       <h2 class="animate fade-in delay-1" data-i18n="hero.role">Desarrollador Full-Stack</h2>
       <!-- Sección de contacto en el hero -->
       <div class="contact-info animate fade-in delay-2">
-        <span><i class="fas fa-envelope"></i> alexis26-93@live.com</span>
-        <span><i class="fas fa-phone"></i>+57 3216551350</span>
-        <span><i class="fas fa-map-marker-alt"></i> Medellín, Colombia</span>
+        <div class="contact-item">
+          <i class="fas fa-envelope contact-icon"></i>
+          <span class="contact-text">alexis26-93@live.com</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone contact-icon"></i>
+          <span class="contact-text">+57 3216551350</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt contact-icon"></i>
+          <span class="contact-text">Medellín, Colombia</span>
+        </div>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/poisoneddog/" target="_blank">
+          <a href="https://www.linkedin.com/in/poisoneddog/" target="_blank" class="social-link">
             <i class="fab fa-linkedin-in"></i>
+            <span class="social-tooltip">LinkedIn</span>
           </a>
-          <a href="https://github.com/alexispalaciodev" target="_blank">
+          <a href="https://github.com/alexispalaciodev" target="_blank" class="social-link">
             <i class="fab fa-github"></i>
+            <span class="social-tooltip">GitHub</span>
           </a>
         </div>
       </div>
@@ -245,48 +256,181 @@
       <h2 class="section-title" data-i18n="projects.title">Proyectos Destacados</h2>
       <div class="projects-grid">
         <!-- Carl Jung AI -->
-        <div class="project-card animate fade-in">
-          <div class="project-info">
-            <h3 data-i18n="projects.carljung.title">
+        <div class="project-card animate fade-in featured-project">
+          <div class="project-image">
+            <div class="project-preview carljung-preview">
+              <div class="browser-mockup">
+                <div class="browser-header">
+                  <div class="browser-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="browser-url">carljung.app</div>
+                </div>
+                <div class="browser-content">
+                  <div class="jung-hero">
+                    <div class="jung-logo">
+                      <div class="mandala-circle">
+                        <div class="inner-circles">
+                          <div class="circle-1"></div>
+                          <div class="circle-2"></div>
+                          <div class="circle-3"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <h1 class="jung-title">Carl Jung AI</h1>
+                    <p class="jung-subtitle">Discover your inner archetypes</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-header">
+            <div class="project-icon">
               <i class="fas fa-brain"></i>
-              Carl Jung AI
-            </h3>
+            </div>
+            <div class="project-status">
+              <span class="status-badge live">En Vivo</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <h3 data-i18n="projects.carljung.title">Carl Jung AI</h3>
             <p class="project-description" data-i18n="projects.carljung.description">
               Plataforma educativa que genera contenido formativo basado en los arquetipos de Carl Jung.
             </p>
-            <div class="project-tech">
-              <strong data-i18n="projects.technologies">Tecnologías:</strong> Next.js, React, Tailwind CSS, Supabase, ChatGPT API
+            <div class="project-highlights">
+              <span class="highlight-badge"><i class="fas fa-robot"></i> AI-Powered</span>
+              <span class="highlight-badge"><i class="fas fa-graduation-cap"></i> Educativo</span>
+              <span class="highlight-badge"><i class="fas fa-users"></i> Multi-usuario</span>
             </div>
-            <a href="https://carljung.app/home" target="_blank" class="project-link" data-i18n="projects.viewProject">
-              <i class="fas fa-external-link-alt"></i> Ver Proyecto
-            </a>
+            <div class="project-tech">
+              <div class="tech-stack">
+                <span class="tech-tag nextjs">Next.js</span>
+                <span class="tech-tag react">React</span>
+                <span class="tech-tag tailwind">Tailwind</span>
+                <span class="tech-tag supabase">Supabase</span>
+                <span class="tech-tag ai">ChatGPT API</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="https://carljung.app/home" target="_blank" class="project-link primary" data-i18n="projects.viewProject">
+                <i class="fas fa-external-link-alt"></i> Ver Proyecto
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- PoisoneD Merch -->
         <div class="project-card animate fade-in delay-1">
+          <div class="project-image">
+            <div class="project-preview poisoned-preview">
+              <div class="product-showcase">
+                <div class="product-bag">
+                  <div class="bag-main">
+                    <div class="poisoned-logo">PoisoneD</div>
+                  </div>
+                  <div class="product-accessories">
+                    <div class="qr-card">
+                      <div class="qr-code"></div>
+                      <span>Escanea para escuchar</span>
+                    </div>
+                    <div class="tag-edition">
+                      <span>EDITION</span>
+                      <span class="edition-num">001</span>
+                      <span>El veneno inicial</span>
+                    </div>
+                    <div class="hoodie">
+                      <div class="hoodie-logo">PoisoneD</div>
+                      <span class="size-tag">XL</span>
+                    </div>
+                    <div class="patch">
+                      <span>ESTE PERRO MUERDE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="project-status">
+              <span class="status-badge completed">Completado</span>
+            </div>
+          </div>
           <div class="project-info">
             <h3 data-i18n="projects.poisoned.title">PoisoneD Merch - E-commerce</h3>
-            <ul>
-              <li data-i18n="projects.poisoned.items.0">Tienda online personalizada con Shopify</li>
-              <li data-i18n="projects.poisoned.items.1">Personalización de tema <strong>Dawn</strong></li>
-              <li data-i18n="projects.poisoned.items.2">Diseño responsivo y optimizado</li>
-              <li data-i18n="projects.poisoned.items.3">Gestión de inventario y productos</li>
-            </ul>
-            <p><strong data-i18n="projects.technologies">Tecnologías:</strong> Shopify, JavaScript, CSS3</p>
+            <p class="project-description">Tienda online completa con diseño personalizado, gestión de inventario y experiencia de usuario optimizada.</p>
+            <div class="project-features">
+              <div class="feature-item">
+                <i class="fas fa-palette"></i>
+                <span>Diseño personalizado con tema Dawn</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Totalmente responsivo</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-boxes"></i>
+                <span>Gestión completa de inventario</span>
+              </div>
+            </div>
+            <div class="project-tech">
+              <div class="tech-stack">
+                <span class="tech-tag shopify">Shopify</span>
+                <span class="tech-tag javascript">JavaScript</span>
+                <span class="tech-tag css">CSS3</span>
+                <span class="tech-tag liquid">Liquid</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Portfolio -->
         <div class="project-card animate fade-in delay-2">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="project-status">
+              <span class="status-badge active">Activo</span>
+            </div>
+          </div>
           <div class="project-info">
             <h3 data-i18n="projects.portfolio.title">Portfolio Personal</h3>
-            <ul>
-              <li data-i18n="projects.portfolio.items.0">Diseño responsivo mobile-first</li>
-              <li data-i18n="projects.portfolio.items.1">Optimización de imágenes y carga</li>
-              <li data-i18n="projects.portfolio.items.2">Interfaz limpia y profesional</li>
-            </ul>
-            <p><strong data-i18n="projects.technologies">Tecnologías:</strong> HTML5, CSS3, JavaScript</p>
+            <p class="project-description">Sitio web personal moderno y optimizado que muestra mis habilidades y experiencia profesional.</p>
+            <div class="project-features">
+              <div class="feature-item">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Diseño responsive mobile-first</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-rocket"></i>
+                <span>Optimización de rendimiento</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Políticas de privacidad completas</span>
+              </div>
+            </div>
+            <div class="project-tech">
+              <div class="tech-stack">
+                <span class="tech-tag html">HTML5</span>
+                <span class="tech-tag css">CSS3</span>
+                <span class="tech-tag javascript">JavaScript</span>
+                <span class="tech-tag responsive">Responsive</span>
+              </div>
+            </div>
+            <div class="project-actions">
+              <a href="#home" class="project-link primary">
+                <i class="fas fa-home"></i> Estás Aquí
+              </a>
+              <a href="https://github.com/alexispalaciodev/portfolio" target="_blank" class="project-link secondary">
+                <i class="fab fa-github"></i> Código
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -297,58 +441,289 @@
   <section id="skills" class="section skills">
     <div class="container">
       <h2 class="section-title" data-i18n="skills.title">Habilidades Técnicas</h2>
-      <div class="skills-grid">
-        <!-- Frontend -->
-        <div class="skill-item">
-          <i class="skill-icon fab fa-html5"></i>
-          <h3 class="skill-name">HTML5</h3>
-          <span class="skill-level" data-i18n="skills.levels.advanced">Avanzado</span>
+      
+      <!-- Skills Categories -->
+      <div class="skills-categories">
+        
+        <!-- Frontend Technologies -->
+        <div class="skill-category animate fade-in">
+          <div class="category-header">
+            <i class="fas fa-palette category-icon"></i>
+            <h3>Frontend</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-item advanced">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-html5"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">HTML5</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="95"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.advanced">Avanzado</span>
+              </div>
+            </div>
+
+            <div class="skill-item advanced">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-css3-alt"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">CSS3</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="90"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.advanced">Avanzado</span>
+              </div>
+            </div>
+
+            <div class="skill-item intermediate">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-js"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">JavaScript</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="75"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+              </div>
+            </div>
+
+            <div class="skill-item basic">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-react"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">React</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="50"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.basic">Básico</span>
+              </div>
+            </div>
+
+            <div class="skill-item intermediate">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-bootstrap"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">Tailwind CSS</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="80"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="skill-item">
-          <i class="skill-icon fab fa-css3-alt"></i>
-          <h3 class="skill-name">CSS3</h3>
-          <span class="skill-level" data-i18n="skills.levels.advanced">Avanzado</span>
+        <!-- Backend Technologies -->
+        <div class="skill-category animate fade-in delay-1">
+          <div class="category-header">
+            <i class="fas fa-server category-icon"></i>
+            <h3>Backend</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-item advanced">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-php"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">PHP</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="85"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.advanced">Avanzado</span>
+              </div>
+            </div>
+
+            <div class="skill-item intermediate">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fas fa-database mysql-icon"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">MySQL</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="75"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+              </div>
+            </div>
+
+            <div class="skill-item advanced">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fas fa-cube"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">CakePHP</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="80"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.advanced">Avanzado</span>
+              </div>
+            </div>
+
+            <div class="skill-item basic">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-node-js"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">Node.js</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="45"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.basic">Básico</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="skill-item">
-          <i class="skill-icon fab fa-js"></i>
-          <h3 class="skill-name">JavaScript</h3>
-          <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+        <!-- Tools & Automation -->
+        <div class="skill-category animate fade-in delay-2">
+          <div class="category-header">
+            <i class="fas fa-tools category-icon"></i>
+            <h3>Herramientas & Automatización</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-item advanced">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fas fa-robot n8n-icon"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">n8n</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="85"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.advanced">Avanzado</span>
+              </div>
+            </div>
+
+            <div class="skill-item intermediate">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-git-alt"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">Git</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="75"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+              </div>
+            </div>
+
+            <div class="skill-item intermediate">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-docker"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">Docker</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="60"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+              </div>
+            </div>
+
+            <div class="skill-item intermediate">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-aws"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">Cloud Services</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="65"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Backend -->
-        <div class="skill-item">
-          <i class="skill-icon fab fa-php"></i>
-          <h3 class="skill-name">PHP</h3>
-          <span class="skill-level" data-i18n="skills.levels.advanced">Avanzado</span>
-        </div>
+        <!-- Platforms & CMS -->
+        <div class="skill-category animate fade-in delay-3">
+          <div class="category-header">
+            <i class="fas fa-store category-icon"></i>
+            <h3>Plataformas & CMS</h3>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-item intermediate">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-shopify"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">Shopify</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="80"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+              </div>
+            </div>
 
-        <div class="skill-item">
-          <i class="skill-icon fab fa-mysql"></i>
-          <h3 class="skill-name">MySQL</h3>
-          <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
-        </div>
+            <div class="skill-item intermediate">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fab fa-wordpress"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">WordPress</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="70"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+              </div>
+            </div>
 
-        <!-- Frameworks y Herramientas -->
-        <div class="skill-item">
-          <i class="skill-icon fab fa-react"></i>
-          <h3 class="skill-name">React</h3>
-          <span class="skill-level" data-i18n="skills.levels.basic">Básico</span>
-        </div>
+            <div class="skill-item basic">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fas fa-shopping-cart"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">E-commerce</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="75"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+              </div>
+            </div>
 
-        <div class="skill-item">
-          <i class="skill-icon fab fa-wordpress"></i>
-          <h3 class="skill-name">WordPress</h3>
-          <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+            <div class="skill-item basic">
+              <div class="skill-icon-wrapper">
+                <i class="skill-icon fas fa-paint-brush"></i>
+              </div>
+              <div class="skill-info">
+                <h4 class="skill-name">UI/UX Design</h4>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="65"></div>
+                </div>
+                <span class="skill-level" data-i18n="skills.levels.basic">Básico</span>
+              </div>
+            </div>
+          </div>
         </div>
+        
+      </div>
 
-        <div class="skill-item">
-          <i class="skill-icon fab fa-git-alt"></i>
-          <h3 class="skill-name">Git</h3>
-          <span class="skill-level" data-i18n="skills.levels.intermediate">Intermedio</span>
+      <!-- Skills Summary Stats -->
+      <div class="skills-stats animate fade-in delay-4">
+        <div class="stat-item">
+          <div class="stat-number">4+</div>
+          <div class="stat-label">Años de Experiencia</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">Tecnologías</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12+</div>
+          <div class="stat-label">Proyectos Completados</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Años Freelance</div>
         </div>
       </div>
+      
     </div>
   </section>
 
@@ -421,6 +796,9 @@
       </div>
       <div class="footer-bottom">
         <p data-i18n="footer.rights">&copy; <span id="year"></span> Alexis Palacio. Todos los derechos reservados.</p>
+        <p>
+          <a href="politicas-privacidad.html" class="privacy-link">Políticas de Privacidad</a>
+        </p>
       </div>
     </div>
   </footer>
