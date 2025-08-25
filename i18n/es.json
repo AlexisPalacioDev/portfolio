@@ -1,14 +1,14 @@
 {
   "meta": {
     "title": "Alexis Palacio | Desarrollador Full-Stack",
-    "description": "Desarrollador Full-Stack especializado en PHP, WordPress y Shopify",
-    "keywords": "Full-Stack Developer, PHP, CakePHP, Frontend, Backend, Shopify, WordPress"
+    "description": "Desarrollador Full-Stack especializado en PHP, WordPress y Shopify con 4+ años de experiencia",
+    "keywords": "Desarrollador Full-Stack, PHP, CakePHP, Frontend, Backend, Shopify, WordPress, JavaScript, React"
   },
   "buttons": {
     "downloadCV": "Descargar CV",
     "viewProject": "Ver Proyecto",
     "viewCode": "Ver Código",
-    "viewSite": "Ver Sitio",
+    "viewSite": "Ver Sitio Web",
     "backToTop": "Volver al inicio",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
@@ -29,7 +29,7 @@
     "title": "Alexis Palacio",
     "role": "Desarrollador Full-Stack",
     "contact": {
-      "email": "Correo",
+      "email": "Correo electrónico",
       "phone": "Teléfono",
       "location": "Medellín, Colombia"
     },
@@ -40,11 +40,11 @@
   },
   "about": {
     "title": "Resumen Profesional",
-    "description": "Desarrollador con <strong>4+ años de experiencia</strong> en desarrollo web frontend y backend. Manejo de <strong>HTML, CSS, JavaScript, PHP</strong> y plataformas como <strong>Shopify y WordPress</strong>. Experiencia creando interfaces de usuario, integrando APIs y desarrollando aplicaciones web. Actualmente especializándome en desarrollo backend con <strong>PHP</strong> y <strong>CakePHP</strong>. Conocimientos en automatización de procesos con <strong>n8n</strong>.",
-    "technologies": "Tecnologías"
+    "description": "Desarrollador con <strong>más de 4 años de experiencia</strong> en desarrollo web frontend y backend. Especializado en <strong>HTML, CSS, JavaScript, PHP</strong> y plataformas como <strong>Shopify y WordPress</strong>. Experiencia creando interfaces de usuario intuitivas, integrando APIs y desarrollando aplicaciones web robustas. Actualmente especializado en desarrollo backend con <strong>PHP</strong> y <strong>CakePHP</strong>. Conocimientos avanzados en automatización de procesos con <strong>n8n</strong>.",
+    "technologies": "Tecnologías principales"
   },
   "experience": {
-    "title": "Experiencia",
+    "title": "Experiencia Profesional",
     "period": {
       "current": "Diciembre 2024 - Actualidad",
       "kgumi": "Enero 2021 - Diciembre 2024",
@@ -52,70 +52,70 @@
       "wiptool": "Marzo 2020 - Diciembre 2020"
     },
     "roles": {
-      "backend": "Backend PHP Developer | iMometrics",
-      "frontend": "Frontend Developer | K Gumi SAS",
-      "fullstack": "Full-Stack Developer | Carl Jung AI",
-      "wiptool": "Frontend Developer | Wiptool"
+      "backend": "Desarrollador Backend PHP | iMometrics",
+      "frontend": "Desarrollador Frontend | K Gumi SAS",
+      "fullstack": "Desarrollador Full-Stack | Carl Jung AI",
+      "wiptool": "Desarrollador Frontend | Wiptool"
     },
     "preview": {
-      "frontend": "Desarrollo frontend con HTML, CSS y JavaScript",
+      "frontend": "Desarrollo frontend especializado en HTML, CSS y JavaScript",
       "fullstack": "Desarrollo full-stack de plataforma educativa con Next.js y Supabase",
-      "wiptool": "Desarrollo frontend con integración de Mapbox API"
+      "wiptool": "Desarrollo frontend con integración avanzada de API de Mapbox"
     },
     "descriptions": {
-      "backend1": "Desarrollo de aplicaciones internas usando <strong>CakePHP 4.6</strong> y <strong>PHP 7+</strong>",
-      "backend2": "Trabajo con bases de datos <strong>MySQL</strong>",
-      "backend3": "Automatización con <strong>n8n</strong>",
-      "frontend1": "Desarrollo de páginas web con <strong>HTML, CSS y JavaScript</strong>",
-      "frontend2": "Creación de sitios usando <strong>Tailwind CSS</strong>",
-      "frontend3": "Mantenimiento de sitios web",
-      "fullstack1": "Integración con <strong>ChatGPT</strong> para contenido",
-      "fullstack2": "Base de datos con <strong>Supabase</strong>",
-      "fullstack3": "Frontend con <strong>Next.js</strong> y <strong>React</strong>",
-      "wiptool1": "Desarrollo de interfaz de usuario",
-      "wiptool2": "Integración con <strong>API de Mapbox</strong>",
-      "wiptool3": "Diseño responsivo"
+      "backend1": "Desarrollo de aplicaciones internas robustas usando <strong>CakePHP 4.6</strong> y <strong>PHP 7+</strong>",
+      "backend2": "Gestión y optimización de bases de datos <strong>MySQL</strong>",
+      "backend3": "Automatización de procesos empresariales con <strong>n8n</strong>",
+      "frontend1": "Desarrollo de sitios web modernos con <strong>HTML, CSS y JavaScript</strong>",
+      "frontend2": "Creación de interfaces responsivas usando <strong>Tailwind CSS</strong>",
+      "frontend3": "Mantenimiento y optimización de sitios web existentes",
+      "fullstack1": "Integración avanzada con <strong>ChatGPT API</strong> para generación de contenido",
+      "fullstack2": "Arquitectura de base de datos con <strong>Supabase</strong>",
+      "fullstack3": "Desarrollo frontend con <strong>Next.js</strong> y <strong>React</strong>",
+      "wiptool1": "Desarrollo de interfaces de usuario interactivas",
+      "wiptool2": "Integración profesional con <strong>API de Mapbox</strong>",
+      "wiptool3": "Implementación de diseño responsivo avanzado"
     },
-    "technologies": "Tecnologías:",
-    "viewMore": "Ver más"
+    "technologies": "Tecnologías utilizadas:",
+    "viewMore": "Ver detalles"
   },
   "projects": {
     "title": "Proyectos Destacados",
     "carljung": {
       "title": "Carl Jung AI",
-      "description": "Plataforma educativa que genera contenido formativo basado en los arquetipos de Carl Jung."
+      "description": "Plataforma educativa innovadora que genera contenido formativo personalizado basado en los arquetipos de Carl Jung utilizando inteligencia artificial."
     },
     "poisoned": {
       "title": "PoisoneD Merch - E-commerce",
-      "description": "Tienda online completa con diseño personalizado, gestión de inventario y experiencia de usuario optimizada.",
+      "description": "Tienda online completa con diseño personalizado, gestión avanzada de inventario y experiencia de usuario optimizada para conversión.",
       "features": [
-        "Diseño personalizado con tema Dawn",
-        "Totalmente responsivo",
-        "Gestión completa de inventario"
+        "Diseño personalizado con tema Dawn optimizado",
+        "Totalmente responsivo y mobile-first",
+        "Gestión completa de inventario y pedidos"
       ]
     },
     "portfolio": {
       "title": "Portfolio Personal",
-      "description": "Sitio web personal moderno y optimizado que muestra mis habilidades y experiencia profesional.",
+      "description": "Sitio web personal moderno y completamente optimizado que muestra mis habilidades técnicas y trayectoria profesional.",
       "features": [
-        "Diseño responsive mobile-first",
-        "Optimización de rendimiento",
-        "Políticas de privacidad completas"
+        "Diseño responsivo con enfoque mobile-first",
+        "Optimización avanzada de rendimiento web",
+        "Implementación completa de políticas de privacidad"
       ]
     },
     "status": {
-      "live": "En Vivo",
+      "live": "En Línea",
       "completed": "Completado",
       "active": "Activo"
     },
     "badges": {
-      "aiPowered": "AI-Powered",
+      "aiPowered": "Potenciado por IA",
       "educational": "Educativo",
       "multiUser": "Multi-usuario"
     },
     "actions": {
       "viewProject": "Ver Proyecto",
-      "viewCode": "Código",
+      "viewCode": "Ver Código",
       "hereYouAre": "Estás Aquí"
     }
   },
@@ -134,18 +134,18 @@
     },
     "stats": {
       "experience": "Años de Experiencia",
-      "technologies": "Tecnologías",
+      "technologies": "Tecnologías Dominadas",
       "projects": "Proyectos Completados",
-      "freelance": "Años Freelance"
+      "freelance": "Años de Freelance"
     }
   },
   "education": {
-    "title": "Educación",
+    "title": "Formación Académica",
     "degree": "Tecnólogo en Desarrollo de Software",
     "institution": "Tecnológico de Antioquia",
     "period": "2016 - 2020",
-    "completed": "8/10 semestres completados",
-    "certifications": "Certificaciones",
+    "completed": "8 de 10 semestres completados",
+    "certifications": "Certificaciones y Cursos",
     "certList": [
       "React - The Complete Guide - Udemy (2023)",
       "JavaScript Algorithms and Data Structures - freeCodeCamp (2022)",
@@ -155,7 +155,7 @@
   "contact": {
     "title": "Contacto",
     "info": "Información de Contacto",
-    "email": "Correo:",
+    "email": "Correo electrónico:",
     "phone": "Teléfono:",
     "location": "Ubicación:"
   },
@@ -170,8 +170,8 @@
     "subtitle": "Información sobre el tratamiento y protección de tus datos personales",
     "badges": {
       "secure": "Datos Seguros",
-      "noTracking": "Sin Tracking",
-      "gdpr": "GDPR Compliant"
+      "noTracking": "Sin Rastreo",
+      "gdpr": "Cumple GDPR"
     },
     "lastUpdated": "Última actualización:",
     "backToHome": "Volver al Inicio",

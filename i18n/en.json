@@ -1,19 +1,19 @@
 {
   "meta": {
     "title": "Alexis Palacio | Full-Stack Developer",
-    "description": "Full-Stack Developer specialized in PHP, WordPress and Shopify",
-    "keywords": "Full-Stack Developer, PHP, CakePHP, Frontend, Backend, Shopify, WordPress"
+    "description": "Experienced Full-Stack Developer specializing in PHP, WordPress, and Shopify with 4+ years of expertise",
+    "keywords": "Full-Stack Developer, PHP, CakePHP, Frontend, Backend, Shopify, WordPress, JavaScript, React"
   },
   "buttons": {
-    "downloadCV": "Download CV",
+    "downloadCV": "Download Resume",
     "viewProject": "View Project",
     "viewCode": "View Code",
-    "viewSite": "View Site",
+    "viewSite": "Visit Website",
     "backToTop": "Back to top",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "changeTheme": "Change theme",
-    "colorblindMode": "Colorblind mode",
+    "changeTheme": "Switch theme",
+    "colorblindMode": "Colorblind friendly",
     "changeLanguage": "Change language"
   },
   "nav": {
@@ -40,11 +40,11 @@
   },
   "about": {
     "title": "Professional Summary",
-    "description": "Developer with <strong>4+ years of experience</strong> in frontend and backend web development. Proficient in <strong>HTML, CSS, JavaScript, PHP</strong> and platforms like <strong>Shopify and WordPress</strong>. Experience creating user interfaces, integrating APIs and developing web applications. Currently specializing in backend development with <strong>PHP</strong> and <strong>CakePHP</strong>. Knowledge in process automation with <strong>n8n</strong>.",
-    "technologies": "Technologies"
+    "description": "Experienced developer with <strong>4+ years of expertise</strong> in both frontend and backend web development. Specialized in <strong>HTML, CSS, JavaScript, PHP</strong> and platforms including <strong>Shopify and WordPress</strong>. Proven track record in creating intuitive user interfaces, integrating APIs, and building robust web applications. Currently focused on backend development using <strong>PHP</strong> and <strong>CakePHP</strong>. Advanced knowledge in business process automation with <strong>n8n</strong>.",
+    "technologies": "Core Technologies"
   },
   "experience": {
-    "title": "Experience",
+    "title": "Professional Experience",
     "period": {
       "current": "December 2024 - Present",
       "kgumi": "January 2021 - December 2024",
@@ -58,49 +58,49 @@
       "wiptool": "Frontend Developer | Wiptool"
     },
     "preview": {
-      "frontend": "Frontend development with HTML, CSS and JavaScript",
-      "fullstack": "Full-stack development of educational platform with Next.js and Supabase",
-      "wiptool": "Frontend development with Mapbox API integration"
+      "frontend": "Frontend development specializing in HTML, CSS, and JavaScript",
+      "fullstack": "Full-stack development of educational platform using Next.js and Supabase",
+      "wiptool": "Frontend development with advanced Mapbox API integration"
     },
     "descriptions": {
-      "backend1": "Internal application development using <strong>CakePHP 4.6</strong> and <strong>PHP 7+</strong>",
-      "backend2": "Working with <strong>MySQL</strong> databases",
-      "backend3": "Automation with <strong>n8n</strong>",
-      "frontend1": "Web development with <strong>HTML, CSS and JavaScript</strong>",
-      "frontend2": "Site creation using <strong>Tailwind CSS</strong>",
-      "frontend3": "Website maintenance",
-      "fullstack1": "Integration with <strong>ChatGPT</strong> for content",
-      "fullstack2": "Database with <strong>Supabase</strong>",
-      "fullstack3": "Frontend with <strong>Next.js</strong> and <strong>React</strong>",
-      "wiptool1": "User interface development",
-      "wiptool2": "Integration with <strong>Mapbox API</strong>",
-      "wiptool3": "Responsive design"
+      "backend1": "Developing robust internal applications using <strong>CakePHP 4.6</strong> and <strong>PHP 7+</strong>",
+      "backend2": "Managing and optimizing <strong>MySQL</strong> databases",
+      "backend3": "Automating business processes with <strong>n8n</strong>",
+      "frontend1": "Building modern websites with <strong>HTML, CSS, and JavaScript</strong>",
+      "frontend2": "Creating responsive interfaces using <strong>Tailwind CSS</strong>",
+      "frontend3": "Maintaining and optimizing existing websites",
+      "fullstack1": "Advanced integration with <strong>ChatGPT API</strong> for content generation",
+      "fullstack2": "Database architecture with <strong>Supabase</strong>",
+      "fullstack3": "Frontend development with <strong>Next.js</strong> and <strong>React</strong>",
+      "wiptool1": "Developing interactive user interfaces",
+      "wiptool2": "Professional integration with <strong>Mapbox API</strong>",
+      "wiptool3": "Implementing advanced responsive design"
     },
-    "technologies": "Technologies:",
-    "viewMore": "View more"
+    "technologies": "Technologies used:",
+    "viewMore": "View details"
   },
   "projects": {
     "title": "Featured Projects",
     "carljung": {
       "title": "Carl Jung AI",
-      "description": "Educational platform that generates training content based on Carl Jung's archetypes."
+      "description": "Innovative educational platform that generates personalized training content based on Carl Jung's archetypes using artificial intelligence."
     },
     "poisoned": {
       "title": "PoisoneD Merch - E-commerce",
-      "description": "Complete online store with custom design, inventory management and optimized user experience.",
+      "description": "Complete online store featuring custom design, advanced inventory management, and conversion-optimized user experience.",
       "features": [
-        "Custom design with Dawn theme",
-        "Fully responsive",
-        "Complete inventory management"
+        "Optimized custom design with Dawn theme",
+        "Fully responsive and mobile-first approach",
+        "Complete inventory and order management"
       ]
     },
     "portfolio": {
       "title": "Personal Portfolio",
-      "description": "Modern and optimized personal website showcasing my skills and professional experience.",
+      "description": "Modern and fully optimized personal website showcasing technical skills and professional journey.",
       "features": [
         "Mobile-first responsive design",
-        "Performance optimization",
-        "Complete privacy policies"
+        "Advanced web performance optimization",
+        "Complete privacy policy implementation"
       ]
     },
     "status": {
@@ -115,7 +115,7 @@
     },
     "actions": {
       "viewProject": "View Project",
-      "viewCode": "Code",
+      "viewCode": "View Code",
       "hereYouAre": "You Are Here"
     }
   },
@@ -134,18 +134,18 @@
     },
     "stats": {
       "experience": "Years of Experience",
-      "technologies": "Technologies",
+      "technologies": "Technologies Mastered",
       "projects": "Completed Projects",
-      "freelance": "Years Freelance"
+      "freelance": "Years Freelancing"
     }
   },
   "education": {
     "title": "Education",
-    "degree": "Software Development Technologist",
+    "degree": "Software Development Technology",
     "institution": "Tecnológico de Antioquia",
     "period": "2016 - 2020",
-    "completed": "8/10 semesters completed",
-    "certifications": "Certifications",
+    "completed": "8 out of 10 semesters completed",
+    "certifications": "Certifications & Courses",
     "certList": [
       "React - The Complete Guide - Udemy (2023)",
       "JavaScript Algorithms and Data Structures - freeCodeCamp (2022)",
@@ -153,7 +153,7 @@
     ]
   },
   "contact": {
-    "title": "Contact",
+    "title": "Get In Touch",
     "info": "Contact Information",
     "email": "Email:",
     "phone": "Phone:",
@@ -178,8 +178,8 @@
     "currentPage": "Privacy Policy"
   },
   "thanks": {
-    "title": "Thank you for contacting me!",
-    "message": "Your message has been sent successfully. I will respond as soon as possible.",
+    "title": "Thank you for reaching out!",
+    "message": "Your message has been sent successfully. I'll get back to you as soon as possible.",
     "backToHome": "Back to Home"
   }
 }

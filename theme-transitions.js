@@ -1,218 +1,239 @@
 // =============================================
-//    THEME TRANSITION ANIMATIONS
+//    ELEGANT THEME TRANSITION - LOGO CIRCLE EXPAND
 // ============================================
 
-class ThemeTransitionManager {
+class ElegantThemeTransition {
   constructor() {
     this.overlay = null;
     this.isTransitioning = false;
+    this.currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
     this.createOverlay();
+    this.init();
+  }
+
+  init() {
+    // Add preload class to prevent transitions on initial load
+    document.body.classList.add('preload');
+    
+    // Remove preload class after a short delay
+    setTimeout(() => {
+      document.body.classList.remove('preload');
+    }, 500);
   }
 
   createOverlay() {
+    if (this.overlay) return;
+    
     this.overlay = document.createElement('div');
-    this.overlay.className = 'theme-transition-overlay';
+    this.overlay.className = 'elegant-theme-overlay';
     document.body.appendChild(this.overlay);
   }
 
-  createDrop(x, y, isDarkMode = false) {
-    const drop = document.createElement('div');
-    drop.className = `theme-drop ${isDarkMode ? 'dark-mode' : 'light-mode'}`;
+  // Create the logo element for center animation
+  createCenterLogo(newTheme) {
+    const logoContainer = document.createElement('div');
+    logoContainer.className = 'center-logo-container';
     
-    // Random size between 20px and 60px
-    const size = Math.random() * 40 + 20;
-    drop.style.width = `${size}px`;
-    drop.style.height = `${size}px`;
+    // Create logo element - using your "AP" logo or favicon
+    const logo = document.createElement('div');
+    logo.className = `center-logo ${newTheme}`;
     
-    // Position randomly around the click point
-    const offsetX = (Math.random() - 0.5) * 200;
-    const offsetY = (Math.random() - 0.5) * 200;
-    drop.style.left = `${x + offsetX}px`;
-    drop.style.top = `${y + offsetY}px`;
+    // Option 1: Use your favicon
+    const faviconImg = document.createElement('img');
+    faviconImg.src = 'assets/image/favicon.png';
+    faviconImg.alt = 'AP';
+    faviconImg.className = 'logo-favicon';
     
-    // Random animation delay
-    drop.style.animationDelay = `${Math.random() * 0.3}s`;
+    // Option 2: Use text logo (fallback)
+    const textLogo = document.createElement('div');
+    textLogo.className = 'logo-text';
+    textLogo.textContent = 'AP';
     
-    this.overlay.appendChild(drop);
+    // Try favicon first, fallback to text
+    faviconImg.onload = () => {
+      logo.appendChild(faviconImg);
+      textLogo.style.display = 'none';
+    };
     
-    // Remove drop after animation
-    setTimeout(() => {
-      if (drop.parentNode) {
-        drop.parentNode.removeChild(drop);
-      }
-    }, 2000);
+    faviconImg.onerror = () => {
+      faviconImg.style.display = 'none';
+      textLogo.style.display = 'block';
+    };
+    
+    // Add both for now, CSS will handle display
+    logo.appendChild(faviconImg);
+    logo.appendChild(textLogo);
+    
+    logoContainer.appendChild(logo);
+    return logoContainer;
   }
 
-  createRippleEffect(x, y, isDarkMode = false) {
-    const ripple = document.createElement('div');
-    ripple.className = 'theme-ripple';
-    ripple.style.left = `${x}px`;
-    ripple.style.top = `${y}px`;
-    ripple.style.width = '20px';
-    ripple.style.height = '20px';
-    
-    if (isDarkMode) {
-      ripple.style.background = 'radial-gradient(circle, rgba(15, 15, 15, 0.3) 0%, transparent 70%)';
-    } else {
-      ripple.style.background = 'radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%)';
-    }
-    
-    document.body.appendChild(ripple);
-    
-    // Trigger animation
-    setTimeout(() => ripple.classList.add('expand'), 10);
-    
-    // Remove ripple after animation
-    setTimeout(() => {
-      if (ripple.parentNode) {
-        ripple.parentNode.removeChild(ripple);
-      }
-    }, 1000);
+  // Create expanding circle effect
+  createExpandingCircle(newTheme) {
+    const circle = document.createElement('div');
+    circle.className = `expanding-circle ${newTheme === 'light' ? 'to-light' : 'to-dark'}`;
+    return circle;
   }
 
+  // Main transition method
   async transitionTheme(buttonElement, newTheme) {
-    if (this.isTransitioning) return;
+    if (this.isTransitioning) return false;
     
     this.isTransitioning = true;
-    
-    // Get button position
-    const rect = buttonElement.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
     
     // Add transitioning class to button
     buttonElement.classList.add('transitioning');
     
-    // Create ripple effect from button
-    this.createRippleEffect(centerX, centerY, newTheme === 'dark');
+    // Clear previous overlay content
+    this.overlay.innerHTML = '';
     
-    // Create multiple drops around the screen
-    const dropCount = 12;
-    for (let i = 0; i < dropCount; i++) {
-      setTimeout(() => {
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
-        this.createDrop(x, y, newTheme === 'dark');
-      }, i * 50);
-    }
+    // Create expanding circle
+    const circle = this.createExpandingCircle(newTheme);
+    this.overlay.appendChild(circle);
     
-    // Wait for drops to settle before changing theme
-    await new Promise(resolve => setTimeout(resolve, 300));
+    // Create center logo
+    const logoContainer = this.createCenterLogo(newTheme);
+    this.overlay.appendChild(logoContainer);
     
-    // Actually change the theme
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    // Show overlay
+    this.overlay.classList.add('active');
     
-    // Update button icon with smooth transition
+    // Start logo animation
+    setTimeout(() => {
+      logoContainer.classList.add('animate-in');
+    }, 50);
+    
+    // Start circle expansion
+    setTimeout(() => {
+      circle.classList.add('expand');
+    }, 300);
+    
+    // Change theme at halfway point
+    setTimeout(() => {
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      this.currentTheme = newTheme;
+      
+      // Update button icon
+      this.updateButtonIcon(buttonElement, newTheme);
+    }, 800);
+    
+    // Start logo fade out
+    setTimeout(() => {
+      logoContainer.classList.add('animate-out');
+    }, 1200);
+    
+    // Clean up
+    setTimeout(() => {
+      this.overlay.classList.remove('active');
+      this.overlay.innerHTML = '';
+      buttonElement.classList.remove('transitioning');
+      this.isTransitioning = false;
+    }, 1600);
+    
+    return true;
+  }
+
+  // Update button icon with smooth transition
+  updateButtonIcon(buttonElement, newTheme) {
     const icon = buttonElement.querySelector('i');
-    icon.style.transform = 'scale(0)';
+    if (!icon) return;
+    
+    buttonElement.classList.add('icon-changing');
     
     setTimeout(() => {
       icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-      icon.style.transform = 'scale(1)';
-    }, 150);
-    
-    // Remove transitioning class
-    setTimeout(() => {
-      buttonElement.classList.remove('transitioning');
-      this.isTransitioning = false;
-    }, 600);
+      buttonElement.classList.remove('icon-changing');
+    }, 200);
   }
 
-  // Create floating particles effect
-  createFloatingParticles(isDarkMode = false) {
-    const particleCount = 8;
-    
-    for (let i = 0; i < particleCount; i++) {
-      setTimeout(() => {
-        const particle = document.createElement('div');
-        particle.className = 'floating-particle';
-        
-        const size = Math.random() * 8 + 4;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${Math.random() * window.innerWidth}px`;
-        particle.style.top = `${window.innerHeight}px`;
-        
-        if (isDarkMode) {
-          particle.style.background = 'rgba(15, 15, 15, 0.6)';
-        } else {
-          particle.style.background = 'rgba(255, 255, 255, 0.8)';
-        }
-        
-        particle.style.borderRadius = '50%';
-        particle.style.position = 'fixed';
-        particle.style.pointerEvents = 'none';
-        particle.style.zIndex = '9999';
-        particle.style.animation = `floatUp ${3 + Math.random() * 2}s ease-out forwards`;
-        
-        document.body.appendChild(particle);
-        
-        setTimeout(() => {
-          if (particle.parentNode) {
-            particle.parentNode.removeChild(particle);
-          }
-        }, 5000);
-      }, i * 100);
+  // Get current theme
+  getCurrentTheme() {
+    return this.currentTheme;
+  }
+
+  // Clean up method
+  destroy() {
+    if (this.overlay && this.overlay.parentNode) {
+      this.overlay.parentNode.removeChild(this.overlay);
     }
   }
 }
 
-// Add floating animation CSS
-const floatingCSS = `
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0;
-  }
-  
-  20% {
-    opacity: 1;
-  }
-  
-  100% {
-    transform: translateY(-100vh) rotate(360deg);
-    opacity: 0;
-  }
-}
+// Initialize elegant theme transition system
+window.elegantThemeTransition = new ElegantThemeTransition();
 
-.floating-particle {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-`;
-
-// Inject floating CSS
-const style = document.createElement('style');
-style.textContent = floatingCSS;
-document.head.appendChild(style);
-
-// Initialize theme transition manager
-window.themeTransitionManager = new ThemeTransitionManager();
-
-// Enhanced theme toggle functionality
-function enhanceThemeToggle() {
+// Enhanced theme toggle integration
+function initializeThemeToggle() {
   const themeToggle = document.getElementById('theme-toggle');
-  if (!themeToggle) return;
+  if (!themeToggle) {
+    console.warn('Theme toggle button not found');
+    return;
+  }
 
-  themeToggle.addEventListener('click', async function(e) {
+  // Remove any existing event listeners
+  themeToggle.replaceWith(themeToggle.cloneNode(true));
+  const newThemeToggle = document.getElementById('theme-toggle');
+
+  newThemeToggle.addEventListener('click', async function(e) {
     e.preventDefault();
     
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const currentTheme = window.elegantThemeTransition.getCurrentTheme();
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
-    // Use the theme transition manager
-    await window.themeTransitionManager.transitionTheme(this, newTheme);
+    // Prevent multiple rapid clicks
+    if (window.elegantThemeTransition.isTransitioning) {
+      return;
+    }
     
-    // Create floating particles for extra visual appeal
-    setTimeout(() => {
-      window.themeTransitionManager.createFloatingParticles(newTheme === 'dark');
-    }, 500);
+    // Execute the elegant transition
+    const success = await window.elegantThemeTransition.transitionTheme(this, newTheme);
+    
+    if (success) {
+      // Dispatch custom event for other components
+      const event = new CustomEvent('themeChanged', { 
+        detail: { 
+          newTheme, 
+          oldTheme: currentTheme 
+        } 
+      });
+      document.dispatchEvent(event);
+    }
   });
+
+  // Set initial icon based on current theme
+  const currentTheme = window.elegantThemeTransition.getCurrentTheme();
+  const icon = newThemeToggle.querySelector('i');
+  if (icon) {
+    icon.className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  }
 }
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', enhanceThemeToggle);
+  document.addEventListener('DOMContentLoaded', initializeThemeToggle);
 } else {
-  enhanceThemeToggle();
+  initializeThemeToggle();
+}
+
+// Handle visibility change to pause animations when tab is not visible
+document.addEventListener('visibilitychange', function() {
+  if (document.hidden && window.elegantThemeTransition) {
+    // Pause any ongoing transitions when tab is not visible
+    const overlay = document.querySelector('.elegant-theme-overlay');
+    if (overlay) {
+      overlay.style.animationPlayState = 'paused';
+    }
+  } else if (window.elegantThemeTransition) {
+    // Resume animations when tab becomes visible
+    const overlay = document.querySelector('.elegant-theme-overlay');
+    if (overlay) {
+      overlay.style.animationPlayState = 'running';
+    }
+  }
+});
+
+// Export for potential external usage
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = ElegantThemeTransition;
 }
