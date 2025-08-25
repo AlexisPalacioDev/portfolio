@@ -410,6 +410,7 @@ textarea:focus,
   justify-content: space-between;
   align-items: center;
   height: 70px;
+  padding: 0 0.5rem;
 }
 
 .nav-brand {
@@ -427,7 +428,7 @@ textarea:focus,
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -438,10 +439,14 @@ textarea:focus,
   text-decoration: none;
   font-weight: 500;
   transition: color var(--transition-normal);
+  white-space: nowrap;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--border-radius-sm);
 }
 
 .nav-link:hover {
   color: var(--primary-color);
+  background: rgba(0, 170, 255, 0.1);
 }
 
 .mobile-menu-btn {
@@ -494,13 +499,100 @@ textarea:focus,
 }
 
 /* Media Queries */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .nav {
+    padding: 0 0.3rem;
+  }
+  
+  .nav-list {
+    gap: 1.2rem;
+  }
+  
+  .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.95rem;
+  }
+  
+  .toggle-container {
+    padding: 0.3rem 0.6rem;
+    gap: 0.6rem;
+  }
+  
+  .btn-language {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 992px) {
+  .nav-list {
+    gap: 1rem;
+  }
+  
+  .nav-link {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  
   .experience-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Fix para pantallas medianas donde se puede romper el header */
+@media (max-width: 900px) and (min-width: 769px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .nav {
+    padding: 0 0.2rem;
+  }
+  
+  .nav-list {
+    gap: 0.8rem;
+  }
+  
+  .nav-link {
+    padding: 0.3rem 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  
+  .toggle-container {
+    padding: 0.2rem 0.4rem;
+    gap: 0.4rem;
+  }
+  
+  .toggle-label {
+    width: 45px;
+    height: 24px;
+  }
+  
+  .toggle-slider::before {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .toggle-input:checked + .toggle-label .toggle-slider::before {
+    left: 21px;
+  }
+  
+  .toggle-input:checked + .cb-toggle-label .toggle-slider::before {
+    left: 21px;
+  }
+  
+  .btn-language {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
   }
 }
 
