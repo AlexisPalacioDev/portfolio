@@ -440,6 +440,10 @@ class PortfolioApp {
     if (this.settings.colorblind) {
       this.elements.html.attr("data-colorblind", "true");
     }
+    
+    // Set initial toggle states
+    this.elements.themeToggle.prop('checked', this.settings.theme === 'light');
+    this.elements.cbToggle.prop('checked', this.settings.colorblind);
   }
 
   initializeLanguage() {
@@ -455,10 +459,10 @@ class PortfolioApp {
     $(window).on("scroll", () => this.handleScroll());
 
     // Theme toggle
-    this.elements.themeToggle.on("click", () => this.toggleTheme());
+    this.elements.themeToggle.on("change", () => this.toggleTheme());
 
     // Colorblind toggle
-    this.elements.cbToggle.on("click", () => this.toggleColorblind());
+    this.elements.cbToggle.on("change", () => this.toggleColorblind());
 
     // Mobile menu
     this.setupMobileMenu();
@@ -483,22 +487,25 @@ class PortfolioApp {
   }
 
   toggleTheme() {
-    const newTheme = this.settings.theme === "light" ? "dark" : "light";
+    const isLightTheme = this.elements.themeToggle.prop('checked');
+    const newTheme = isLightTheme ? "light" : "dark";
     this.settings.theme = newTheme;
     this.elements.html.attr("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
-    
-    const $icon = this.elements.themeToggle.find('i');
-    $icon.toggleClass('fa-sun fa-moon');
   }
 
   toggleColorblind() {
-    this.settings.colorblind = !this.settings.colorblind;
-    this.elements.html.attr("data-colorblind", this.settings.colorblind);
+    this.settings.colorblind = this.elements.cbToggle.prop('checked');
+    this.elements.html.attr("data-colorblind", this.settings.colorblind || null);
     localStorage.setItem("colorblind", this.settings.colorblind);
   }
 
   toggleLanguage() {
+    // Si hay un efecto scramble activo, no proceder
+    if (window.languageScramble && window.languageScramble.isActive()) {
+      return;
+    }
+    
     this.settings.language = this.settings.language === 'es' ? 'en' : 'es';
     localStorage.setItem('language', this.settings.language);
     document.documentElement.lang = this.settings.language;
@@ -563,12 +570,37 @@ class PortfolioApp {
         }
       }
     });
-
-    // Update download CV button text
-    this.updateDownloadButton();
     
-    // Update aria-labels
-    this.updateAriaLabels();
+    // Update elements with data-i18n-attr for aria-labels and other attributes
+    document.querySelectorAll('[data-i18n-attr]').forEach(element => {
+      const attrMappings = element.dataset.i18nAttr.split(',');
+      
+      attrMappings.forEach(mapping => {
+        const [attrName, translationKey] = mapping.split(':');
+        if (attrName && translationKey) {
+          const keys = translationKey.split('.');
+          let value = currentTranslations;
+          
+          for (const key of keys) {
+            if (value && typeof value === 'object' && key in value) {
+              value = value[key];
+            } else {
+              return;
+            }
+          }
+          
+          if (value) {
+            element.setAttribute(attrName.trim(), String(value).replace('{year}', currentYear));
+          }
+        }
+      });
+    });
+
+    // Update download CV button text - ya no es necesario porque ahora usa data-i18n
+    // this.updateDownloadButton();
+    
+    // Update aria-labels - ya no es necesario porque ahora usa data-i18n-attr
+    // this.updateAriaLabels();
   }
 
   updateDownloadButton() {
@@ -743,18 +775,18 @@ class PortfolioApp {
   }
 
   animateStats() {
-    $('.stat-number').each(function() {
-      const finalValue = parseInt($(this).text());
-      $(this).text('0');
+    $('.stat-number[data-target]').each(function() {
+      const $this = $(this);
+      const targetValue = parseInt($this.attr('data-target'));
       
-      $({ countNum: 0 }).animate({ countNum: finalValue }, {
+      $({ countNum: 0 }).animate({ countNum: targetValue }, {
         duration: 2000,
         easing: 'swing',
         step: function() {
-          $(this).text(Math.floor(this.countNum) + ($(this).text().includes('+') ? '+' : ''));
+          $this.text(Math.floor(this.countNum));
         },
         complete: function() {
-          $(this).text(finalValue + ($(this).text().includes('+') ? '+' : ''));
+          $this.text(targetValue + '+');
         }
       });
     });

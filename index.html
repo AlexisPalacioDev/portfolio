@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="theme-animation.css">
   <link rel="stylesheet" href="neumorphism.css">
   <link rel="stylesheet" href="neumorphism-extras.css">
+  <link rel="stylesheet" href="effects/scramble-effects.css">
+  <link rel="stylesheet" href="effects/scramble-debug.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="canonical" href="https://alexispalaciodev.github.io/portfolio/">
@@ -41,27 +43,44 @@
           </li>
           <li class="nav-item"><a href="#projects" class="nav-link" data-i18n="nav.projects">Proyectos</a></li>
           <li class="nav-item"><a href="#contact" class="nav-link" data-i18n="nav.contact">Contacto</a></li>
-          <li class="nav-item">
-            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
-              <i class="fas fa-moon"></i>
-            </button>
-            <button id="cb-toggle" class="cb-toggle" aria-label="Modo daltónico">
-              <i class="fas fa-eye"></i>
-            </button>
+          <li class="nav-item toggle-controls">
+            <div class="toggle-container">
+              <!-- Theme Toggle -->
+              <div class="toggle-wrapper">
+                <input type="checkbox" id="theme-toggle" class="toggle-input" data-i18n-attr="aria-label:accessibility.changeTheme" aria-label="Cambiar tema">
+                <label for="theme-toggle" class="toggle-label theme-toggle-label">
+                  <span class="toggle-slider">
+                    <i class="fas fa-sun toggle-icon sun-icon"></i>
+                    <i class="fas fa-moon toggle-icon moon-icon"></i>
+                  </span>
+                </label>
+              </div>
+              
+              <!-- Colorblind Toggle -->
+              <div class="toggle-wrapper">
+                <input type="checkbox" id="cb-toggle" class="toggle-input" data-i18n-attr="aria-label:accessibility.colorblindMode" aria-label="Modo daltonismo">
+                <label for="cb-toggle" class="toggle-label cb-toggle-label">
+                  <span class="toggle-slider">
+                    <i class="fas fa-eye toggle-icon eye-icon"></i>
+                    <i class="fas fa-eye-slash toggle-icon eye-slash-icon"></i>
+                  </span>
+                </label>
+              </div>
+            </div>
           </li>
           <li class="nav-item">
-            <button id="language-toggle" class="btn btn-language" aria-label="Cambiar idioma">
+            <button id="language-toggle" class="btn btn-language" data-i18n-attr="aria-label:accessibility.changeLanguage" aria-label="Cambiar idioma">
               ES
             </button>
           </li>
           <li class="nav-item download-item">
             <a href="assets/cv/CV-AlexisPalacio-ES.pdf" class="btn btn-primary download-cv" target="_blank"
-              rel="noopener noreferrer">
+              rel="noopener noreferrer" data-i18n-html="true" data-i18n="buttons.downloadCV">
               <i class="fas fa-download"></i> Descargar CV
             </a>
           </li>
         </ul>
-        <button class="mobile-menu-btn" aria-label="Abrir menú">
+        <button class="mobile-menu-btn" data-i18n-attr="aria-label:accessibility.openMenu" aria-label="Abrir menú">
           <div class="hamburger-icon">
             <span></span>
             <span></span>
@@ -164,9 +183,9 @@
 
           <div class="card-content">
             <ul>
-              <li data-i18n="experience.descriptions.backend1">Desarrollo de aplicaciones internas usando <strong>CakePHP 4.6</strong> y <strong>PHP 7+</strong></li>
-              <li data-i18n="experience.descriptions.backend2">Trabajo con bases de datos <strong>MySQL</strong></li>
-              <li data-i18n="experience.descriptions.backend3">Automatización con <strong>n8n</strong></li>
+              <li data-i18n="experience.descriptions.backend1" data-i18n-html="true">Desarrollo de aplicaciones internas usando <strong>CakePHP 4.6</strong> y <strong>PHP 7+</strong></li>
+              <li data-i18n="experience.descriptions.backend2" data-i18n-html="true">Trabajo con bases de datos <strong>MySQL</strong></li>
+              <li data-i18n="experience.descriptions.backend3" data-i18n-html="true">Automatización con <strong>n8n</strong></li>
             </ul>
             <div class="technologies">
               <strong data-i18n="experience.technologies">Tecnologías:</strong> CakePHP 4.6, PHP 7+, MySQL, Docker, Git
@@ -187,8 +206,8 @@
 
           <div class="card-content">
             <ul>
-              <li data-i18n="experience.descriptions.frontend1">Desarrollo de páginas web con <strong>HTML, CSS y JavaScript</strong></li>
-              <li data-i18n="experience.descriptions.frontend2">Creación de sitios usando <strong>Tailwind CSS</strong></li>
+              <li data-i18n="experience.descriptions.frontend1" data-i18n-html="true">Desarrollo de páginas web con <strong>HTML, CSS y JavaScript</strong></li>
+              <li data-i18n="experience.descriptions.frontend2" data-i18n-html="true">Creación de sitios usando <strong>Tailwind CSS</strong></li>
               <li data-i18n="experience.descriptions.frontend3">Mantenimiento de sitios web</li>
             </ul>
             <div class="technologies">
@@ -214,9 +233,9 @@
 
           <div class="card-content">
             <ul>
-              <li data-i18n="experience.descriptions.fullstack1">Integración con <strong>ChatGPT</strong> para contenido</li>
-              <li data-i18n="experience.descriptions.fullstack2">Base de datos con <strong>Supabase</strong></li>
-              <li data-i18n="experience.descriptions.fullstack3">Frontend con <strong>Next.js</strong> y <strong>React</strong></li>
+              <li data-i18n="experience.descriptions.fullstack1" data-i18n-html="true">Integración con <strong>ChatGPT</strong> para contenido</li>
+              <li data-i18n="experience.descriptions.fullstack2" data-i18n-html="true">Base de datos con <strong>Supabase</strong></li>
+              <li data-i18n="experience.descriptions.fullstack3" data-i18n-html="true">Frontend con <strong>Next.js</strong> y <strong>React</strong></li>
             </ul>
             <div class="technologies">
               <strong data-i18n="experience.technologies">Tecnologías:</strong> Next.js, React, Tailwind CSS, Supabase
@@ -238,7 +257,7 @@
           <div class="card-content">
             <ul>
               <li data-i18n="experience.descriptions.wiptool1">Desarrollo de interfaz de usuario</li>
-              <li data-i18n="experience.descriptions.wiptool2">Integración con <strong>API de Mapbox</strong></li>
+              <li data-i18n="experience.descriptions.wiptool2" data-i18n-html="true">Integración con <strong>API de Mapbox</strong></li>
               <li data-i18n="experience.descriptions.wiptool3">Diseño responsivo</li>
             </ul>
             <div class="technologies">
@@ -736,19 +755,19 @@
       <!-- Skills Summary Stats -->
       <div class="skills-stats animate fade-in delay-4">
         <div class="stat-item">
-          <div class="stat-number">4+</div>
+          <div class="stat-number" data-target="4">4</div>
           <div class="stat-label">Años de Experiencia</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">15+</div>
+          <div class="stat-number" data-target="16">0</div>
           <div class="stat-label">Tecnologías</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">12+</div>
+          <div class="stat-number" data-target="17">0</div>
           <div class="stat-label">Proyectos Completados</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">1+</div>
+          <div class="stat-number" data-target="2">0</div>
           <div class="stat-label">Años Freelance</div>
         </div>
       </div>
@@ -833,7 +852,7 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <a href="#" id="back-to-top" class="back-to-top" aria-label="Volver al inicio">
+  <a href="#" id="back-to-top" class="back-to-top" data-i18n-attr="aria-label:accessibility.backToTop" aria-label="Volver al inicio">
     <i class="fas fa-arrow-up"></i>
   </a>
 
@@ -842,6 +861,9 @@
   <script src="scripts.js"></script>
   <script src="theme-transitions.js"></script>
   <script src="neumorphism-enhancer.js"></script>
+  <script src="effects/language-scramble.js"></script>
+  <script src="effects/enhanced-scramble.js"></script>
+  <script src="effects/scramble-debugger.js"></script>
 </body>
 
 </html>

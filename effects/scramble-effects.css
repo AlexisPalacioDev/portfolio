@@ -1,0 +1,351 @@
+/**
+ * Language Scramble Effect Styles
+ * Estilos para el efecto de scramble del cambio de idioma
+ * PoisonedDog - 2025
+ */
+
+/* PRESERVAR TAMAÑO Y LAYOUT DURANTE SCRAMBLE */
+.scramble-element,
+[data-i18n] {
+  /* Preservar dimensiones durante el efecto */
+  box-sizing: border-box;
+}
+
+/* Prevenir cambios de tamaño durante scramble */
+.scrambling-active {
+  /* Mantener el mismo tamaño de fuente */
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  
+  /* Preservar layout */
+  width: auto;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+  
+  /* Solo permitir efectos visuales que no afecten el layout */
+  transform: none !important;
+  scale: none !important;
+}
+
+/* Efecto de glitch para el botón de idioma durante el scramble */
+#language-toggle.scrambling {
+  animation: glitchButton 0.3s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+#language-toggle.scrambling::before,
+#language-toggle.scrambling::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  color: inherit;
+  z-index: -1;
+}
+
+#language-toggle.scrambling::before {
+  animation: glitchBefore 0.3s infinite linear alternate-reverse;
+}
+
+#language-toggle.scrambling::after {
+  animation: glitchAfter 0.3s infinite linear alternate-reverse;
+}
+
+/* Animaciones de glitch */
+@keyframes glitchButton {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+  }
+  60% {
+    transform: translate(1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitchBefore {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: translate(-1px, -1px);
+    filter: hue-rotate(90deg);
+  }
+  100% {
+    clip-path: inset(63% 0 37% 0);
+    transform: translate(1px, 1px);
+    filter: hue-rotate(270deg);
+  }
+}
+
+@keyframes glitchAfter {
+  0% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(1px, 1px);
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    clip-path: inset(54% 0 46% 0);
+    transform: translate(-1px, -1px);
+    filter: hue-rotate(0deg);
+  }
+}
+
+/* Efectos para elementos de texto durante scramble */
+.scramble-element {
+  position: relative;
+  display: inline-block;
+}
+
+/* Efecto de cursor parpadeante */
+.scramble-cursor::after {
+  content: '█';
+  animation: blink 0.8s infinite;
+  color: var(--accent-color, #00ff41);
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Efecto de "resolving" - cuando el texto se está resolviendo */
+.resolving {
+  animation: textResolve 0.6s ease-out forwards;
+}
+
+@keyframes textResolve {
+  0% {
+    filter: blur(2px) brightness(1.5);
+    text-shadow: 0 0 10px currentColor;
+    transform: scale(1.01);
+  }
+  50% {
+    filter: blur(1px) brightness(1.2);
+    text-shadow: 0 0 5px currentColor;
+  }
+  100% {
+    filter: blur(0) brightness(1);
+    text-shadow: none;
+    transform: scale(1);
+  }
+}
+
+/* Efecto de "scan line" que aparece durante el scramble */
+.scramble-scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--accent-color, #00ff41) 50%, 
+    transparent 100%);
+  animation: scanline 2s ease-in-out;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% {
+    top: -2px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+
+/* Override para preservar tipografía durante scramble */
+.scramble-preserve-font {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-weight: inherit !important;
+}
+
+/* Aplicar a elementos durante scramble */
+[data-i18n].scrambling {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Override específico para navegación */
+.nav-link.scrambling {
+  font-family: inherit !important;
+  font-size: inherit !important;
+}
+
+/* Override para títulos */
+.section-title.scrambling,
+h1.scrambling,
+h2.scrambling,
+h3.scrambling {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Efecto de pantalla CRT durante scramble */
+body.scramble-mode {
+  position: relative;
+}
+
+body.scramble-mode::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(transparent 50%, rgba(0, 255, 65, 0.03) 50%);
+  background-size: 100% 4px;
+  animation: crtScanlines 0.1s linear infinite;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+@keyframes crtScanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 4px;
+  }
+}
+
+/* Efecto de parpadeo en el contenido durante scramble */
+.scramble-flicker {
+  animation: flicker 0.15s infinite linear;
+}
+
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.98;
+    filter: brightness(0.95);
+  }
+}
+
+/* Efectos especiales para el tema oscuro */
+[data-theme="dark"] .scramble-element {
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+}
+
+[data-theme="dark"] #language-toggle.scrambling {
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+/* Efectos especiales para el tema claro */
+[data-theme="light"] .scramble-element {
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] #language-toggle.scrambling {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Transición suave para cuando termina el efecto */
+.scramble-complete {
+  animation: completeEffect 0.5s ease-out forwards;
+}
+
+@keyframes completeEffect {
+  0% {
+    transform: scale(1.02);
+    filter: brightness(1.3);
+    text-shadow: 0 0 8px currentColor;
+  }
+  50% {
+    transform: scale(1.01);
+    filter: brightness(1.1);
+    text-shadow: 0 0 4px currentColor;
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+    text-shadow: none;
+  }
+}
+
+/* Efecto especial para elementos importantes como títulos */
+h1.scramble-vip,
+h2.scramble-vip,
+.section-title.scramble-vip {
+  animation: vipScramble 0.8s ease-in-out;
+}
+
+@keyframes vipScramble {
+  0%, 100% {
+    transform: scale(1);
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  25% {
+    transform: scale(1.02);
+    filter: hue-rotate(90deg) brightness(1.2);
+  }
+  50% {
+    transform: scale(0.99);
+    filter: hue-rotate(180deg) brightness(0.9);
+  }
+  75% {
+    transform: scale(1.01);
+    filter: hue-rotate(270deg) brightness(1.1);
+  }
+}
+
+/* Optimización para rendimiento */
+.scramble-element,
+#language-toggle.scrambling,
+.scramble-scanline {
+  will-change: transform, filter, opacity;
+}
+
+/* Reducir efectos en dispositivos con preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .scramble-element,
+  #language-toggle.scrambling,
+  .scramble-scanline,
+  .scramble-flicker {
+    animation: none;
+    transition: none;
+  }
+  
+  body.scramble-mode::before {
+    display: none;
+  }
+}
