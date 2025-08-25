@@ -501,6 +501,11 @@ class PortfolioApp {
   }
 
   toggleLanguage() {
+    // Si hay un efecto scramble activo, no proceder
+    if (window.languageScramble && window.languageScramble.isActive()) {
+      return;
+    }
+    
     this.settings.language = this.settings.language === 'es' ? 'en' : 'es';
     localStorage.setItem('language', this.settings.language);
     document.documentElement.lang = this.settings.language;
