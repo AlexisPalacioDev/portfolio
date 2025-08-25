@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "title": "Alexis Palacio | Full-Stack Developer",
+    "description": "Full-Stack Developer specialized in PHP, WordPress and Shopify",
+    "keywords": "Full-Stack Developer, PHP, CakePHP, Frontend, Backend, Shopify, WordPress"
+  },
+  "buttons": {
+    "downloadCV": "Download CV",
+    "viewProject": "View Project",
+    "viewCode": "View Code",
+    "viewSite": "View Site",
+    "backToTop": "Back to top",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "changeTheme": "Change theme",
+    "colorblindMode": "Colorblind mode",
+    "changeLanguage": "Change language"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Alexis Palacio",
+    "role": "Full-Stack Developer",
+    "contact": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Medellin, Colombia"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    }
+  },
+  "about": {
+    "title": "Professional Summary",
+    "description": "Developer with <strong>4+ years of experience</strong> in frontend and backend web development. Proficient in <strong>HTML, CSS, JavaScript, PHP</strong> and platforms like <strong>Shopify and WordPress</strong>. Experience creating user interfaces, integrating APIs and developing web applications. Currently specializing in backend development with <strong>PHP</strong> and <strong>CakePHP</strong>. Knowledge in process automation with <strong>n8n</strong>.",
+    "technologies": "Technologies"
+  },
+  "experience": {
+    "title": "Experience",
+    "period": {
+      "current": "December 2024 - Present",
+      "kgumi": "January 2021 - December 2024",
+      "carljung": "July 2023 - September 2023",
+      "wiptool": "March 2020 - December 2020"
+    },
+    "roles": {
+      "backend": "Backend PHP Developer | iMometrics",
+      "frontend": "Frontend Developer | K Gumi SAS",
+      "fullstack": "Full-Stack Developer | Carl Jung AI",
+      "wiptool": "Frontend Developer | Wiptool"
+    },
+    "preview": {
+      "frontend": "Frontend development with HTML, CSS and JavaScript",
+      "fullstack": "Full-stack development of educational platform with Next.js and Supabase",
+      "wiptool": "Frontend development with Mapbox API integration"
+    },
+    "descriptions": {
+      "backend1": "Internal application development using <strong>CakePHP 4.6</strong> and <strong>PHP 7+</strong>",
+      "backend2": "Working with <strong>MySQL</strong> databases",
+      "backend3": "Automation with <strong>n8n</strong>",
+      "frontend1": "Web development with <strong>HTML, CSS and JavaScript</strong>",
+      "frontend2": "Site creation using <strong>Tailwind CSS</strong>",
+      "frontend3": "Website maintenance",
+      "fullstack1": "Integration with <strong>ChatGPT</strong> for content",
+      "fullstack2": "Database with <strong>Supabase</strong>",
+      "fullstack3": "Frontend with <strong>Next.js</strong> and <strong>React</strong>",
+      "wiptool1": "User interface development",
+      "wiptool2": "Integration with <strong>Mapbox API</strong>",
+      "wiptool3": "Responsive design"
+    },
+    "technologies": "Technologies:",
+    "viewMore": "View more"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "carljung": {
+      "title": "Carl Jung AI",
+      "description": "Educational platform that generates training content based on Carl Jung's archetypes."
+    },
+    "poisoned": {
+      "title": "PoisoneD Merch - E-commerce",
+      "description": "Complete online store with custom design, inventory management and optimized user experience.",
+      "features": [
+        "Custom design with Dawn theme",
+        "Fully responsive",
+        "Complete inventory management"
+      ]
+    },
+    "portfolio": {
+      "title": "Personal Portfolio",
+      "description": "Modern and optimized personal website showcasing my skills and professional experience.",
+      "features": [
+        "Mobile-first responsive design",
+        "Performance optimization",
+        "Complete privacy policies"
+      ]
+    },
+    "status": {
+      "live": "Live",
+      "completed": "Completed",
+      "active": "Active"
+    },
+    "badges": {
+      "aiPowered": "AI-Powered",
+      "educational": "Educational",
+      "multiUser": "Multi-user"
+    },
+    "actions": {
+      "viewProject": "View Project",
+      "viewCode": "Code",
+      "hereYouAre": "You Are Here"
+    }
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Tools & Automation",
+      "platforms": "Platforms & CMS"
+    },
+    "levels": {
+      "basic": "Basic",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "stats": {
+      "experience": "Years of Experience",
+      "technologies": "Technologies",
+      "projects": "Completed Projects",
+      "freelance": "Years Freelance"
+    }
+  },
+  "education": {
+    "title": "Education",
+    "degree": "Software Development Technologist",
+    "institution": "Tecnológico de Antioquia",
+    "period": "2016 - 2020",
+    "completed": "8/10 semesters completed",
+    "certifications": "Certifications",
+    "certList": [
+      "React - The Complete Guide - Udemy (2023)",
+      "JavaScript Algorithms and Data Structures - freeCodeCamp (2022)",
+      "Responsive Web Design - freeCodeCamp (2021)"
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "info": "Contact Information",
+    "email": "Email:",
+    "phone": "Phone:",
+    "location": "Location:"
+  },
+  "footer": {
+    "name": "Alexis Palacio",
+    "role": "Full-Stack Developer | PHP, JavaScript, WordPress, Shopify",
+    "rights": "© {year} Alexis Palacio. All rights reserved.",
+    "privacy": "Privacy Policy"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "Information about the treatment and protection of your personal data",
+    "badges": {
+      "secure": "Secure Data",
+      "noTracking": "No Tracking",
+      "gdpr": "GDPR Compliant"
+    },
+    "lastUpdated": "Last updated:",
+    "backToHome": "Back to Home",
+    "currentPage": "Privacy Policy"
+  },
+  "thanks": {
+    "title": "Thank you for contacting me!",
+    "message": "Your message has been sent successfully. I will respond as soon as possible.",
+    "backToHome": "Back to Home"
+  }
+}

@@ -198,6 +198,171 @@ textarea:focus,
   box-shadow: var(--shadow-lg), 0 0 15px rgba(0, 255, 0, 0.15);
 }
 
+/* =============================================
+    RESPONSIVE DESIGN
+    ============================================= */
+
+/* Desktop First approach */
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 1024px;
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .section {
+    padding: 4rem 0;
+  }
+  
+  /* Privacy page responsive fixes */
+  .privacy-content .info-grid,
+  .privacy-content .usage-grid,
+  .privacy-content .third-party-grid,
+  .privacy-content .rights-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .privacy-badges {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .contact-methods-privacy .method-list {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  
+  .section {
+    padding: 3rem 0;
+  }
+  
+  /* Privacy page mobile fixes */
+  .privacy-header {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .privacy-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .privacy-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .privacy-badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    min-width: 150px;
+  }
+  
+  .content-card {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .section-icon {
+    font-size: 2rem;
+  }
+  
+  .update-process {
+    flex-direction: column;
+  }
+  
+  .step-number {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-methods .contact-method {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  
+  .section {
+    padding: 2rem 0;
+  }
+  
+  /* Ultra mobile fixes */
+  .privacy-hero {
+    padding: 2rem 0;
+  }
+  
+  .privacy-header h1 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .content-card {
+    padding: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .privacy-list li,
+  .version-info li {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .service-link {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .response-time {
+    font-size: 0.8rem;
+    padding: 1rem;
+    text-align: center;
+  }
+}
+
 .experience-card {
   background: var(--card-bg);
   border-radius: var(--border-radius-lg);

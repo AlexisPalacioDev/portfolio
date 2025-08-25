@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "title": "Alexis Palacio | Desarrollador Full-Stack",
+    "description": "Desarrollador Full-Stack especializado en PHP, WordPress y Shopify",
+    "keywords": "Full-Stack Developer, PHP, CakePHP, Frontend, Backend, Shopify, WordPress"
+  },
+  "buttons": {
+    "downloadCV": "Descargar CV",
+    "viewProject": "Ver Proyecto",
+    "viewCode": "Ver Código",
+    "viewSite": "Ver Sitio",
+    "backToTop": "Volver al inicio",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "changeTheme": "Cambiar tema",
+    "colorblindMode": "Modo daltónico",
+    "changeLanguage": "Cambiar idioma"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "skills": "Habilidades",
+    "education": "Educación",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Alexis Palacio",
+    "role": "Desarrollador Full-Stack",
+    "contact": {
+      "email": "Correo",
+      "phone": "Teléfono",
+      "location": "Medellín, Colombia"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    }
+  },
+  "about": {
+    "title": "Resumen Profesional",
+    "description": "Desarrollador con <strong>4+ años de experiencia</strong> en desarrollo web frontend y backend. Manejo de <strong>HTML, CSS, JavaScript, PHP</strong> y plataformas como <strong>Shopify y WordPress</strong>. Experiencia creando interfaces de usuario, integrando APIs y desarrollando aplicaciones web. Actualmente especializándome en desarrollo backend con <strong>PHP</strong> y <strong>CakePHP</strong>. Conocimientos en automatización de procesos con <strong>n8n</strong>.",
+    "technologies": "Tecnologías"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "period": {
+      "current": "Diciembre 2024 - Actualidad",
+      "kgumi": "Enero 2021 - Diciembre 2024",
+      "carljung": "Julio 2023 - Septiembre 2023",
+      "wiptool": "Marzo 2020 - Diciembre 2020"
+    },
+    "roles": {
+      "backend": "Backend PHP Developer | iMometrics",
+      "frontend": "Frontend Developer | K Gumi SAS",
+      "fullstack": "Full-Stack Developer | Carl Jung AI",
+      "wiptool": "Frontend Developer | Wiptool"
+    },
+    "preview": {
+      "frontend": "Desarrollo frontend con HTML, CSS y JavaScript",
+      "fullstack": "Desarrollo full-stack de plataforma educativa con Next.js y Supabase",
+      "wiptool": "Desarrollo frontend con integración de Mapbox API"
+    },
+    "descriptions": {
+      "backend1": "Desarrollo de aplicaciones internas usando <strong>CakePHP 4.6</strong> y <strong>PHP 7+</strong>",
+      "backend2": "Trabajo con bases de datos <strong>MySQL</strong>",
+      "backend3": "Automatización con <strong>n8n</strong>",
+      "frontend1": "Desarrollo de páginas web con <strong>HTML, CSS y JavaScript</strong>",
+      "frontend2": "Creación de sitios usando <strong>Tailwind CSS</strong>",
+      "frontend3": "Mantenimiento de sitios web",
+      "fullstack1": "Integración con <strong>ChatGPT</strong> para contenido",
+      "fullstack2": "Base de datos con <strong>Supabase</strong>",
+      "fullstack3": "Frontend con <strong>Next.js</strong> y <strong>React</strong>",
+      "wiptool1": "Desarrollo de interfaz de usuario",
+      "wiptool2": "Integración con <strong>API de Mapbox</strong>",
+      "wiptool3": "Diseño responsivo"
+    },
+    "technologies": "Tecnologías:",
+    "viewMore": "Ver más"
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "carljung": {
+      "title": "Carl Jung AI",
+      "description": "Plataforma educativa que genera contenido formativo basado en los arquetipos de Carl Jung."
+    },
+    "poisoned": {
+      "title": "PoisoneD Merch - E-commerce",
+      "description": "Tienda online completa con diseño personalizado, gestión de inventario y experiencia de usuario optimizada.",
+      "features": [
+        "Diseño personalizado con tema Dawn",
+        "Totalmente responsivo",
+        "Gestión completa de inventario"
+      ]
+    },
+    "portfolio": {
+      "title": "Portfolio Personal",
+      "description": "Sitio web personal moderno y optimizado que muestra mis habilidades y experiencia profesional.",
+      "features": [
+        "Diseño responsive mobile-first",
+        "Optimización de rendimiento",
+        "Políticas de privacidad completas"
+      ]
+    },
+    "status": {
+      "live": "En Vivo",
+      "completed": "Completado",
+      "active": "Activo"
+    },
+    "badges": {
+      "aiPowered": "AI-Powered",
+      "educational": "Educativo",
+      "multiUser": "Multi-usuario"
+    },
+    "actions": {
+      "viewProject": "Ver Proyecto",
+      "viewCode": "Código",
+      "hereYouAre": "Estás Aquí"
+    }
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Herramientas & Automatización",
+      "platforms": "Plataformas & CMS"
+    },
+    "levels": {
+      "basic": "Básico",
+      "intermediate": "Intermedio",
+      "advanced": "Avanzado"
+    },
+    "stats": {
+      "experience": "Años de Experiencia",
+      "technologies": "Tecnologías",
+      "projects": "Proyectos Completados",
+      "freelance": "Años Freelance"
+    }
+  },
+  "education": {
+    "title": "Educación",
+    "degree": "Tecnólogo en Desarrollo de Software",
+    "institution": "Tecnológico de Antioquia",
+    "period": "2016 - 2020",
+    "completed": "8/10 semestres completados",
+    "certifications": "Certificaciones",
+    "certList": [
+      "React - The Complete Guide - Udemy (2023)",
+      "JavaScript Algorithms and Data Structures - freeCodeCamp (2022)",
+      "Responsive Web Design - freeCodeCamp (2021)"
+    ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "info": "Información de Contacto",
+    "email": "Correo:",
+    "phone": "Teléfono:",
+    "location": "Ubicación:"
+  },
+  "footer": {
+    "name": "Alexis Palacio",
+    "role": "Desarrollador Full-Stack | PHP, JavaScript, WordPress, Shopify",
+    "rights": "© {year} Alexis Palacio. Todos los derechos reservados.",
+    "privacy": "Políticas de Privacidad"
+  },
+  "privacy": {
+    "title": "Políticas de Privacidad",
+    "subtitle": "Información sobre el tratamiento y protección de tus datos personales",
+    "badges": {
+      "secure": "Datos Seguros",
+      "noTracking": "Sin Tracking",
+      "gdpr": "GDPR Compliant"
+    },
+    "lastUpdated": "Última actualización:",
+    "backToHome": "Volver al Inicio",
+    "currentPage": "Políticas de Privacidad"
+  },
+  "thanks": {
+    "title": "¡Gracias por contactarme!",
+    "message": "Tu mensaje ha sido enviado correctamente. Te responderé lo antes posible.",
+    "backToHome": "Volver al Inicio"
+  }
+}

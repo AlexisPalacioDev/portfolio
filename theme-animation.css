@@ -1,0 +1,149 @@
+/* =============================================
+    THEME TRANSITION ANIMATION WITH DROPS
+    ============================================= */
+
+.theme-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.theme-drop {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%);
+  transform: scale(0);
+  opacity: 0;
+  animation: dropFall 1.5s ease-out forwards;
+}
+
+.theme-drop.dark-mode {
+  background: radial-gradient(circle, rgba(15, 15, 15, 0.9) 0%, rgba(15, 15, 15, 0.7) 50%, transparent 100%);
+}
+
+.theme-drop.light-mode {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 50%, transparent 100%);
+}
+
+@keyframes dropFall {
+  0% {
+    transform: scale(0) translateY(-20px);
+    opacity: 1;
+  }
+  
+  50% {
+    transform: scale(1) translateY(0px);
+    opacity: 0.8;
+  }
+  
+  100% {
+    transform: scale(3) translateY(20px);
+    opacity: 0;
+  }
+}
+
+.theme-transition-wave {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.theme-transition-wave.active {
+  opacity: 1;
+}
+
+.theme-transition-wave.light {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+}
+
+.theme-transition-wave.dark {
+  background: radial-gradient(circle at center, rgba(15, 15, 15, 0.8) 0%, rgba(15, 15, 15, 0.4) 50%, transparent 100%);
+}
+
+/* Smooth theme transition for all elements */
+* {
+  transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Theme button enhancement */
+.theme-toggle {
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover::before {
+  width: 40px;
+  height: 40px;
+}
+
+.theme-toggle.transitioning {
+  animation: themeButtonPulse 0.6s ease-out;
+}
+
+@keyframes themeButtonPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Ripple effect from theme button */
+.theme-ripple {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  transform: scale(0);
+  opacity: 0.6;
+}
+
+.theme-ripple.expand {
+  animation: rippleExpand 0.8s ease-out forwards;
+}
+
+@keyframes rippleExpand {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  
+  100% {
+    transform: scale(100);
+    opacity: 0;
+  }
+}
+
+/* Enhanced color transitions */
+[data-theme="light"] * {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[data-theme="dark"] * {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

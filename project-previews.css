@@ -1,0 +1,270 @@
+/* =============================================
+    ENHANCED PROJECT PREVIEWS
+    ============================================= */
+
+/* PoisoneD Merch Image Enhancement */
+.poisoned-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+  opacity: 0.8;
+  transition: all var(--transition-normal);
+  z-index: 1;
+}
+
+.poisoned-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.poisoned-preview:hover .poisoned-main-image {
+  opacity: 0.3;
+  transform: scale(1.1);
+}
+
+.poisoned-preview .product-showcase {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all var(--transition-normal);
+}
+
+.poisoned-preview:hover .product-showcase {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Portfolio Personal Preview Enhancement */
+.portfolio-preview {
+  position: relative;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.portfolio-preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="80" cy="30" r="1.5" fill="%23ffffff" opacity="0.08"/><circle cx="70" cy="80" r="1" fill="%23ffffff" opacity="0.06"/></svg>');
+  animation: float 20s infinite linear;
+}
+
+.portfolio-mockup {
+  position: relative;
+  z-index: 2;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: perspective(1000px) rotateX(15deg) rotateY(-15deg);
+  transition: all var(--transition-normal);
+}
+
+.portfolio-preview:hover .portfolio-mockup {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+}
+
+.portfolio-header {
+  background: #f8f9fa;
+  padding: 0.5rem;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.portfolio-dots {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.portfolio-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff5f56;
+}
+
+.portfolio-dot:nth-child(2) { background: #ffbd2e; }
+.portfolio-dot:nth-child(3) { background: #27ca3f; }
+
+.portfolio-url {
+  font-size: 0.7rem;
+  color: #6c757d;
+  background: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-left: auto;
+}
+
+.portfolio-content {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.portfolio-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.portfolio-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.portfolio-nav-item {
+  font-size: 0.6rem;
+  padding: 0.2rem 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  transition: all var(--transition-fast);
+}
+
+.portfolio-nav-item:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Carl Jung AI Preview Enhancement */
+.carljung-preview {
+  position: relative;
+}
+
+.jung-hero {
+  position: relative;
+  z-index: 2;
+}
+
+.mandala-circle {
+  position: relative;
+}
+
+.inner-circles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle-1,
+.circle-2,
+.circle-3 {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: rotate 20s infinite linear;
+}
+
+.circle-1 {
+  width: 40px;
+  height: 40px;
+  top: -20px;
+  left: -20px;
+}
+
+.circle-2 {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: -30px;
+  animation-direction: reverse;
+  animation-duration: 30s;
+}
+
+.circle-3 {
+  width: 80px;
+  height: 80px;
+  top: -40px;
+  left: -40px;
+  animation-duration: 25s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Project Card Enhancements */
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.8s ease;
+  z-index: 3;
+}
+
+.project-card:hover::before {
+  left: 100%;
+}
+
+/* Responsive Enhancements */
+@media screen and (max-width: 768px) {
+  .portfolio-mockup {
+    transform: none;
+  }
+  
+  .portfolio-preview:hover .portfolio-mockup {
+    transform: none;
+  }
+  
+  .poisoned-main-image {
+    opacity: 0.6;
+  }
+  
+  .poisoned-preview:hover .poisoned-main-image {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio-content {
+    padding: 1rem;
+  }
+  
+  .portfolio-title {
+    font-size: 1rem;
+  }
+  
+  .portfolio-subtitle {
+    font-size: 0.7rem;
+  }
+  
+  .portfolio-nav-item {
+    font-size: 0.5rem;
+    padding: 0.1rem 0.3rem;
+  }
+}
