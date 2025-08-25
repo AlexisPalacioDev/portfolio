@@ -1,0 +1,687 @@
+/* =============================================
+    ENHANCED PROJECT PREVIEWS - V2.0
+    ============================================= */
+
+/* General Project Preview Styles */
+.project-image {
+  position: relative;
+  height: 300px;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+.project-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* =============================================
+    CARL JUNG AI PREVIEW - Enhanced
+    ============================================= */
+
+.carljung-preview {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+  position: relative;
+}
+
+.carljung-preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.2) 0%, transparent 50%);
+  animation: psychoBackground 15s ease-in-out infinite;
+}
+
+@keyframes psychoBackground {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+.browser-mockup {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 350px;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transform: perspective(1000px) rotateX(10deg) rotateY(-5deg);
+  transition: all var(--transition-normal);
+}
+
+.carljung-preview:hover .browser-mockup {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02);
+}
+
+.browser-header {
+  background: #f1f3f4;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.browser-dots {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27ca3f; }
+
+.browser-url {
+  font-size: 0.7rem;
+  color: #5f6368;
+  background: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  margin-left: auto;
+  border: 1px solid #e0e0e0;
+}
+
+.browser-content {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.browser-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="30" r="1.5" fill="%23ffffff" opacity="0.05"/><circle cx="30" cy="70" r="1" fill="%23ffffff" opacity="0.08"/><circle cx="70" cy="80" r="2" fill="%23ffffff" opacity="0.06"/></svg>');
+  animation: slowFloat 25s linear infinite;
+}
+
+.jung-hero {
+  position: relative;
+  z-index: 2;
+}
+
+.jung-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.mandala-circle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-circles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle-1,
+.circle-2,
+.circle-3 {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.circle-1 {
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  left: -10px;
+  animation: rotate 15s infinite linear;
+}
+
+.circle-2 {
+  width: 35px;
+  height: 35px;
+  top: -17.5px;
+  left: -17.5px;
+  animation: rotate 20s infinite linear reverse;
+}
+
+.circle-3 {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: -25px;
+  animation: rotate 25s infinite linear;
+}
+
+.jung-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.jung-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-style: italic;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* =============================================
+    POISONED MERCH PREVIEW - Enhanced
+    ============================================= */
+
+.poisoned-preview {
+  position: relative;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #000000 100%);
+  overflow: hidden;
+}
+
+.poisoned-main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: all var(--transition-normal);
+  z-index: 1;
+}
+
+.poisoned-preview:hover .poisoned-main-image {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.product-showcase {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all var(--transition-normal);
+}
+
+.poisoned-preview:hover .product-showcase {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.product-bag {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.bag-main {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  border: 2px solid #333;
+  transition: all var(--transition-normal);
+}
+
+.poisoned-preview:hover .bag-main {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+}
+
+.poisoned-logo {
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  letter-spacing: 1px;
+}
+
+.product-accessories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  max-width: 250px;
+}
+
+.qr-card,
+.tag-edition,
+.hoodie,
+.patch {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 0.8rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.product-accessories > div:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.qr-code {
+  width: 30px;
+  height: 30px;
+  background: white;
+  margin: 0 auto 0.5rem;
+  border-radius: 4px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="1" y="1" width="4" height="4" fill="%23000"/><rect x="7" y="1" width="2" height="2" fill="%23000"/><rect x="11" y="1" width="4" height="4" fill="%23000"/><rect x="17" y="1" width="4" height="4" fill="%23000"/><rect x="1" y="7" width="2" height="2" fill="%23000"/><rect x="19" y="7" width="2" height="2" fill="%23000"/></svg>');
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.qr-card span,
+.tag-edition span,
+.patch span {
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.edition-num {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  color: var(--primary-color) !important;
+  display: block;
+  margin: 0.2rem 0;
+}
+
+.hoodie {
+  position: relative;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  border: 2px solid #333;
+}
+
+.hoodie-logo {
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.size-tag {
+  background: var(--primary-color) !important;
+  color: white !important;
+  padding: 0.1rem 0.3rem !important;
+  border-radius: 3px !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+}
+
+/* =============================================
+    PORTFOLIO PREVIEW - Enhanced
+    ============================================= */
+
+.portfolio-preview {
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.portfolio-preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="25" r="1.5" fill="%23ffffff" opacity="0.08"/><circle cx="25" cy="75" r="1" fill="%23ffffff" opacity="0.06"/><circle cx="75" cy="75" r="2.5" fill="%23ffffff" opacity="0.05"/><circle cx="50" cy="50" r="1.5" fill="%23ffffff" opacity="0.1"/></svg>');
+  animation: slowFloat 30s linear infinite;
+}
+
+.portfolio-mockup {
+  position: relative;
+  z-index: 2;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transform: perspective(1000px) rotateX(10deg) rotateY(-10deg);
+  transition: all var(--transition-normal);
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.portfolio-preview:hover .portfolio-mockup {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.05);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-header {
+  background: #f8f9fa;
+  padding: 0.6rem;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.portfolio-dots {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.portfolio-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff5f56;
+}
+
+.portfolio-dot:nth-child(2) { background: #ffbd2e; }
+.portfolio-dot:nth-child(3) { background: #27ca3f; }
+
+.portfolio-url {
+  font-size: 0.7rem;
+  color: #6c757d;
+  background: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 15px;
+  margin-left: auto;
+  border: 1px solid #e9ecef;
+  font-weight: 500;
+}
+
+.portfolio-content {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+
+.portfolio-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+}
+
+.portfolio-title {
+  position: relative;
+  z-index: 2;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-subtitle {
+  position: relative;
+  z-index: 2;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.portfolio-nav-item {
+  font-size: 0.65rem;
+  padding: 0.3rem 0.7rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-nav-item:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* =============================================
+    GENERAL ANIMATIONS & EFFECTS
+    ============================================= */
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes slowFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(180deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
+
+/* Shimmer effect for cards */
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.8s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.project-card:hover::after {
+  left: 100%;
+}
+
+/* =============================================
+    RESPONSIVE DESIGN
+    ============================================= */
+
+@media screen and (max-width: 1024px) {
+  .project-image {
+    height: 280px;
+  }
+  
+  .browser-mockup,
+  .portfolio-mockup {
+    max-width: 280px;
+  }
+  
+  .product-accessories {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project-image {
+    height: 250px;
+  }
+  
+  .browser-mockup,
+  .portfolio-mockup {
+    transform: none;
+    max-width: 250px;
+  }
+  
+  .carljung-preview:hover .browser-mockup,
+  .portfolio-preview:hover .portfolio-mockup {
+    transform: none;
+  }
+  
+  .browser-content,
+  .portfolio-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .jung-title,
+  .portfolio-title {
+    font-size: 1.1rem;
+  }
+  
+  .product-bag {
+    padding: 1.5rem;
+    gap: 0.8rem;
+  }
+  
+  .bag-main {
+    width: 100px;
+    height: 70px;
+  }
+  
+  .poisoned-logo {
+    font-size: 0.9rem;
+  }
+  
+  .product-accessories {
+    max-width: 200px;
+    gap: 0.5rem;
+  }
+  
+  .qr-card,
+  .tag-edition,
+  .hoodie,
+  .patch {
+    padding: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .project-image {
+    height: 220px;
+  }
+  
+  .browser-mockup,
+  .portfolio-mockup {
+    max-width: 220px;
+  }
+  
+  .browser-content,
+  .portfolio-content {
+    padding: 1rem;
+  }
+  
+  .jung-title,
+  .portfolio-title {
+    font-size: 1rem;
+  }
+  
+  .jung-subtitle,
+  .portfolio-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .mandala-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .product-bag {
+    padding: 1rem;
+  }
+  
+  .bag-main {
+    width: 80px;
+    height: 60px;
+  }
+  
+  .poisoned-logo {
+    font-size: 0.8rem;
+  }
+  
+  .product-accessories {
+    grid-template-columns: 1fr 1fr;
+    max-width: 160px;
+  }
+  
+  .qr-code {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .portfolio-nav {
+    gap: 0.5rem;
+  }
+  
+  .portfolio-nav-item {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .project-image {
+    height: 200px;
+  }
+  
+  .browser-mockup,
+  .portfolio-mockup {
+    max-width: 200px;
+  }
+  
+  .product-accessories {
+    max-width: 140px;
+  }
+  
+  .qr-card span,
+  .tag-edition span,
+  .patch span {
+    font-size: 0.6rem;
+  }
+}

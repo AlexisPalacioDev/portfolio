@@ -14,6 +14,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="project-previews.css">
+  <link rel="stylesheet" href="theme-animation.css">
+  <link rel="stylesheet" href="neumorphism.css">
+  <link rel="stylesheet" href="neumorphism-extras.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="canonical" href="https://alexispalaciodev.github.io/portfolio/">
@@ -71,7 +75,7 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="container hero-content">
-      <h1 class="animate fade-in" data-i18n="title">Alexis Palacio</h1>
+      <h1 class="animate fade-in" data-i18n="hero.name">Alexis Palacio</h1>
       <h2 class="animate fade-in delay-1" data-i18n="hero.role">Desarrollador Full-Stack</h2>
       <!-- Sección de contacto en el hero -->
       <div class="contact-info animate fade-in delay-2">
@@ -85,16 +89,16 @@
         </div>
         <div class="contact-item">
           <i class="fas fa-map-marker-alt contact-icon"></i>
-          <span class="contact-text">Medellín, Colombia</span>
+          <span class="contact-text" data-i18n="hero.contact.location">Medellín, Colombia</span>
         </div>
         <div class="social-links">
           <a href="https://www.linkedin.com/in/poisoneddog/" target="_blank" class="social-link">
             <i class="fab fa-linkedin-in"></i>
-            <span class="social-tooltip">LinkedIn</span>
+            <span class="social-tooltip" data-i18n="hero.social.linkedin">LinkedIn</span>
           </a>
           <a href="https://github.com/alexispalaciodev" target="_blank" class="social-link">
             <i class="fab fa-github"></i>
-            <span class="social-tooltip">GitHub</span>
+            <span class="social-tooltip" data-i18n="hero.social.github">GitHub</span>
           </a>
         </div>
       </div>
@@ -325,6 +329,7 @@
         <div class="project-card animate fade-in delay-1">
           <div class="project-image">
             <div class="project-preview poisoned-preview">
+              <img src="assets/image/poison-march.png" alt="PoisoneD Merch Collection" class="poisoned-main-image" loading="lazy">
               <div class="product-showcase">
                 <div class="product-bag">
                   <div class="bag-main">
@@ -390,6 +395,30 @@
 
         <!-- Portfolio -->
         <div class="project-card animate fade-in delay-2">
+          <div class="project-image">
+            <div class="project-preview portfolio-preview">
+              <div class="portfolio-mockup">
+                <div class="portfolio-header">
+                  <div class="portfolio-dots">
+                    <span class="portfolio-dot"></span>
+                    <span class="portfolio-dot"></span>
+                    <span class="portfolio-dot"></span>
+                  </div>
+                  <div class="portfolio-url">alexispalacio.vercel.app</div>
+                </div>
+                <div class="portfolio-content">
+                  <h1 class="portfolio-title">Alexis Palacio</h1>
+                  <p class="portfolio-subtitle">Desarrollador Full-Stack</p>
+                  <div class="portfolio-nav">
+                    <span class="portfolio-nav-item">Inicio</span>
+                    <span class="portfolio-nav-item">Sobre mí</span>
+                    <span class="portfolio-nav-item">Proyectos</span>
+                    <span class="portfolio-nav-item">Contacto</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="project-header">
             <div class="project-icon">
               <i class="fas fa-code"></i>
@@ -719,7 +748,7 @@
           <div class="stat-label">Proyectos Completados</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">3+</div>
+          <div class="stat-number">1+</div>
           <div class="stat-label">Años Freelance</div>
         </div>
       </div>
@@ -769,7 +798,7 @@
             </li>
             <li>
               <i class="fas fa-map-marker-alt"></i>
-              <span data-i18n="contact.location">Ubicación:</span> Medellín, Colombia
+              <span data-i18n="contact.location">Ubicación:</span> <span data-i18n="hero.contact.location">Medellín, Colombia</span>
             </li>
           </ul>
         </div>
@@ -797,7 +826,7 @@
       <div class="footer-bottom">
         <p data-i18n="footer.rights">&copy; <span id="year"></span> Alexis Palacio. Todos los derechos reservados.</p>
         <p>
-          <a href="politicas-privacidad.html" class="privacy-link">Políticas de Privacidad</a>
+          <a href="politicas-privacidad" class="privacy-link">Políticas de Privacidad</a>
         </p>
       </div>
     </div>
@@ -811,6 +840,8 @@
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="scripts.js"></script>
+  <script src="theme-transitions.js"></script>
+  <script src="neumorphism-enhancer.js"></script>
 </body>
 
 </html>
