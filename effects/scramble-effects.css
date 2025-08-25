@@ -4,6 +4,33 @@
  * PoisonedDog - 2025
  */
 
+/* PRESERVAR TAMAÑO Y LAYOUT DURANTE SCRAMBLE */
+.scramble-element,
+[data-i18n] {
+  /* Preservar dimensiones durante el efecto */
+  box-sizing: border-box;
+}
+
+/* Prevenir cambios de tamaño durante scramble */
+.scrambling-active {
+  /* Mantener el mismo tamaño de fuente */
+  font-size: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  
+  /* Preservar layout */
+  width: auto;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+  
+  /* Solo permitir efectos visuales que no afecten el layout */
+  transform: none !important;
+  scale: none !important;
+}
+
 /* Efecto de glitch para el botón de idioma durante el scramble */
 #language-toggle.scrambling {
   animation: glitchButton 0.3s infinite;
@@ -158,14 +185,35 @@
   }
 }
 
-/* Efectos especiales para diferentes elementos */
-.nav-link.scrambling,
+/* Override para preservar tipografía durante scramble */
+.scramble-preserve-font {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  font-weight: inherit !important;
+}
+
+/* Aplicar a elementos durante scramble */
+[data-i18n].scrambling {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Override específico para navegación */
+.nav-link.scrambling {
+  font-family: inherit !important;
+  font-size: inherit !important;
+}
+
+/* Override para títulos */
 .section-title.scrambling,
 h1.scrambling,
 h2.scrambling,
 h3.scrambling {
-  font-family: 'Courier New', monospace;
-  letter-spacing: 1px;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
 }
 
 /* Efecto de pantalla CRT durante scramble */

@@ -570,12 +570,37 @@ class PortfolioApp {
         }
       }
     });
-
-    // Update download CV button text
-    this.updateDownloadButton();
     
-    // Update aria-labels
-    this.updateAriaLabels();
+    // Update elements with data-i18n-attr for aria-labels and other attributes
+    document.querySelectorAll('[data-i18n-attr]').forEach(element => {
+      const attrMappings = element.dataset.i18nAttr.split(',');
+      
+      attrMappings.forEach(mapping => {
+        const [attrName, translationKey] = mapping.split(':');
+        if (attrName && translationKey) {
+          const keys = translationKey.split('.');
+          let value = currentTranslations;
+          
+          for (const key of keys) {
+            if (value && typeof value === 'object' && key in value) {
+              value = value[key];
+            } else {
+              return;
+            }
+          }
+          
+          if (value) {
+            element.setAttribute(attrName.trim(), String(value).replace('{year}', currentYear));
+          }
+        }
+      });
+    });
+
+    // Update download CV button text - ya no es necesario porque ahora usa data-i18n
+    // this.updateDownloadButton();
+    
+    // Update aria-labels - ya no es necesario porque ahora usa data-i18n-attr
+    // this.updateAriaLabels();
   }
 
   updateDownloadButton() {

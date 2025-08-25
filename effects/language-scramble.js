@@ -147,6 +147,13 @@ class LanguageScramble {
     const frameRate = 60; // Más fluido
     const frames = scrambleDuration / frameRate;
     
+    // Aplicar clases de preservación de fuente a todos los elementos
+    this.originalTexts.forEach((data, element) => {
+      if (element && element.isConnected) {
+        element.classList.add('scrambling-active', 'scramble-preserve-font');
+      }
+    });
+    
     for (let frame = 0; frame < frames; frame++) {
       await new Promise(resolve => {
         requestAnimationFrame(() => {
@@ -160,10 +167,13 @@ class LanguageScramble {
                 element.textContent = scrambledText;
               }
               
-              // Efecto visual más sutil
-              element.style.transition = 'all 0.05s ease';
-              element.style.filter = `brightness(${0.9 + Math.random() * 0.2})`;
-              element.style.textShadow = `0 0 ${1 + Math.random() * 2}px currentColor`;
+              // Efecto visual MUY sutil - solo brightness y text-shadow muy ligero
+              element.style.transition = 'filter 0.05s ease, text-shadow 0.05s ease';
+              element.style.filter = `brightness(${0.95 + Math.random() * 0.1})`; // Cambio mínimo
+              element.style.textShadow = `0 0 ${0.5 + Math.random() * 1}px currentColor`; // Más sutil
+              
+              // NO usar transform ni scale - esto cambia el tamaño
+              // NO cambiar font-family, font-size, line-height
             }
           });
           
@@ -226,10 +236,15 @@ class LanguageScramble {
                   element.textContent = resolvedText;
                 }
                 
-                // Reducir efectos visuales gradualmente
+                // Reducir efectos visuales gradualmente - SIN CAMBIAR TAMAÑO
                 const intensity = 1 - progress;
-                element.style.filter = intensity > 0 ? `brightness(${1 + intensity * 0.2})` : '';
-                element.style.textShadow = intensity > 0 ? `0 0 ${intensity * 2}px currentColor` : '';
+                if (intensity > 0) {
+                  element.style.filter = `brightness(${1 + intensity * 0.1})`; // Mínimo cambio
+                  element.style.textShadow = `0 0 ${intensity * 1}px currentColor`; // Más sutil
+                } else {
+                  element.style.filter = '';
+                  element.style.textShadow = '';
+                }
               }
             }
           });
@@ -274,11 +289,26 @@ class LanguageScramble {
           element.textContent = finalText;
         }
         
-        // Limpiar estilos
+        // Limpiar TODOS los estilos que pueden haber sido aplicados
         element.style.filter = '';
         element.style.textShadow = '';
         element.style.transition = '';
         element.style.transform = '';
+        element.style.scale = '';
+        element.style.fontFamily = '';
+        element.style.fontSize = '';
+        element.style.fontWeight = '';
+        element.style.lineHeight = '';
+        element.style.letterSpacing = '';
+        
+        // Remover todas las clases de scramble
+        element.classList.remove(
+          'scrambling-active', 
+          'scramble-preserve-font', 
+          'scrambling',
+          'scramble-element',
+          'resolving'
+        );
       }
     });
     
@@ -301,13 +331,35 @@ class LanguageScramble {
       window.portfolioApp.updateTranslations();
     }
     
-    // Limpiar todos los efectos visuales
+    // Limpiar todos los efectos visuales y estilos que puedan cambiar el tamaño
     document.querySelectorAll('[data-i18n]').forEach(element => {
       if (element.tagName !== 'META' && element.tagName !== 'TITLE') {
+        // Limpiar estilos inline
         element.style.filter = '';
         element.style.textShadow = '';
         element.style.transition = '';
         element.style.transform = '';
+        element.style.scale = '';
+        element.style.fontFamily = '';
+        element.style.fontSize = '';
+        element.style.fontWeight = '';
+        element.style.lineHeight = '';
+        element.style.letterSpacing = '';
+        element.style.animation = '';
+        element.style.opacity = '';
+        element.style.visibility = '';
+        
+        // Remover clases problemáticas
+        element.classList.remove(
+          'scrambling-active',
+          'scramble-preserve-font', 
+          'scrambling',
+          'scramble-element',
+          'resolving',
+          'scramble-flicker',
+          'scramble-vip',
+          'text-restored'
+        );
       }
     });
     
