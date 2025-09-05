@@ -11,12 +11,12 @@ const navItems: NavLink[] = [
 
 export default function NavLinks({ mobile = false, onClose = () => {} }: NavLinksProps) {
   return (
-    <ul className={mobile ? 'flex flex-col space-y-4' : 'flex items-center space-x-8'}>
+    <ul className={mobile ? 'flex flex-col gap-3' : 'flex items-center gap-3'}>
       {navItems.map(({ href, label }) => (
         <motion.li key={href}>
           <motion.a
             href={href}
-            className="text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
+            className="neo-chip"
             onClick={onClose}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -28,4 +28,3 @@ export default function NavLinks({ mobile = false, onClose = () => {} }: NavLink
     </ul>
   );
 }
-
