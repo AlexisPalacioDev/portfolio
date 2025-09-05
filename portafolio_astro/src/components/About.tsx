@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { TechIcon } from './icons/TechIcons';
 
 const skills = [
   { name: 'HTML5', level: 95, category: 'Frontend' },
@@ -79,12 +80,23 @@ export default function About() {
                   <motion.div key={skill.name} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1, duration: 0.4 }} viewport={{ once: true }}>
                     <div className="flex justify-between items-center mb-2">
                       <div className="flex items-center gap-3">
-                        <span className="neo-chip">{skill.category}</span>
-                        <span className="font-medium" style={{ color: 'var(--neo-text)' }}>{skill.name}</span>
+                        <span className="neo-chip neo-chip-sm" title={skill.category}>{skill.category}</span>
+                        <span className="flex items-center gap-2 font-medium" style={{ color: 'var(--neo-text)' }}>
+                          <TechIcon name={skill.name} />
+                          {skill.name}
+                        </span>
                       </div>
                       <span className="text-sm font-semibold" style={{ color: 'var(--neo-text)' }}>{skill.level}%</span>
                     </div>
-                    <div className="w-full h-2 neo-inset rounded-full" />
+                    <div className="w-full h-2 neo-inset rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, ease: 'easeOut' }}
+                        style={{ height: '100%', background: 'linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff)' }}
+                      />
+                    </div>
                   </motion.div>
                 ))}
               </div>

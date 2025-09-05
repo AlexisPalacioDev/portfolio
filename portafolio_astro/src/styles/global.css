@@ -4,6 +4,8 @@
 
 /* Modern Design System */
 :root {
+  --icon-accent: #0ea5e9; /* cyan-blue */
+  --icon-accent-2: #2563eb; /* vibrant blue */
   /* Neumorphism base */
   --neo-base: #e9edf3; /* light, uniform base */
   --neo-shadow-dark: #c5cad3; /* bottom-right shadow */
@@ -99,14 +101,15 @@
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
 
+  /* Pressed feel on hover (neumorphic push-in) */
   .neo-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 10px 10px 20px var(--neo-shadow-dark), -10px -10px 20px var(--neo-shadow-light);
+    transform: translateY(1px);
+    box-shadow: inset 9px 9px 16px var(--neo-shadow-dark), inset -9px -9px 16px var(--neo-shadow-light);
   }
 
   .neo-btn:active {
-    transform: translateY(0);
-    box-shadow: inset 6px 6px 12px var(--neo-shadow-dark), inset -6px -6px 12px var(--neo-shadow-light);
+    transform: translateY(2px);
+    box-shadow: inset 12px 12px 20px var(--neo-shadow-dark), inset -12px -12px 20px var(--neo-shadow-light);
   }
 
   .neo-input {
@@ -132,6 +135,24 @@
     background: var(--neo-base);
     color: var(--neo-text);
     box-shadow: 6px 6px 12px var(--neo-shadow-dark), -6px -6px 12px var(--neo-shadow-light);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+  }
+
+  .neo-chip-sm {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  /* Pressed feel for chips as interactive buttons */
+  .neo-chip:hover {
+    transform: translateY(1px);
+    box-shadow: inset 9px 9px 16px var(--neo-shadow-dark), inset -9px -9px 16px var(--neo-shadow-light);
+  }
+
+  .neo-chip:active {
+    transform: translateY(2px);
+    box-shadow: inset 12px 12px 20px var(--neo-shadow-dark), inset -12px -12px 20px var(--neo-shadow-light);
   }
 
   .neo-avatar {
@@ -144,6 +165,11 @@
     place-items: center;
     color: var(--neo-muted);
     font-weight: 600;
+  }
+
+  /* Hide About header chip only, keep other chips */
+  #about .text-center.mb-16 > .neo-chip {
+    display: none;
   }
 
   /* Modern card component */
@@ -216,6 +242,81 @@
 
   .section-content {
     @apply max-w-7xl mx-auto;
+  }
+
+  /* Neumorphic Toggle (inspired by Uiverse.io by mobinkakei) */
+  .neo-toggle-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--neo-text);
+    gap: 12px;
+  }
+
+  .neo-toggle-text {
+    font-size: 14px;
+    color: var(--neo-muted);
+  }
+
+  .neo-toggle {
+    position: relative;
+    isolation: isolate;
+    height: 30px;
+    width: 60px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: var(--neo-base);
+    box-shadow:
+      -8px -4px 8px 0 var(--neo-shadow-light),
+      8px 4px 12px 0 var(--neo-shadow-dark),
+      4px 4px 4px 0 var(--neo-shadow-dark) inset,
+      -4px -4px 4px 0 var(--neo-shadow-light) inset;
+  }
+
+  .neo-toggle-state {
+    display: none;
+  }
+
+  .neo-toggle-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200%;
+    background: var(--neo-base);
+    border-radius: 15px;
+    transform: translate3d(-75%, 0, 0);
+    transition: transform 0.35s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+    box-shadow:
+      -8px -4px 8px 0 var(--neo-shadow-light),
+      8px 4px 12px 0 var(--neo-shadow-dark);
+  }
+
+  .neo-toggle-state:checked ~ .neo-toggle-indicator {
+    transform: translate3d(25%, 0, 0);
+  }
+
+  .neo-toggle-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--neo-text);
+    opacity: 1;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+  }
+
+  .neo-toggle-icon--sun { left: 6px; }
+  .neo-toggle-icon--moon { right: 6px; opacity: 0; }
+
+  .neo-toggle-state:checked ~ .neo-toggle-icon--sun {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.9);
+  }
+
+  .neo-toggle-state:checked ~ .neo-toggle-icon--moon {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
   }
 }
 
@@ -325,60 +426,7 @@
   background: var(--gray-400);
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--gray-900);
-    color: white;
-  }
-
-  .modern-card {
-    @apply bg-gray-800 border border-gray-700;
-  }
-
-  .modern-btn-secondary {
-    @apply bg-gray-800 text-gray-200 border-gray-600;
-  }
-
-  .modern-btn-secondary:hover {
-    @apply bg-gray-700 border-gray-500;
-  }
-
-  .modern-body {
-    @apply text-gray-400;
-  }
-
-  .modern-input {
-    @apply bg-gray-800 text-white border-gray-600;
-  }
-
-  .modern-input:focus {
-    @apply border-blue-500;
-    box-shadow: 0 0 0 3px rgb(59 130 246 / 0.2);
-  }
-
-  .bg-gradient-subtle {
-    background: linear-gradient(135deg, var(--gray-900), var(--gray-800));
-  }
-
-  .glass {
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--gray-800);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--gray-600);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--gray-500);
-  }
-}
+/* Dark mode disabled for consistent light neumorphism */
 
 /* Responsive utilities */
 @media (max-width: 640px) {
