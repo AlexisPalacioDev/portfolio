@@ -12,18 +12,16 @@ import Contact from '../components/Contact.tsx';
   <HeaderWrapper client:load />
   
   <main class="pt-16">
-    <Hero client:idle />
-    <About client:visible />
-    <Experience client:visible />
-    <Projects client:visible />
-    <Contact client:visible />
+    <section id="home"><Hero client:idle /></section>
+    <section id="about"><About client:visible /></section>
+    <section id="experience"><Experience client:visible /></section>
+    <section id="projects"><Projects client:visible /></section>
+    <section id="contact"><Contact client:visible /></section>
   </main>
 
   <footer class="bg-surface dark:bg-surface-dark py-8">
     <div class="container text-center">
-      <p class="text-text-muted dark:text-text-muted-dark">
-        © 2024 Alexis Palacio. Todos los derechos reservados.
-      </p>
+      <p class="text-text-muted dark:text-text-muted-dark">© 2024 Alexis Palacio. Todos los derechos reservados.</p>
       <div class="flex justify-center gap-6 mt-4">
         <a href="#" class="text-text-muted dark:text-text-muted-dark hover:text-primary dark:hover:text-primary-dark transition-colors">
           Términos
@@ -35,3 +33,4 @@ import Contact from '../components/Contact.tsx';
     </div>
   </footer>
 </Layout>
+
