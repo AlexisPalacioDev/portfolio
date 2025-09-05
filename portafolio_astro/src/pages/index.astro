@@ -1,36 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeaderWrapper from '../components/HeaderWrapper.tsx';
-import Hero from '../components/Hero.tsx';
-import About from '../components/About.tsx';
-import Experience from '../components/Experience.tsx';
-import Projects from '../components/Projects.tsx';
-import Contact from '../components/Contact.tsx';
 ---
 
 <Layout title="Alexis Palacio - Portfolio" description="Portfolio de Alexis Palacio - Desarrollador Full-Stack">
-  <HeaderWrapper client:load />
-  
-  <main class="pt-16">
-    <section id="home"><Hero client:idle /></section>
-    <section id="about"><About client:visible /></section>
-    <section id="experience"><Experience client:visible /></section>
-    <section id="projects"><Projects client:visible /></section>
-    <section id="contact"><Contact client:visible /></section>
-  </main>
+  <main class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="container mx-auto px-6 py-8 flex items-center justify-between">
+      <div class="neo-avatar">AP</div>
+      <nav class="flex items-center gap-3">
+        <span class="neo-chip">Inicio</span>
+        <span class="neo-chip">Proyectos</span>
+        <span class="neo-chip">Contacto</span>
+      </nav>
+    </header>
 
-  <footer class="bg-surface dark:bg-surface-dark py-8">
-    <div class="container text-center">
-      <p class="text-text-muted dark:text-text-muted-dark">© 2024 Alexis Palacio. Todos los derechos reservados.</p>
-      <div class="flex justify-center gap-6 mt-4">
-        <a href="#" class="text-text-muted dark:text-text-muted-dark hover:text-primary dark:hover:text-primary-dark transition-colors">
-          Términos
-        </a>
-        <a href="#" class="text-text-muted dark:text-text-muted-dark hover:text-primary dark:hover:text-primary-dark transition-colors">
-          Privacidad
-        </a>
+    <!-- Hero -->
+    <section class="container mx-auto px-6 py-8 flex-1 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-5xl md:text-6xl font-black tracking-tight mb-6" style="color: var(--neo-text)">Diseño Neumórfico Elegante</h1>
+        <p class="text-lg md:text-xl mb-10" style="color: var(--neo-muted)">Interfaz minimalista con fondo uniforme, sombras duales y una estética suave y realista.</p>
+
+        <div class="neo-card">
+          <label class="block text-sm mb-3" style="color: var(--neo-muted)">Suscríbete a novedades</label>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input class="neo-input" type="email" placeholder="tu@email.com" />
+            <button class="neo-btn">Empezar</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
-</Layout>
 
+      <div class="grid gap-6">
+        <div class="neo-card">
+          <h3 class="text-2xl font-semibold mb-3" style="color: var(--neo-text)">Tarjeta Neumórfica</h3>
+          <p style="color: var(--neo-muted)">Superficie elevada con sombras en diagonal (superior-izquierda luz, inferior-derecha sombra) para un relieve sutil.</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <button class="neo-btn">Botón Redondeado</button>
+          <div class="flex-1 neo-inset p-5">Campo en relieve invertido (inset)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container mx-auto px-6 py-10">
+      <div class="neo-inset p-6 rounded-[var(--neo-radius-lg)] text-center" style="color: var(--neo-muted)">
+        © 2024 Alexis Palacio — Diseño neumórfico minimalista y consistente
+      </div>
+    </footer>
+  </main>
+</Layout>

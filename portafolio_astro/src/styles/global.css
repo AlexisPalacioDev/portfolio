@@ -4,6 +4,16 @@
 
 /* Modern Design System */
 :root {
+  /* Neumorphism base */
+  --neo-base: #e9edf3; /* light, uniform base */
+  --neo-shadow-dark: #c5cad3; /* bottom-right shadow */
+  --neo-shadow-light: #ffffff; /* top-left highlight */
+  --neo-radius: 18px;
+  --neo-radius-lg: 24px;
+  --neo-gap: 16px;
+  --neo-text: #2f3441;
+  --neo-muted: #6f7686;
+
   /* Clean, modern color palette */
   --primary-50: #eff6ff;
   --primary-100: #dbeafe;
@@ -48,13 +58,94 @@
   body {
     margin: 0;
     padding: 0;
-    background-color: white;
-    color: var(--gray-900);
-    transition: all 0.2s ease;
+    background-color: var(--neo-base);
+    color: var(--neo-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 }
 
 @layer components {
+  /* Neumorphism primitives */
+  .neo-surface {
+    background: var(--neo-base);
+  }
+
+  .neo-elevated {
+    background: var(--neo-base);
+    border-radius: var(--neo-radius);
+    box-shadow: 9px 9px 16px var(--neo-shadow-dark), -9px -9px 16px var(--neo-shadow-light);
+  }
+
+  .neo-inset {
+    background: var(--neo-base);
+    border-radius: var(--neo-radius);
+    box-shadow: inset 9px 9px 16px var(--neo-shadow-dark), inset -9px -9px 16px var(--neo-shadow-light);
+  }
+
+  .neo-card {
+    @apply p-8; /* Tailwind spacing for convenience */
+    border-radius: var(--neo-radius-lg);
+    background: var(--neo-base);
+    box-shadow: 12px 12px 24px var(--neo-shadow-dark), -12px -12px 24px var(--neo-shadow-light);
+  }
+
+  .neo-btn {
+    @apply inline-flex items-center justify-center font-medium;
+    padding: 14px 22px;
+    border-radius: 9999px; /* fully rounded */
+    background: var(--neo-base);
+    color: var(--neo-text);
+    box-shadow: 9px 9px 16px var(--neo-shadow-dark), -9px -9px 16px var(--neo-shadow-light);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .neo-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 10px 10px 20px var(--neo-shadow-dark), -10px -10px 20px var(--neo-shadow-light);
+  }
+
+  .neo-btn:active {
+    transform: translateY(0);
+    box-shadow: inset 6px 6px 12px var(--neo-shadow-dark), inset -6px -6px 12px var(--neo-shadow-light);
+  }
+
+  .neo-input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: var(--neo-radius);
+    background: var(--neo-base);
+    color: var(--neo-text);
+    border: none;
+    outline: none;
+    box-shadow: inset 9px 9px 16px var(--neo-shadow-dark), inset -9px -9px 16px var(--neo-shadow-light);
+    transition: box-shadow 0.15s ease;
+  }
+
+  .neo-input:focus {
+    box-shadow: inset 7px 7px 12px var(--neo-shadow-dark), inset -7px -7px 12px var(--neo-shadow-light);
+  }
+
+  .neo-chip {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    background: var(--neo-base);
+    color: var(--neo-muted);
+    box-shadow: 6px 6px 12px var(--neo-shadow-dark), -6px -6px 12px var(--neo-shadow-light);
+  }
+
+  .neo-avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 9999px;
+    background: var(--neo-base);
+    box-shadow: 9px 9px 16px var(--neo-shadow-dark), -9px -9px 16px var(--neo-shadow-light);
+    display: grid;
+    place-items: center;
+    color: var(--neo-muted);
+    font-weight: 600;
+  }
+
   /* Modern card component */
   .modern-card {
     @apply bg-white rounded-xl p-6 transition-all duration-300;
