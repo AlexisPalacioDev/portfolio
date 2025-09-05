@@ -1,0 +1,407 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0a;
+    color: #e5e5e5;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #111111;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding: 35px;
+    border-bottom: 1px solid #333;
+}
+
+.name {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.title {
+    font-size: 1.1rem;
+    color: #888;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.contact-item {
+    color: #ccc;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.contact-item:hover {
+    color: #fff;
+}
+
+/* Content */
+.content {
+    padding: 35px;
+}
+
+.section {
+    margin-bottom: 30px;
+    page-break-inside: avoid;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 18px;
+    font-weight: 600;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+/* Summary */
+.summary {
+    color: #ccc;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+.summary strong {
+    color: #fff;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-item {
+    background: #1a1a1a;
+    color: #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    border: 1px solid #333;
+    font-weight: 500;
+}
+
+/* Jobs */
+.job {
+    margin-bottom: 22px;
+    page-break-inside: avoid;
+}
+
+.job:last-child {
+    margin-bottom: 0;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.job-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.company {
+    color: #888;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.job-date {
+    background: #1a1a1a;
+    color: #ccc;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    border: 1px solid #333;
+    white-space: nowrap;
+}
+
+.job-description ul {
+    list-style: none;
+    margin: 10px 0;
+}
+
+.job-description li {
+    color: #ccc;
+    margin-bottom: 6px;
+    padding-left: 15px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.job-description li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #666;
+    font-weight: bold;
+}
+
+.job-description strong {
+    color: #fff;
+}
+
+.job-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.job-tech-item {
+    background: #0f0f0f;
+    color: #999;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    border: 1px solid #2a2a2a;
+}
+
+/* Projects */
+.project {
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+}
+
+.project:last-child {
+    margin-bottom: 0;
+}
+
+.project-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.project-link {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.project-link:hover {
+    color: #ccc;
+}
+
+.project-description {
+    color: #ccc;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.project ul {
+    list-style: none;
+    margin: 10px 0;
+}
+
+.project li {
+    color: #ccc;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    position: relative;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+.project li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #666;
+}
+
+.project strong {
+    color: #fff;
+}
+
+/* Two column layout for bottom sections */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    margin-top: 25px;
+}
+
+/* Skills */
+.skill-category {
+    margin-bottom: 18px;
+}
+
+.skill-category h4 {
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.skill-list {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Info blocks */
+.info-block {
+    background: #0f0f0f;
+    padding: 18px;
+    border-radius: 6px;
+    border: 1px solid #222;
+    margin-bottom: 18px;
+}
+
+.info-block h3 {
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.info-block p {
+    color: #ccc;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+.info-block em {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.cert-list, .lang-list {
+    list-style: none;
+}
+
+.cert-list li, .lang-list li {
+    color: #ccc;
+    margin-bottom: 6px;
+    padding-left: 15px;
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.cert-list li::before, .lang-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #666;
+}
+
+.additional-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.additional-info p {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.additional-info strong {
+    color: #fff;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    size: A4;
+    margin: 20mm 15mm;
+  }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background: #000 !important;
+  }
+
+  .container {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: auto !important;
+    max-width: none !important;
+    background: #111 !important;
+  }
+
+  .content, .header {
+    padding: 20mm 15mm !important;
+  }
+
+  .contact-grid {
+    gap: 10px !important;
+  }
+
+  a {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  a::after {
+    content: "" !important;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+    .header, .content {
+        padding: 25px 20px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .additional-info {
+        grid-template-columns: 1fr;
+    }
+}

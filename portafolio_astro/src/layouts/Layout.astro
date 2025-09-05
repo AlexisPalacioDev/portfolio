@@ -1,0 +1,78 @@
+---
+import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+import type { LayoutProps } from '../types';
+
+const { 
+  title, 
+  description = "Portfolio de Alexis Palacio - Desarrollador Full-Stack"
+} = Astro.props as LayoutProps;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+    <script>
+      // Theme handling
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+      
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+
+      window.localStorage.setItem('theme', theme);
+
+      // Theme transition animation
+      const handleThemeSwitch = () => {
+        const element = document.documentElement;
+        const isDark = element.classList.contains('dark');
+        
+        const transition = document.createElement('div');
+        transition.className = 'theme-transition';
+        document.body.appendChild(transition);
+        
+        requestAnimationFrame(() => {
+          transition.style.transform = 'translateY(0)';
+          
+          setTimeout(() => {
+            element.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+            
+            setTimeout(() => {
+              transition.style.transform = 'translateY(-100%)';
+              setTimeout(() => transition.remove(), 500);
+            }, 10);
+          }, 300);
+        });
+      };
+
+      document.addEventListener('astro:after-swap', () => {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div class="min-h-screen">
+      <slot />
+    </div>
+  </body>
+</html>

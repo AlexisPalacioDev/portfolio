@@ -1,0 +1,548 @@
+/* =============================================
+   PROFESSIONAL SKILLS CARDS - ULTRA MODERN
+   Diseño premium con efectos visuales avanzados
+   ============================================= */
+
+/* Reset y variables principales */
+:root {
+  --skill-card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  --skill-card-border: rgba(255, 255, 255, 0.2);
+  --skill-card-hover: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
+  --skill-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --skill-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.2);
+  --skill-glow: 0 0 20px rgba(79, 172, 254, 0.3);
+  
+  /* Gradientes para niveles */
+  --beginner-gradient: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  --intermediate-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --advanced-gradient: linear-gradient(135deg, #7fcdcd 0%, #41b883 100%);
+  --expert-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  
+  /* Colores de iconos por tecnología */
+  --html-color: #e34c26;
+  --css-color: #1572b6;
+  --js-color: #f7df1e;
+  --react-color: #61dafb;
+  --php-color: #777bb4;
+  --mysql-color: #4479a1;
+  --node-color: #339933;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+  --skill-card-bg: linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+  --skill-card-border: rgba(255, 255, 255, 0.1);
+  --skill-card-hover: linear-gradient(135deg, rgba(40, 40, 40, 0.9) 0%, rgba(30, 30, 30, 0.95) 100%);
+}
+
+/* Sección principal de skills */
+.skills {
+  padding: 100px 0;
+  background: linear-gradient(135deg, 
+    var(--bg-primary) 0%, 
+    var(--bg-secondary) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.skills::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+  pointer-events: none;
+}
+
+/* Categorías de skills */
+.skills-categories {
+  display: grid;
+  gap: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header de categoría */
+.skill-category {
+  margin-bottom: 40px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  padding: 20px 0;
+  position: relative;
+}
+
+.category-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--advanced-gradient);
+  border-radius: 2px;
+}
+
+.category-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--skill-card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--skill-card-border);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--text-accent);
+  box-shadow: var(--skill-shadow);
+}
+
+.category-header h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* Grid de skills mejorado */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 0;
+}
+
+/* Tarjetas de skill PREMIUM */
+.skill-item {
+  background: var(--skill-card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--skill-card-border);
+  border-radius: 20px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--skill-shadow);
+  cursor: pointer;
+  transform: translateY(0);
+}
+
+/* Efecto hover premium */
+.skill-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: var(--skill-card-hover);
+  box-shadow: var(--skill-shadow-hover);
+  border-color: rgba(79, 172, 254, 0.4);
+}
+
+.skill-item:hover .skill-icon-wrapper {
+  transform: rotate(5deg) scale(1.1);
+  box-shadow: var(--skill-glow);
+}
+
+/* Efecto de resplandor en hover */
+.skill-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    transparent);
+  transition: left 0.6s;
+  pointer-events: none;
+}
+
+.skill-item:hover::before {
+  left: 100%;
+}
+
+/* Contenedor del icono mejorado */
+.skill-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-icon-wrapper::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.skill-item:hover .skill-icon-wrapper::after {
+  opacity: 1;
+}
+
+/* Iconos específicos con colores */
+.skill-icon {
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+/* Colores específicos de iconos */
+.skill-item:has(.fa-html5) .skill-icon {
+  color: var(--html-color);
+}
+
+.skill-item:has(.fa-css3-alt) .skill-icon {
+  color: var(--css-color);
+}
+
+.skill-item:has(.fa-js) .skill-icon {
+  color: var(--js-color);
+}
+
+.skill-item:has(.fa-react) .skill-icon {
+  color: var(--react-color);
+}
+
+.skill-item:has(.fa-php) .skill-icon {
+  color: var(--php-color);
+}
+
+.skill-item:has(.fa-database) .skill-icon {
+  color: var(--mysql-color);
+}
+
+.skill-item:has(.fa-node-js) .skill-icon {
+  color: var(--node-color);
+}
+
+/* Información de la skill */
+.skill-info {
+  flex: 1;
+}
+
+.skill-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+/* Barra de progreso premium */
+.skill-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.skill-progress {
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+/* Efecto de brillo en la barra */
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent);
+  animation: skillShine 2s ease-in-out infinite;
+}
+
+@keyframes skillShine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* Badge del nivel */
+.skill-level {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Niveles con gradientes */
+.skill-item.basic .skill-progress {
+  background: var(--beginner-gradient);
+}
+
+.skill-item.basic .skill-level {
+  background: var(--beginner-gradient);
+  color: #fff;
+}
+
+.skill-item.intermediate .skill-progress {
+  background: var(--intermediate-gradient);
+}
+
+.skill-item.intermediate .skill-level {
+  background: var(--intermediate-gradient);
+  color: #fff;
+}
+
+.skill-item.advanced .skill-progress {
+  background: var(--advanced-gradient);
+}
+
+.skill-item.advanced .skill-level {
+  background: var(--advanced-gradient);
+  color: #fff;
+}
+
+/* Estadísticas mejoradas */
+.skills-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 80px;
+  padding: 40px 0;
+  background: var(--skill-card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--skill-card-border);
+  border-radius: 24px;
+  box-shadow: var(--skill-shadow);
+}
+
+.stat-item {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  background: var(--advanced-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Efectos de partículas en hover */
+.skill-item::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.6s ease;
+  pointer-events: none;
+}
+
+.skill-item:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 60px 0;
+  }
+  
+  .skills-categories {
+    gap: 40px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  
+  .skill-item {
+    padding: 24px;
+  }
+  
+  .category-header {
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .category-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+  
+  .category-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .skills-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 60px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skill-item {
+    padding: 20px;
+  }
+  
+  .skill-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .skill-icon {
+    font-size: 1.5rem;
+  }
+  
+  .skills-stats {
+    grid-template-columns: 1fr;
+    margin-top: 40px;
+  }
+}
+
+/* Animaciones de entrada */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skill-category {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.skill-category:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.skill-category:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.skill-category:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+/* Efecto de carga de skills */
+.skill-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.skill-item:nth-child(1) { animation-delay: 0.1s; }
+.skill-item:nth-child(2) { animation-delay: 0.2s; }
+.skill-item:nth-child(3) { animation-delay: 0.3s; }
+.skill-item:nth-child(4) { animation-delay: 0.4s; }
+.skill-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Efecto adicional para tarjetas premium */
+.skill-item.premium {
+  background: linear-gradient(135deg, 
+    rgba(79, 172, 254, 0.1) 0%, 
+    rgba(0, 242, 96, 0.1) 100%);
+  border: 1px solid rgba(79, 172, 254, 0.3);
+}
+
+.skill-item.premium::before {
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(79, 172, 254, 0.2), 
+    transparent);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .skill-item,
+  .skill-progress,
+  .skill-icon-wrapper,
+  .category-header {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .skills {
+    background: none;
+    box-shadow: none;
+  }
+  
+  .skill-item {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}

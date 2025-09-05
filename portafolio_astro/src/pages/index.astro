@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeaderWrapper from '../components/HeaderWrapper.tsx';
+import Hero from '../components/Hero.tsx';
+import About from '../components/About.tsx';
+import Experience from '../components/Experience.tsx';
+import Projects from '../components/Projects.tsx';
+import Contact from '../components/Contact.tsx';
+---
+
+<Layout title="Alexis Palacio - Portfolio" description="Portfolio de Alexis Palacio - Desarrollador Full-Stack">
+  <HeaderWrapper client:load />
+  
+  <main class="pt-16">
+    <Hero client:load />
+    <About client:load />
+    <Experience client:load />
+    <Projects client:load />
+    <Contact client:load />
+  </main>
+
+  <footer class="bg-surface dark:bg-surface-dark py-8">
+    <div class="container text-center">
+      <p class="text-text-muted dark:text-text-muted-dark">
+        © 2024 Alexis Palacio. Todos los derechos reservados.
+      </p>
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="#" class="text-text-muted dark:text-text-muted-dark hover:text-primary dark:hover:text-primary-dark transition-colors">
+          Términos
+        </a>
+        <a href="#" class="text-text-muted dark:text-text-muted-dark hover:text-primary dark:hover:text-primary-dark transition-colors">
+          Privacidad
+        </a>
+      </div>
+    </div>
+  </footer>
+</Layout>
