@@ -28,3 +28,4 @@ export default function NavLinks({ mobile = false, onClose = () => {} }: NavLink
     </ul>
   );
 }
+

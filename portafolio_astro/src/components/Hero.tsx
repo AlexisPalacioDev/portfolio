@@ -27,7 +27,7 @@ export default function Hero() {
               className="mb-8"
             >
               <span className="inline-block px-6 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium mb-6">
-                👋 Disponible para nuevos proyectos
+                🚀 Disponible para nuevos proyectos
               </span>
             </motion.div>
 
@@ -102,7 +102,7 @@ export default function Hero() {
             >
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Tecnologías principales</p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-                {['PHP', 'JavaScript', 'React', 'CakePHP', 'MySQL', 'Tailwind CSS'].map((tech, index) => (
+                {['PHP', 'JavaScript', 'React', 'CakePHP', 'MySQL', 'Tailwind CSS'].map((tech) => (
                   <span 
                     key={tech}
                     className="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium"
@@ -180,3 +180,4 @@ export default function Hero() {
     </section>
   );
 }
+
