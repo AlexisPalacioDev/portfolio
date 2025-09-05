@@ -1,0 +1,516 @@
+/* =============================================
+    NEUMORPHISM SYSTEM - MODERN UI ENHANCEMENT
+    ============================================= */
+
+/* Variables para Neumorphism */
+:root {
+  /* Neumorphism - Tema Oscuro */
+  --neuro-bg: #1a1a1a;
+  --neuro-surface: #1e1e1e;
+  --neuro-shadow-dark: rgba(0, 0, 0, 0.8);
+  --neuro-shadow-light: rgba(255, 255, 255, 0.05);
+  --neuro-shadow-inset-dark: rgba(0, 0, 0, 0.5);
+  --neuro-shadow-inset-light: rgba(255, 255, 255, 0.1);
+  
+  /* Sombras Neumórficas */
+  --neuro-shadow-sm: 
+    6px 6px 12px var(--neuro-shadow-dark),
+    -6px -6px 12px var(--neuro-shadow-light);
+  --neuro-shadow-md: 
+    10px 10px 20px var(--neuro-shadow-dark),
+    -10px -10px 20px var(--neuro-shadow-light);
+  --neuro-shadow-lg: 
+    15px 15px 30px var(--neuro-shadow-dark),
+    -15px -15px 30px var(--neuro-shadow-light);
+  
+  /* Sombras Internas (Presionado) */
+  --neuro-inset-sm:
+    inset 4px 4px 8px var(--neuro-shadow-inset-dark),
+    inset -4px -4px 8px var(--neuro-shadow-inset-light);
+  --neuro-inset-md:
+    inset 8px 8px 16px var(--neuro-shadow-inset-dark),
+    inset -8px -8px 16px var(--neuro-shadow-inset-light);
+    
+  /* Actualizar variables existentes */
+  --shadow-sm: var(--neuro-shadow-sm);
+  --shadow-md: var(--neuro-shadow-md);
+  --shadow-lg: var(--neuro-shadow-lg);
+  --card-bg: var(--neuro-surface);
+  --light-bg: var(--neuro-surface);
+}
+
+/* Variables para Tema Claro */
+[data-theme="light"] {
+  --neuro-bg: #e8e8e8;
+  --neuro-surface: #f0f0f0;
+  --neuro-shadow-dark: rgba(163, 177, 198, 0.6);
+  --neuro-shadow-light: rgba(255, 255, 255, 0.7);
+  --neuro-shadow-inset-dark: rgba(163, 177, 198, 0.4);
+  --neuro-shadow-inset-light: rgba(255, 255, 255, 0.5);
+  
+  --neuro-shadow-sm: 
+    6px 6px 12px var(--neuro-shadow-dark),
+    -6px -6px 12px var(--neuro-shadow-light);
+  --neuro-shadow-md: 
+    10px 10px 20px var(--neuro-shadow-dark),
+    -10px -10px 20px var(--neuro-shadow-light);
+  --neuro-shadow-lg: 
+    15px 15px 30px var(--neuro-shadow-dark),
+    -15px -15px 30px var(--neuro-shadow-light);
+    
+  --neuro-inset-sm:
+    inset 4px 4px 8px var(--neuro-shadow-inset-dark),
+    inset -4px -4px 8px var(--neuro-shadow-inset-light);
+  --neuro-inset-md:
+    inset 8px 8px 16px var(--neuro-shadow-inset-dark),
+    inset -8px -8px 16px var(--neuro-shadow-inset-light);
+}
+
+/* =============================================
+    BODY Y BACKGROUNDS NEUMORPHISM
+    ============================================= */
+
+body {
+  background: var(--neuro-bg);
+  background-image: 
+    radial-gradient(circle at 25% 25%, var(--neuro-surface) 0%, transparent 70%),
+    radial-gradient(circle at 75% 75%, var(--neuro-surface) 0%, transparent 70%);
+  min-height: 100vh;
+}
+
+/* =============================================
+    HEADER NEUMORPHISM
+    ============================================= */
+
+.header {
+  background: var(--neuro-surface);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--neuro-shadow-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-logo {
+  background: var(--neuro-surface);
+  box-shadow: var(--neuro-shadow-sm);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+  box-shadow: var(--neuro-shadow-md);
+  transform: translateY(-2px);
+}
+
+.nav-logo:active {
+  box-shadow: var(--neuro-inset-sm);
+  transform: translateY(0);
+}
+
+.nav-link {
+  background: var(--neuro-surface);
+  box-shadow: var(--neuro-shadow-sm);
+  border-radius: 25px;
+  padding: 8px 16px;
+  margin: 0 4px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav-link:hover {
+  box-shadow: var(--neuro-shadow-md);
+  transform: translateY(-2px);
+  color: var(--primary-color);
+}
+
+.nav-link:active {
+  box-shadow: var(--neuro-inset-sm);
+  transform: translateY(0);
+}
+
+/* =============================================
+    BUTTONS NEUMORPHISM
+    ============================================= */
+
+.btn {
+  background: var(--neuro-surface);
+  box-shadow: var(--neuro-shadow-md);
+  border: none;
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    transparent 50%, 
+    rgba(0, 0, 0, 0.1) 100%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  box-shadow: 
+    var(--neuro-shadow-md),
+    0 4px 15px rgba(0, 170, 255, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--neuro-shadow-lg);
+}
+
+.btn-primary:hover {
+  box-shadow: 
+    var(--neuro-shadow-lg),
+    0 8px 25px rgba(0, 170, 255, 0.4);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: var(--neuro-inset-sm);
+}
+
+.theme-toggle,
+.cb-toggle {
+  background: var(--neuro-surface);
+  box-shadow: var(--neuro-shadow-sm);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.theme-toggle:hover,
+.cb-toggle:hover {
+  box-shadow: var(--neuro-shadow-md);
+  transform: translateY(-2px);
+}
+
+.theme-toggle:active,
+.cb-toggle:active {
+  box-shadow: var(--neuro-inset-sm);
+  transform: translateY(0);
+}
+
+/* =============================================
+    CARDS NEUMORPHISM
+    ============================================= */
+
+.card,
+.project-card {
+  background: var(--neuro-surface);
+  box-shadow: var(--neuro-shadow-md);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before,
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent);
+}
+
+.card:hover,
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--neuro-shadow-lg);
+}
+
+/* =============================================
+    HERO SECTION NEUMORPHISM
+    ============================================= */
+
+.hero-content {
+  background: var(--neuro-surface);
+  box-shadow: var(--neuro-shadow-lg);
+  border-radius: 30px;
+  padding: 3rem;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, 
+    transparent, 
+    rgba(0, 170, 255, 0.1), 
+    transparent);
+  animation: heroRotate 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes heroRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.profile-image {
+  box-shadow: var(--neuro-shadow-lg);
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.profile-image::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: conic-gradient(from 0deg, 
+    var(--primary-color), 
+    var(--primary-dark), 
+    var(--primary-color));
+  border-radius: 50%;
+  z-index: -1;
+  animation: profileGlow 4s ease-in-out infinite;
+}
+
+@keyframes profileGlow {
+  0%, 100% { opacity: 0.7; transform: rotate(0deg); }
+  50% { opacity: 1; transform: rotate(180deg); }
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  box-shadow: var(--neuro-shadow-lg);
+}
+
+/* =============================================
+    SKILLS BARS NEUMORPHISM
+    ============================================= */
+
+.skill-item {
+  background: var(--neuro-surface);
+  box-shadow: var(--neuro-shadow-sm);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  box-shadow: var(--neuro-shadow-md);
+  transform: translateY(-2px);
+}
+
+.skill-progress {
+  background: var(--neuro-bg);
+  box-shadow: var(--neuro-inset-sm);
+  border-radius: 10px;
+  height: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-progress-bar {
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+  border-radius: 10px;
+  height: 100%;
+  box-shadow: 
+    0 0 10px rgba(0, 170, 255, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.skill-progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent);
+  animation: skillShimmer 2s ease-in-out infinite;
+}
+
+@keyframes skillShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* =============================================
+    EXPERIENCE CARDS NEUMORPHISM
+    ============================================= */
+
+.experience-item {
+  background: var(--neuro-surface);
+  box-shadow: var(--neuro-shadow-md);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid var(--primary-color);
+}
+
+.experience-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    var(--primary-color), 
+    transparent, 
+    var(--primary-color));
+}
+
+.experience-item:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--neuro-shadow-lg);
+}
+
+.experience-header {
+  background: var(--neuro-bg);
+  box-shadow: var(--neuro-shadow-sm);
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* =============================================
+    CONTACT SECTION NEUMORPHISM
+    ============================================= */
+
+.contact-info {
+  background: var(--neuro-surface);
+  box-shadow: var(--neuro-shadow-lg);
+  border-radius: 25px;
+  padding: 2.5rem;
+}
+
+.contact-method {
+  background: var(--neuro-bg);
+  box-shadow: var(--neuro-shadow-sm);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-method::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, 
+    var(--primary-color), 
+    var(--primary-dark));
+  transition: width 0.3s ease;
+}
+
+.contact-method:hover::before {
+  width: 8px;
+}
+
+.contact-method:hover {
+  box-shadow: var(--neuro-shadow-md);
+  transform: translateY(-3px);
+}
+
+/* =============================================
+    MOBILE RESPONSIVE NEUMORPHISM
+    ============================================= */
+
+@media screen and (max-width: 768px) {
+  :root {
+    --neuro-shadow-sm: 
+      4px 4px 8px var(--neuro-shadow-dark),
+      -4px -4px 8px var(--neuro-shadow-light);
+    --neuro-shadow-md: 
+      6px 6px 12px var(--neuro-shadow-dark),
+      -6px -6px 12px var(--neuro-shadow-light);
+    --neuro-shadow-lg: 
+      8px 8px 16px var(--neuro-shadow-dark),
+      -8px -8px 16px var(--neuro-shadow-light);
+  }
+
+  .card, .project-card {
+    padding: 1.5rem;
+  }
+
+  .hero-content {
+    padding: 2rem;
+  }
+  
+  .nav-link {
+    margin: 2px;
+    padding: 6px 12px;
+  }
+}
+
+/* =============================================
+    ACCESSIBILITY NEUMORPHISM
+    ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content::before,
+  .profile-image::before,
+  .skill-progress-bar::after {
+    animation: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --neuro-shadow-dark: rgba(0, 0, 0, 0.9);
+    --neuro-shadow-light: rgba(255, 255, 255, 0.9);
+  }
+  
+  [data-theme="light"] {
+    --neuro-shadow-dark: rgba(0, 0, 0, 0.8);
+    --neuro-shadow-light: rgba(255, 255, 255, 0.9);
+  }
+}
