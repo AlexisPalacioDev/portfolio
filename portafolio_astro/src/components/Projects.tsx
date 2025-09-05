@@ -5,7 +5,7 @@ const projects = [
     title: 'Carl Jung AI',
     description: 'Plataforma educativa que genera contenido formativo basado en arquetipos de Carl Jung.',
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Supabase', 'OpenAI API'],
-    image: '🧠',
+    image: 'https://picsum.photos/seed/carljung/800/450',
     github: '#',
     demo: 'https://carljung.app/home',
     category: 'Full-Stack',
@@ -15,7 +15,7 @@ const projects = [
     title: 'PoisoneD Merch',
     description: 'Tienda online personalizada con Shopify para venta de merchandise.',
     technologies: ['Shopify', 'JavaScript', 'CSS3', 'Liquid'],
-    image: '🛍️',
+    image: 'https://picsum.photos/seed/merch/800/450',
     github: '#',
     demo: '#',
     category: 'E-commerce',
@@ -25,7 +25,7 @@ const projects = [
     title: 'Portfolio Personal',
     description: 'Sitio web personal con tecnologías modernas y diseño responsive.',
     technologies: ['Astro', 'React', 'Tailwind CSS', 'Framer Motion'],
-    image: '💼',
+    image: 'https://picsum.photos/seed/portfolio/800/450',
     github: 'https://github.com/alexispalaciodev',
     demo: 'https://alexispalaciodev.github.io/portfolio/',
     category: 'Frontend',
@@ -62,11 +62,11 @@ export default function Projects() {
             <motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }} viewport={{ once: true }} className="group">
               <div className="neo-card h-full flex flex-col">
                 <div className="relative mb-6">
-                  <div className="w-full h-48 neo-inset rounded-[var(--neo-radius)] flex items-center justify-center">
-                    <div className="text-6xl">{project.image}</div>
-                    <div className="absolute top-3 right-3">
-                      <span className="neo-chip text-xs">{project.status}</span>
-                    </div>
+                  <div className="w-full h-48 neo-inset rounded-[var(--neo-radius)] overflow-hidden">
+                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="absolute top-3 right-3">
+                    <span className="neo-chip text-xs">{project.status}</span>
                   </div>
                 </div>
                 <div className="flex-1 flex flex-col">
@@ -99,4 +99,3 @@ export default function Projects() {
     </section>
   );
 }
-
