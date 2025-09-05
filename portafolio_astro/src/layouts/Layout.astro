@@ -63,12 +63,20 @@ const {
         });
       };
 
+      // Listen for toggle events dispatched from React header
+      document.addEventListener('toggle-theme', handleThemeSwitch);
+
       document.addEventListener('astro:after-swap', () => {
         if (localStorage.getItem('theme') === 'dark') {
           document.documentElement.classList.add('dark');
         }
       });
     </script>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/profile.png" />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <div class="min-h-screen">

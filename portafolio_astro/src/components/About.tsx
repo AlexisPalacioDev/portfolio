@@ -14,9 +14,9 @@ const skills = [
 ];
 
 const stats = [
-  { number: '4+', label: 'Años de Experiencia', icon: '🚀' },
-  { number: '15+', label: 'Proyectos Completados', icon: '💼' },
-  { number: '10+', label: 'Tecnologías', icon: '🛠️' },
+  { number: '4+', label: 'Años de Experiencia', icon: '🗓️' },
+  { number: '15+', label: 'Proyectos Completados', icon: '✅' },
+  { number: '10+', label: 'Tecnologías', icon: '🧰' },
   { number: '3', label: 'Empresas', icon: '🏢' }
 ];
 
@@ -40,7 +40,7 @@ export default function About() {
             className="inline-block mb-6"
           >
             <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
-              🧑‍💻 Sobre mí
+              👋 Sobre mí
             </span>
           </motion.div>
           <h2 className="modern-heading text-4xl lg:text-5xl text-gray-900 dark:text-white mb-6">
@@ -84,19 +84,19 @@ export default function About() {
                 <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Frontend</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    HTML5 • CSS3 • JavaScript • React • Tailwind CSS
+                    HTML5 · CSS3 · JavaScript · React · Tailwind CSS
                   </p>
                 </div>
                 <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Backend</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    PHP 7+ • CakePHP 4.6 • MySQL • Clean Code
+                    PHP 7+ · CakePHP 4.6 · MySQL · Clean Code
                   </p>
                 </div>
                 <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Herramientas</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Git • Docker • n8n • Shopify • WordPress
+                    Git · Docker · n8n · Shopify · WordPress
                   </p>
                 </div>
               </div>
@@ -179,3 +179,4 @@ export default function About() {
     </section>
   );
 }
+

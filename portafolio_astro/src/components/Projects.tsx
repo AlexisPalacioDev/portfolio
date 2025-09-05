@@ -3,34 +3,34 @@ import { motion } from 'framer-motion';
 const projects = [
   {
     title: 'Carl Jung AI',
-    description: 'Plataforma educativa que genera contenido formativo basado en los arquetipos de Carl Jung.',
-    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Supabase', 'ChatGPT API'],
+    description: 'Plataforma educativa que genera contenido formativo basado en arquetipos de Carl Jung.',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Supabase', 'OpenAI API'],
     image: '🧠',
     github: '#',
     demo: 'https://carljung.app/home',
     category: 'Full-Stack',
-    status: 'Activo'
+    status: 'Activo',
   },
   {
     title: 'PoisoneD Merch',
-    description: 'Tienda online personalizada desarrollada con Shopify para venta de merchandise.',
+    description: 'Tienda online personalizada con Shopify para venta de merchandise.',
     technologies: ['Shopify', 'JavaScript', 'CSS3', 'Liquid'],
-    image: '🛒',
+    image: '🛍️',
     github: '#',
     demo: '#',
     category: 'E-commerce',
-    status: 'Completado'
+    status: 'Completado',
   },
   {
     title: 'Portfolio Personal',
-    description: 'Sitio web personal desarrollado con tecnologías modernas y diseño responsive.',
+    description: 'Sitio web personal con tecnologías modernas y diseño responsive.',
     technologies: ['Astro', 'React', 'Tailwind CSS', 'Framer Motion'],
     image: '💼',
     github: 'https://github.com/alexispalaciodev',
     demo: 'https://alexispalaciodev.github.io/portfolio/',
     category: 'Frontend',
-    status: 'Activo'
-  }
+    status: 'Activo',
+  },
 ];
 
 const categories = ['Todos', 'Full-Stack', 'Frontend', 'E-commerce'];
@@ -55,7 +55,7 @@ export default function Projects() {
             className="inline-block mb-6"
           >
             <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
-              🚀 Mi trabajo
+              🔧 Mi trabajo
             </span>
           </motion.div>
           <h2 className="modern-heading text-4xl lg:text-5xl text-gray-900 dark:text-white mb-6">
@@ -108,7 +108,7 @@ export default function Projects() {
                     <div className="text-6xl group-hover:scale-110 transition-transform duration-300">
                       {project.image}
                     </div>
-                    
+
                     {/* Status Badge */}
                     <div className="absolute top-3 right-3">
                       <span className={`px-3 py-1 rounded-full text-xs font-medium ${
@@ -119,9 +119,9 @@ export default function Projects() {
                         {project.status}
                       </span>
                     </div>
-                    
+
                     {/* Hover Actions */}
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 rounded-xl">
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                       <motion.a
                         href={project.github}
                         target="_blank"
@@ -208,3 +208,4 @@ export default function Projects() {
     </section>
   );
 }
+

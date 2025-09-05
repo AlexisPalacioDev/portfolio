@@ -12,11 +12,11 @@ import Contact from '../components/Contact.tsx';
   <HeaderWrapper client:load />
   
   <main class="pt-16">
-    <Hero client:load />
-    <About client:load />
-    <Experience client:load />
-    <Projects client:load />
-    <Contact client:load />
+    <Hero client:idle />
+    <About client:visible />
+    <Experience client:visible />
+    <Projects client:visible />
+    <Contact client:visible />
   </main>
 
   <footer class="bg-surface dark:bg-surface-dark py-8">
