@@ -14,10 +14,10 @@ const skills = [
 ];
 
 const stats = [
-  { number: '4+', label: 'Años de Experiencia', icon: '🗓️' },
-  { number: '15+', label: 'Proyectos Completados', icon: '✅' },
-  { number: '10+', label: 'Tecnologías', icon: '🧰' },
-  { number: '3', label: 'Empresas', icon: '🏢' }
+  { number: '4+', label: 'Años de Experiencia' },
+  { number: '15+', label: 'Proyectos Completados' },
+  { number: '10+', label: 'Tecnologías' },
+  { number: '3', label: 'Empresas' }
 ];
 
 export default function About() {
@@ -25,7 +25,7 @@ export default function About() {
     <section className="section-container">
       <div className="section-content">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-          <span className="neo-chip">👋 Sobre mí</span>
+          <span className="neo-chip">Sobre mí</span>
           <h2 className="modern-heading text-4xl lg:text-5xl mb-6 mt-4" style={{ color: 'var(--neo-text)' }}>
             Desarrollador <span className="text-gradient">Apasionado</span>
           </h2>
@@ -95,7 +95,6 @@ export default function About() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((stat) => (
             <div key={stat.label} className="neo-card text-center">
-              <div className="text-3xl mb-2">{stat.icon}</div>
               <div className="text-3xl font-bold mb-1" style={{ color: 'var(--neo-text)' }}>{stat.number}</div>
               <div className="text-sm" style={{ color: 'var(--neo-muted)' }}>{stat.label}</div>
             </div>
@@ -105,4 +104,3 @@ export default function About() {
     </section>
   );
 }
-

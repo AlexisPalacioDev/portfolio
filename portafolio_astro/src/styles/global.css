@@ -130,7 +130,7 @@
     padding: 8px 14px;
     border-radius: 9999px;
     background: var(--neo-base);
-    color: var(--neo-muted);
+    color: var(--neo-text);
     box-shadow: 6px 6px 12px var(--neo-shadow-dark), -6px -6px 12px var(--neo-shadow-light);
   }
 

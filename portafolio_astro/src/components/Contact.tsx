@@ -5,7 +5,7 @@ export default function Contact() {
     <section id="contact" className="section-container">
       <div className="section-content">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-          <span className="neo-chip">💬 Hablemos</span>
+          <span className="neo-chip">Hablemos</span>
           <h2 className="modern-heading text-4xl lg:text-5xl mt-4">Contacto</h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--neo-muted)' }}>
             ¿Tienes un proyecto en mente? ¡Construyámoslo juntos!
@@ -64,4 +64,3 @@ export default function Contact() {
     </section>
   );
 }
-

@@ -47,7 +47,7 @@ export default function Experience() {
     <section id="experience" className="section-container">
       <div className="section-content">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-          <span className="neo-chip">📌 Mi Trayectoria</span>
+          <span className="neo-chip">Mi Trayectoria</span>
           <h2 className="modern-heading text-4xl lg:text-5xl mt-4">Experiencia</h2>
         </motion.div>
 
@@ -84,4 +84,3 @@ export default function Experience() {
     </section>
   );
 }
-
