@@ -6,28 +6,33 @@ interface MobileMenuButtonProps {
 }
 
 export default function MobileMenuButton({ isOpen, onClick }: MobileMenuButtonProps) {
+  const color = 'var(--neo-text)';
   return (
     <motion.button
-      className="md:hidden p-2"
+      className="lg:hidden neo-btn p-0 w-11 h-11 rounded-full relative"
       onClick={onClick}
-      whileTap={{ scale: 0.9 }}
-      aria-label="Toggle menu"
+      whileTap={{ scale: 0.95 }}
+      aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+      aria-expanded={isOpen}
     >
-      <div className="w-6 h-6 flex flex-col justify-around">
-        <span 
-          className={`block h-0.5 w-6 bg-text dark:bg-text-dark transition-transform duration-300 ${
-            isOpen ? 'rotate-45 translate-y-2' : ''
-          }`} 
+      <div className="relative w-6 h-6">
+        <span
+          className={`absolute left-1/2 top-1/2 -translate-x-1/2 block h-[2px] w-6 rounded transition-transform duration-300 ease-out ${
+            isOpen ? 'translate-y-0 rotate-45' : '-translate-y-[6px] rotate-0'
+          }`}
+          style={{ backgroundColor: color }}
         />
-        <span 
-          className={`block h-0.5 w-6 bg-text dark:bg-text-dark transition-opacity duration-300 ${
-            isOpen ? 'opacity-0' : ''
-          }`} 
+        <span
+          className={`absolute left-1/2 top-1/2 -translate-x-1/2 block h-[2px] w-6 rounded transition-opacity duration-200 ${
+            isOpen ? 'opacity-0' : 'opacity-100'
+          }`}
+          style={{ backgroundColor: color }}
         />
-        <span 
-          className={`block h-0.5 w-6 bg-text dark:bg-text-dark transition-transform duration-300 ${
-            isOpen ? '-rotate-45 -translate-y-2' : ''
-          }`} 
+        <span
+          className={`absolute left-1/2 top-1/2 -translate-x-1/2 block h-[2px] w-6 rounded transition-transform duration-300 ease-out ${
+            isOpen ? 'translate-y-0 -rotate-45' : 'translate-y-[6px] rotate-0'
+          }`}
+          style={{ backgroundColor: color }}
         />
       </div>
     </motion.button>

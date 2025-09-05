@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { TechIcon } from './icons/TechIcons';
 
 export default function Hero() {
   return (
@@ -17,14 +18,12 @@ export default function Hero() {
             </div>
 
             <motion.h1
-              className="text-5xl lg:text-7xl font-black mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-7xl font-black mb-6 leading-tight whitespace-nowrap"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Alexis
-              <br />
-              Palacio
+              Alexis Palacio
             </motion.h1>
 
             <motion.p
@@ -65,8 +64,8 @@ export default function Hero() {
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-3">
                 {['PHP', 'JavaScript', 'React', 'CakePHP', 'MySQL', 'Tailwind CSS'].map((tech) => (
-                  <span key={tech} className="neo-chip">
-                    {tech}
+                  <span key={tech} className="neo-chip" title={tech} aria-label={tech}>
+                    <TechIcon name={tech} size={28} />
                   </span>
                 ))}
               </div>
@@ -95,4 +94,3 @@ export default function Hero() {
     </section>
   );
 }
-

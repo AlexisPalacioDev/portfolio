@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
+import { MailIcon, LocationIcon, GlobeIcon, GithubIcon, LinkedinIcon } from './icons/UiIcons';
 
 export default function Contact() {
   return (
     <section id="contact" className="section-container">
       <div className="section-content">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-          <span className="neo-chip">Hablemos</span>
-          <h2 className="modern-heading text-4xl lg:text-5xl mt-4">Contacto</h2>
+          <h2 className="modern-heading text-4xl lg:text-5xl">Contacto</h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--neo-muted)' }}>
             ¿Tienes un proyecto en mente? ¡Construyámoslo juntos!
           </p>
@@ -46,16 +46,20 @@ export default function Contact() {
             <div className="neo-card">
               <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--neo-text)' }}>Información</h3>
               <ul className="space-y-3" style={{ color: 'var(--neo-muted)' }}>
-                <li>📧 alexispalaciodev@gmail.com</li>
-                <li>📍 Medellín, Colombia</li>
-                <li>🌐 Disponible remoto / híbrido</li>
+                <li className="flex items-center gap-2"><MailIcon /> alexispalaciodev@gmail.com</li>
+                <li className="flex items-center gap-2"><LocationIcon /> Medellín, Colombia</li>
+                <li className="flex items-center gap-2"><GlobeIcon /> Disponible remoto / híbrido</li>
               </ul>
             </div>
             <div className="neo-card">
               <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--neo-text)' }}>Redes</h3>
               <div className="flex gap-3">
-                <a href="https://github.com/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn">GitHub</a>
-                <a href="https://www.linkedin.com/in/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn">LinkedIn</a>
+                <a href="https://github.com/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2">
+                  <GithubIcon /> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2">
+                  <LinkedinIcon /> LinkedIn
+                </a>
               </div>
             </div>
           </motion.div>

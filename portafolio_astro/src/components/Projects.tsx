@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { TechIcon } from './icons/TechIcons';
 
 const projects = [
   {
@@ -40,8 +41,7 @@ export default function Projects() {
     <section className="section-container">
       <div className="section-content">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-          <span className="neo-chip">Mi trabajo</span>
-          <h2 className="modern-heading text-4xl lg:text-5xl mb-6 mt-4">Proyectos Destacados</h2>
+          <h2 className="modern-heading text-4xl lg:text-5xl mb-6">Proyectos Destacados</h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--neo-muted)' }}>
             Una selección de mis trabajos más destacados y soluciones innovadoras
           </p>
@@ -77,7 +77,9 @@ export default function Projects() {
                   <p className="mb-6 flex-1" style={{ color: 'var(--neo-muted)' }}>{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, i) => (
-                      <span key={i} className="neo-chip text-sm">{tech}</span>
+                      <span key={i} className="neo-chip" title={tech} aria-label={tech}>
+                        <TechIcon name={tech} size={28} />
+                      </span>
                     ))}
                   </div>
                 </div>
