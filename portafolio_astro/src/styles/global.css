@@ -67,6 +67,10 @@
 }
 
 @layer components {
+  /* force blue tint on external monochrome brand SVGs */
+  .tech-icon-brand {
+    filter: invert(33%) sepia(94%) saturate(2476%) hue-rotate(197deg) brightness(97%) contrast(101%);
+  }
   /* Neumorphism primitives */
   .neo-surface {
     background: var(--neo-base);

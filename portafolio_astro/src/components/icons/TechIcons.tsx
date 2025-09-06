@@ -1,4 +1,4 @@
-import React, { useId } from 'react';
+import React, { useId, useState } from 'react';
 
 type TechName = 'JavaScript' | 'React' | 'PHP' | 'MySQL' | 'Tailwind CSS' | 'CakePHP' | 'Tailwind' | 'JS' | 'TS';
 
@@ -10,6 +10,24 @@ interface TechIconProps {
 export function TechIcon({ name, size = 26 }: TechIconProps) {
   const gid = useId().replace(/:/g, '');
   const n = normalize(name);
+  const slug = brandSlug(n);
+  const [broken, setBroken] = useState(false);
+  if (slug && !broken) {
+    return (
+      <img
+        src={`https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/${slug}.svg`}
+        alt={name}
+        width={size}
+        height={size}
+        loading="lazy"
+        decoding="async"
+        referrerPolicy="no-referrer"
+        onError={() => setBroken(true)}
+        className="tech-icon-brand"
+        style={{ display: 'inline-block' }}
+      />
+    );
+  }
   const gradId = `neo-grad-${gid}-${n}`;
   const Gradient = (
     <defs>
@@ -20,6 +38,25 @@ export function TechIcon({ name, size = 26 }: TechIconProps) {
     </defs>
   );
   const color = `url(#${gradId})` as string;
+  if (n === 'PHP') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" aria-label="PHP" role="img">
+        {Gradient}
+        <ellipse cx="12" cy="12" rx="9" ry="6" fill="none" stroke={color} strokeWidth="1.5" />
+        <text x="12" y="14" textAnchor="middle" fontSize="8" fill={color} fontFamily="ui-sans-serif, system-ui">PHP</text>
+      </svg>
+    );
+  }
+  if (n === 'CakePHP') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" aria-label="CakePHP" role="img">
+        {Gradient}
+        <path d="M4 12h16v6c0 1.1-3.6 2-8 2s-8-.9-8-2v-6z" fill="none" stroke={color} strokeWidth="1.4" />
+        <path d="M4 12c0-1.5 3.6-3 8-3s8 1.5 8 3" fill="none" stroke={color} strokeWidth="1.4" />
+        <rect x="11.2" y="5.5" width="1.6" height="3.2" fill={color} rx="0.8" />
+      </svg>
+    );
+  }
   switch (n) {
     case 'JavaScript':
     case 'JS':
@@ -100,9 +137,43 @@ function normalize(n: string): TechName | string {
   const t = n.trim().toLowerCase();
   if (['js', 'javascript'].includes(t)) return 'JavaScript';
   if (['react'].includes(t)) return 'React';
-  if (['php'].includes(t)) return 'PHP';
+  if (t.includes('php')) return 'PHP';
   if (['mysql'].includes(t)) return 'MySQL';
-  if (['tailwind', 'tailwind css'].includes(t)) return 'Tailwind CSS';
-  if (['cakephp'].includes(t)) return 'CakePHP';
+  if (t.includes('tailwind')) return 'Tailwind CSS';
+  if (t.includes('cakephp')) return 'CakePHP';
   return n;
+}
+
+function brandSlug(n: string): string | null {
+  const t = n.trim().toLowerCase();
+  const map: Record<string, string> = {
+    javascript: 'javascript',
+    typescript: 'typescript',
+    react: 'react',
+    php: 'php',
+    mysql: 'mysql',
+    docker: 'docker',
+    composer: 'composer',
+    'n8n': 'n8n',
+    tailwind: 'tailwindcss',
+    'tailwind css': 'tailwindcss',
+    next: 'nextdotjs',
+    'next.js': 'nextdotjs',
+    nextjs: 'nextdotjs',
+    supabase: 'supabase',
+    shopify: 'shopify',
+    github: 'github',
+    git: 'git',
+    linkedin: 'linkedin',
+    astro: 'astro',
+    css3: 'css3',
+    html5: 'html5',
+    mapbox: 'mapbox',
+    openai: 'openai',
+  };
+  // handle variants like 'php 7+', 'cakephp 4.6'
+  for (const key of Object.keys(map)) {
+    if (t === key || t.startsWith(key)) return map[key];
+  }
+  return map[t] ?? null;
 }
