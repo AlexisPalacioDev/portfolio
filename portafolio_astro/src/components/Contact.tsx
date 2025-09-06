@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { MailIcon, LocationIcon, GlobeIcon, GithubIcon, LinkedinIcon } from './icons/UiIcons';
+import { MailIcon, LocationIcon, GlobeIcon } from './icons/UiIcons';
+import { TechIcon } from './icons/TechIcons';
 
 export default function Contact() {
   return (
@@ -51,17 +52,17 @@ export default function Contact() {
                 <li className="flex items-center gap-2"><GlobeIcon /> Disponible remoto / híbrido</li>
               </ul>
             </div>
-            <div className="neo-card">
-              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--neo-text)' }}>Redes</h3>
-              <div className="flex gap-3">
-                <a href="https://github.com/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2">
-                  <GithubIcon /> GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2">
-                  <LinkedinIcon /> LinkedIn
-                </a>
+              <div className="neo-card">
+                <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--neo-text)' }}>Redes</h3>
+                <div className="flex gap-3">
+                  <a href="https://github.com/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2">
+                    <TechIcon name="GitHub" size={20} /> GitHub
+                  </a>
+                  <a href="https://www.linkedin.com/in/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2">
+                    <TechIcon name="LinkedIn" size={20} /> LinkedIn
+                  </a>
+                </div>
               </div>
-            </div>
           </motion.div>
         </div>
       </div>

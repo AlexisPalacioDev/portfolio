@@ -13,9 +13,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="mb-6">
-              <span className="neo-chip">Disponible para nuevos proyectos</span>
-            </div>
+            {/* Removed availability chip for cleaner hero */}
 
             <motion.h1
               className="text-4xl sm:text-5xl lg:text-7xl font-black mb-6 leading-tight whitespace-nowrap"
@@ -44,19 +42,7 @@ export default function Hero() {
               Construyo experiencias digitales modernas y funcionales. Especializado en desarrollo web con más de 4 años de experiencia en tecnologías frontend y backend.
             </motion.p>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
-            >
-              <motion.a href="#projects" className="neo-btn" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                Ver Proyectos
-              </motion.a>
-              <motion.a href="#contact" className="neo-btn" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                Contacto
-              </motion.a>
-            </motion.div>
+            {/* Removed CTA buttons (Ver Proyectos / Contacto) */}
 
             <motion.div className="mt-16 pt-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }}>
               <p className="text-sm mb-4" style={{ color: 'var(--neo-muted)' }}>
