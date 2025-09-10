@@ -15,7 +15,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="canonical" href="https://alexispalaciodev.github.io/portfolio/" />
@@ -42,15 +42,12 @@ const {
 
       window.localStorage.setItem('theme', theme);
 
-      // Theme transition: subtle crossfade of colors/shadows
+      // Theme transition: instant change
       const handleThemeSwitch = () => {
         const element = document.documentElement;
         const isDark = element.classList.contains('dark');
-        document.body.classList.add('theming');
         element.classList.toggle('dark');
         localStorage.setItem('theme', isDark ? 'light' : 'dark');
-        document.dispatchEvent(new CustomEvent('toggle-theme:animate'));
-        setTimeout(() => document.body.classList.remove('theming'), 320);
       };
 
       // Listen for toggle events dispatched from React header
@@ -61,35 +58,6 @@ const {
           document.documentElement.classList.add('dark');
         }
       });
-    </script>
-    <script type="module">
-      import { gsap } from 'https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js';
-      const reduce = () => window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const animateDrag = () => {
-        if (reduce()) return;
-        // Exclude any element inside the header to avoid moving the menu bar
-        const nodes = Array
-          .from(document.querySelectorAll('.neo-card, .neo-inset, .neo-btn, .neo-chip, footer, section'))
-          .filter((el) => !el.closest('header'));
-        if (!nodes.length) return;
-        const tl = gsap.timeline({ defaults: { duration: 0.6, ease: 'power3.out' } });
-        tl.fromTo(nodes,
-          {
-            x: (i) => ((i % 2) ? 24 : -24),
-            y: (i) => ((i % 3) ? 8 : -8),
-            rotation: (i) => ((i % 5) ? 0.8 : -0.8),
-            filter: 'blur(0.6px)'
-          },
-          {
-            x: 0,
-            y: 0,
-            rotation: 0,
-            filter: 'none',
-            stagger: { each: 0.008, from: 'center' }
-          }
-        );
-      };
-      document.addEventListener('toggle-theme:animate', animateDrag);
     </script>
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

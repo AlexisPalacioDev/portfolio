@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
-import { MailIcon, LocationIcon, GlobeIcon } from './icons/UiIcons';
+import { MailIcon, LocationIcon, GlobeIcon, PhoneIcon, WhatsAppIcon } from './icons/UiIcons';
 import { TechIcon } from './icons/TechIcons';
 import { useLanguage } from '../utils/useLanguage';
 import FadeText from './FadeText';
@@ -80,39 +80,49 @@ export default function Contact() {
               <ul className="space-y-3" style={{ color: 'var(--neo-muted)' }}>
                 {/* Email row with inline actions */}
                 <li className="flex items-center gap-2 flex-wrap">
-                  <span className="flex items-center gap-2"><MailIcon /> {email}</span>
-                  <button
-                    type="button"
-                    className="neo-chip neo-chip-sm"
-                    onClick={() => copyText(email, 'email')}
-                    title={isEN ? 'Copy email' : 'Copiar correo'}
-                  >
-                    {copiedEmail ? '✓' : '⧉'}
-                  </button>
-                  <a href={`mailto:${email}`} className="neo-chip neo-chip-sm">{isEN ? 'Compose' : 'Escribir'}</a>
+                  <span className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      className="neo-chip neo-chip-sm"
+                      onClick={() => copyText(email, 'email')}
+                      title={isEN ? 'Copy email' : 'Copiar correo'}
+                    >
+                      {copiedEmail ? '✓' : '⧉'}
+                    </button>
+                    {email}
+                  </span>
+                  <a href={`mailto:${email}`} className="neo-chip neo-chip-sm inline-flex items-center" title={isEN ? 'Compose email' : 'Escribir correo'}>
+                    <MailIcon size={16} />
+                  </a>
                 </li>
 
                 {/* Phone row with inline actions */}
                 <li className="flex items-center gap-2 flex-wrap">
-                  <span className="flex items-center gap-2">📞 {phoneDisplay}</span>
-                  <button
-                    type="button"
-                    className="neo-chip neo-chip-sm"
-                    onClick={() => copyText(phoneDisplay.replace(/\s+/g, ''), 'phone')}
-                    title={isEN ? 'Copy number' : 'Copiar número'}
-                  >
-                    {copiedPhone ? '✓' : '⧉'}
-                  </button>
+                  <span className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      className="neo-chip neo-chip-sm"
+                      onClick={() => copyText(phoneDisplay.replace(/\s+/g, ''), 'phone')}
+                      title={isEN ? 'Copy number' : 'Copiar número'}
+                    >
+                      {copiedPhone ? '✓' : '⧉'}
+                    </button>
+                    {phoneDisplay}
+                  </span>
                   <a
                     href={`https://wa.me/${phoneDigits}?text=${encodeURIComponent(isEN ? 'Hi Alexis, I saw your portfolio.' : 'Hola Alexis, vi tu portafolio.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="neo-chip neo-chip-sm inline-flex items-center gap-1"
+                    className="neo-chip neo-chip-sm inline-flex items-center"
                     title="WhatsApp"
                   >
-                    <TechIcon name="WhatsApp" size={16} /> WhatsApp
+                    <span style={{ filter: 'invert(49%) sepia(85%) saturate(580%) hue-rotate(93deg) brightness(96%) contrast(88%)', display: 'flex', alignItems: 'center' }}>
+                      <TechIcon name="WhatsApp" size={16} />
+                    </span>
                   </a>
-                  <a href={`tel:${phoneDigits}`} className="neo-chip neo-chip-sm">{isEN ? 'Call' : 'Llamar'}</a>
+                  <a href={`tel:${phoneDigits}`} className="neo-chip neo-chip-sm inline-flex items-center" title={isEN ? 'Call phone' : 'Llamar teléfono'}>
+                    <PhoneIcon size={16} />
+                  </a>
                 </li>
                 <li className="flex items-center gap-2"><LocationIcon /> Medellín, Colombia</li>
                 <li className="flex items-center gap-2"><GlobeIcon /> {isEN ? 'Available remote / hybrid' : 'Disponible remoto / híbrido'}</li>

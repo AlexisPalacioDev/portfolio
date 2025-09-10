@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="min-h-[70vh] relative">
       <div className="container mx-auto px-6 py-16">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
           {/* Content */}
           <motion.div
             className="flex-1 lg:pr-12 text-center lg:text-left"
@@ -45,7 +45,7 @@ export default function Hero() {
                 <FadeText text={isEN ? 'Key technologies' : 'Tecnologías principales'} />
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-                {['n8n', 'Supabase', 'PHP', 'CakePHP', 'Node.js', 'Docker'].map((tech) => (
+                {['n8n', 'Supabase', 'HTML5', 'CakePHP', 'JavaScript', 'Docker'].map((tech) => (
                   <span key={tech} className="neo-chip" title={tech} aria-label={tech}>
                     <TechIcon name={tech} size={28} />
                   </span>
@@ -56,18 +56,18 @@ export default function Hero() {
 
           {/* Profile */}
           <motion.div
-            className="flex-1 flex justify-center lg:justify-end mt-16 lg:mt-0"
+            className="flex-1 flex justify-center lg:justify-end mt-8 lg:mt-0"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <div className="neo-card flex items-center gap-4">
-              <div className="neo-avatar">
-                <img src={`${import.meta.env.BASE_URL}profile.png`} alt="Alexis Palacio - Desarrollador Full-Stack" width="80" height="80" className="w-20 h-20 rounded-full object-cover" />
+            <div className="neo-card flex items-center gap-6 p-8">
+              <div className="neo-avatar w-32 h-32">
+                <img src={`${import.meta.env.BASE_URL}profile.jpg`} alt="Alexis Palacio - Desarrollador Full-Stack" width="128" height="128" className="w-32 h-32 rounded-full object-cover" />
               </div>
               <div>
-                <div className="text-xl font-semibold">Alexis Palacio</div>
-                <div style={{ color: 'var(--neo-muted)' }}>Full-Stack Developer</div>
+                <div className="text-2xl font-semibold mb-2">Alexis Palacio</div>
+                <div className="text-lg" style={{ color: 'var(--neo-muted)' }}>Full-Stack Developer</div>
               </div>
             </div>
           </motion.div>

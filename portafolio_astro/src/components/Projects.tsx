@@ -42,24 +42,18 @@ export default function Projects() {
             >
               <div className="neo-card h-full flex flex-col">
                 <div className="relative mb-6">
-                  <SitePreview url={project.demo || project.github} fallbackImage={project.image} title={project.title} />
+                  <SitePreview url={project.demo || project.github} fallbackImage={project.image} title={typeof project.title === 'string' ? project.title : project.title[lang]} />
                   <div className="absolute top-3 right-3">
                     <span className="neo-chip text-xs">{project.status}</span>
                   </div>
                 </div>
                 <div className="flex-1 flex flex-col">
                   <div className="flex items-start justify-between mb-4">
-                    <h3 className="modern-subheading text-xl" style={{ color: 'var(--neo-text)' }}>{project.title}</h3>
+                    <h3 className="modern-subheading text-xl" style={{ color: 'var(--neo-text)' }}>{typeof project.title === 'string' ? project.title : project.title[lang]}</h3>
                     <span className="neo-chip text-xs flex-shrink-0">{project.category}</span>
                   </div>
                   <p className="mb-6 flex-1" style={{ color: 'var(--neo-muted)' }}>
-                    <FadeText text={isEN ?
-                      (project.title === 'Carl Jung AI' ? 'Educational platform that generates course and lesson content based on Carl Jung archetypes.' :
-                       project.title === 'BunnyGymWear' ? 'E‑commerce with a Telegram admin panel that automates product creation and Instagram posts.' :
-                       project.title === 'To‑Do Automation Challenge' ? 'To‑do app with AI: fixes text, detects language and manages the task via n8n and Supabase.' :
-                       project.title === 'Restobelge' ? 'Restaurant landing page with responsive web design.' :
-                       project.description)
-                      : project.description} />
+                    <FadeText text={typeof project.description === 'string' ? project.description : project.description[lang]} />
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, i) => (

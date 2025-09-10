@@ -176,6 +176,9 @@ function brandSlug(n: string): string | null {
     whatsapp: 'whatsapp',
     'node.js': 'nodedotjs',
     node: 'nodedotjs',
+    nodejs: 'nodedotjs',
+    'framer motion': 'framer',
+    framer: 'framer',
   };
   // handle variants like 'php 7+', 'cakephp 4.6'
   for (const key of Object.keys(map)) {
