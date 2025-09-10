@@ -3,7 +3,7 @@ import { TechIcon } from './icons/TechIcons';
 import SitePreview from './SitePreview';
 import { projects as projectsData } from '../data/projects';
 import { useLanguage } from '../utils/useLanguage';
-import AnimatedText from './AnimatedText';
+import FadeText from './FadeText';
 
 const categories = ['Todos', 'Full-Stack', 'Frontend', 'E-commerce'];
 
@@ -14,9 +14,9 @@ export default function Projects() {
     <section className="section-container">
       <div className="section-content">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-          <h2 className="modern-heading text-4xl lg:text-5xl mb-6"><AnimatedText text={isEN ? 'Featured Projects' : 'Proyectos Destacados'} /></h2>
+          <h2 className="modern-heading text-4xl lg:text-5xl mb-6"><FadeText text={isEN ? 'Featured Projects' : 'Proyectos Destacados'} /></h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--neo-muted)' }}>
-            <AnimatedText text={isEN ? 'A selection of my most notable work and innovative solutions' : 'Una selección de mis trabajos más destacados y soluciones innovadoras'} />
+            <FadeText text={isEN ? 'A selection of my most notable work and innovative solutions' : 'Una selección de mis trabajos más destacados y soluciones innovadoras'} />
           </p>
         </motion.div>
 
@@ -53,7 +53,7 @@ export default function Projects() {
                     <span className="neo-chip text-xs flex-shrink-0">{project.category}</span>
                   </div>
                   <p className="mb-6 flex-1" style={{ color: 'var(--neo-muted)' }}>
-                    <AnimatedText text={isEN ?
+                    <FadeText text={isEN ?
                       (project.title === 'Carl Jung AI' ? 'Educational platform that generates course and lesson content based on Carl Jung archetypes.' :
                        project.title === 'BunnyGymWear' ? 'E‑commerce with a Telegram admin panel that automates product creation and Instagram posts.' :
                        project.title === 'To‑Do Automation Challenge' ? 'To‑do app with AI: fixes text, detects language and manages the task via n8n and Supabase.' :
@@ -87,7 +87,7 @@ export default function Projects() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <AnimatedText text={isEN ? 'See more projects on GitHub' : 'Ver más proyectos en GitHub'} />
+            <FadeText text={isEN ? 'See more projects on GitHub' : 'Ver más proyectos en GitHub'} />
           </motion.a>
         </motion.div>
       </div>

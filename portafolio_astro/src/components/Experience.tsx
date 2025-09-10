@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { TechIcon } from './icons/TechIcons';
 import { useLanguage } from '../utils/useLanguage';
-import AnimatedText from './AnimatedText';
+import FadeText from './FadeText';
 
 const experiencesES = [
   {
@@ -122,7 +122,7 @@ export default function Experience() {
     <section id="experience" className="section-container">
       <div className="section-content">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-          <h2 className="modern-heading text-4xl lg:text-5xl"><AnimatedText text={lang === 'en' ? 'Experience' : 'Experiencia'} /></h2>
+          <h2 className="modern-heading text-4xl lg:text-5xl"><FadeText text={lang === 'en' ? 'Experience' : 'Experiencia'} /></h2>
         </motion.div>
 
         <div className="space-y-8 max-w-5xl mx-auto">
@@ -142,7 +142,7 @@ export default function Experience() {
 
               <ul className="mt-4 list-disc list-inside" style={{ color: 'var(--neo-muted)' }}>
                 {exp.bullets.map((b, i) => (
-                  <li key={i}><AnimatedText text={b} /></li>
+                  <li key={i}><FadeText text={b} /></li>
                 ))}
               </ul>
 
