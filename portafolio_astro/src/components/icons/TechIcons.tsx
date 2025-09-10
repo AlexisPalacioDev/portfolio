@@ -173,6 +173,7 @@ function brandSlug(n: string): string | null {
     wordpress: 'wordpress',
     telegram: 'telegram',
     instagram: 'instagram',
+    whatsapp: 'whatsapp',
     'node.js': 'nodedotjs',
     node: 'nodedotjs',
   };

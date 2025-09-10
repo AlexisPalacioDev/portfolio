@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MailIcon, LocationIcon, GlobeIcon } from './icons/UiIcons';
 import { TechIcon } from './icons/TechIcons';
 import { useLanguage } from '../utils/useLanguage';
@@ -10,6 +10,10 @@ export default function Contact() {
   const isEN = lang === 'en';
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [openEmailMenu, setOpenEmailMenu] = useState(false);
+  const [openPhoneMenu, setOpenPhoneMenu] = useState(false);
+  const emailItemRef = useRef<HTMLLIElement | null>(null);
+  const phoneItemRef = useRef<HTMLLIElement | null>(null);
 
   const email = 'alexis26-93@live.com';
   const phoneDisplay = '+57 321 655 1350';
@@ -39,6 +43,20 @@ export default function Contact() {
       }
     } catch {}
   };
+
+  useEffect(() => {
+    const onDocClick = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (openEmailMenu && emailItemRef.current && !emailItemRef.current.contains(target)) {
+        setOpenEmailMenu(false);
+      }
+      if (openPhoneMenu && phoneItemRef.current && !phoneItemRef.current.contains(target)) {
+        setOpenPhoneMenu(false);
+      }
+    };
+    document.addEventListener('click', onDocClick);
+    return () => document.removeEventListener('click', onDocClick);
+  }, [openEmailMenu, openPhoneMenu]);
   return (
     <section id="contact" className="section-container">
       <div className="section-content">
@@ -75,39 +93,77 @@ export default function Contact() {
                 <FadeText text={isEN ? 'Information' : 'Información'} />
               </h3>
               <ul className="space-y-3" style={{ color: 'var(--neo-muted)' }}>
-                <li className="flex items-center gap-3 flex-wrap">
-                  <span className="flex items-center gap-2"><MailIcon /> {email}</span>
+                {/* Email row with contextual menu */}
+                <li ref={emailItemRef} className="relative flex items-center justify-between gap-3 flex-wrap">
                   <button
                     type="button"
-                    className="neo-chip neo-chip-sm"
-                    onClick={() => copyText(email, 'email')}
-                    aria-label={isEN ? 'Copy email' : 'Copiar correo'}
-                    title={isEN ? 'Copy email' : 'Copiar correo'}
+                    className="flex items-center gap-2 hover:opacity-90"
+                    onClick={() => setOpenEmailMenu((v) => !v)}
+                    aria-haspopup="menu"
+                    aria-expanded={openEmailMenu}
+                    title={isEN ? 'Email options' : 'Opciones de correo'}
+                    style={{ color: 'var(--neo-text)' }}
                   >
-                    {copiedEmail ? (isEN ? 'Copied ✓' : 'Copiado ✓') : (isEN ? 'Copy' : 'Copiar')}
+                    <MailIcon /> {email}
                   </button>
+                  {openEmailMenu && (
+                    <div className="absolute right-0 top-full mt-2 neo-inset p-2 rounded-[var(--neo-radius)] z-10">
+                      <div className="flex flex-col min-w-[180px]">
+                        <a
+                          href={`mailto:${email}`}
+                          className="neo-btn mb-2"
+                        >
+                          {isEN ? 'Compose email' : 'Escribir correo'}
+                        </a>
+                        <button
+                          type="button"
+                          className="neo-btn"
+                          onClick={() => copyText(email, 'email')}
+                        >
+                          {copiedEmail ? (isEN ? 'Copied ✓' : 'Copiado ✓') : (isEN ? 'Copy email' : 'Copiar correo')}
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </li>
-                <li className="flex items-center gap-3 flex-wrap">
-                  <span className="flex items-center gap-2">📞 {phoneDisplay}</span>
+
+                {/* Phone row with contextual menu */}
+                <li ref={phoneItemRef} className="relative flex items-center justify-between gap-3 flex-wrap">
                   <button
                     type="button"
-                    className="neo-chip neo-chip-sm"
-                    onClick={() => copyText(phoneDisplay.replace(/\s+/g, ''), 'phone')}
-                    aria-label={isEN ? 'Copy phone' : 'Copiar teléfono'}
-                    title={isEN ? 'Copy phone' : 'Copiar teléfono'}
+                    className="flex items-center gap-2 hover:opacity-90"
+                    onClick={() => setOpenPhoneMenu((v) => !v)}
+                    aria-haspopup="menu"
+                    aria-expanded={openPhoneMenu}
+                    title={isEN ? 'Phone options' : 'Opciones de teléfono'}
+                    style={{ color: 'var(--neo-text)' }}
                   >
-                    {copiedPhone ? (isEN ? 'Copied ✓' : 'Copiado ✓') : (isEN ? 'Copy' : 'Copiar')}
+                    📞 {phoneDisplay}
                   </button>
-                  <a
-                    href={`https://wa.me/${phoneDigits}?text=${encodeURIComponent(isEN ? 'Hi Alexis, I saw your portfolio.' : 'Hola Alexis, vi tu portafolio.')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="neo-chip neo-chip-sm"
-                    aria-label={isEN ? 'Open WhatsApp' : 'Abrir WhatsApp'}
-                    title="WhatsApp"
-                  >
-                    🟢 WhatsApp
-                  </a>
+                  {openPhoneMenu && (
+                    <div className="absolute right-0 top-full mt-2 neo-inset p-2 rounded-[var(--neo-radius)] z-10">
+                      <div className="flex flex-col min-w-[220px]">
+                        <a
+                          href={`https://wa.me/${phoneDigits}?text=${encodeURIComponent(isEN ? 'Hi Alexis, I saw your portfolio.' : 'Hola Alexis, vi tu portafolio.')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="neo-btn mb-2 inline-flex items-center gap-2"
+                        >
+                          <TechIcon name="WhatsApp" size={18} /> WhatsApp
+                        </a>
+                        <a href={`tel:${phoneDigits}`} className="neo-btn mb-2">
+                          {isEN ? 'Call' : 'Llamar'}
+                        </a>
+                        <button
+                          type="button"
+                          className="neo-btn"
+                          onClick={() => copyText(phoneDisplay.replace(/\s+/g, ''), 'phone')}
+                        >
+                          {copiedPhone ? (isEN ? 'Copied ✓' : 'Copiado ✓') : (isEN ? 'Copy number' : 'Copiar número')}
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </li>
                 <li className="flex items-center gap-2"><LocationIcon /> Medellín, Colombia</li>
                 <li className="flex items-center gap-2"><GlobeIcon /> {isEN ? 'Available remote / hybrid' : 'Disponible remoto / híbrido'}</li>
