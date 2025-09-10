@@ -39,9 +39,9 @@ export default function About() {
           <span className="neo-chip">{isEN ? 'About me' : 'Sobre mí'}</span>
           <h2 className="modern-heading text-4xl lg:text-5xl mb-6 mt-4" style={{ color: 'var(--neo-text)' }}>
             {isEN ? (
-              <>Passionate <span className="text-gradient">Developer</span></>
+              <>Full‑Stack & <span className="text-gradient">n8n Automation</span></>
             ) : (
-              <>Desarrollador <span className="text-gradient">Apasionado</span></>
+              <>Full‑Stack y <span className="text-gradient">Automatización con n8n</span></>
             )}
           </h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--neo-muted)' }}>
