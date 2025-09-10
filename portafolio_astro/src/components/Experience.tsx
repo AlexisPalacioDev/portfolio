@@ -5,14 +5,14 @@ const experiences = [
   {
     title: 'Backend PHP Developer',
     company: 'iMometrics',
-    period: 'Dic 2024 – Actualidad',
+    period: 'Jun 2024 – Actualidad',
     location: 'Medellín, Colombia (Remoto)',
     bullets: [
-      'Aplicaciones internas con CakePHP 4.6 y PHP 7+',
-      'Mejora continua y buenas prácticas (PSR, SOLID)',
-      'MySQL, migraciones y query performance',
-      'Automatización con n8n (incluyendo bots de WhatsApp)',
-      'Entornos de desarrollo con Docker',
+      'Desarrollo de aplicaciones internas con CakePHP 4.6 y PHP 7+',
+      'Buenas prácticas (PSR, SOLID) y mejora continua',
+      'MySQL, migraciones y optimización de consultas',
+      'Automatización con n8n (incl. bots de WhatsApp)',
+      'Entornos de desarrollo con Docker y Composer',
     ],
     tech: ['CakePHP 4.6', 'PHP 7+', 'MySQL', 'Docker', 'Git', 'Composer', 'n8n'],
     current: true,
@@ -20,11 +20,11 @@ const experiences = [
   {
     title: 'Frontend Developer',
     company: 'K Gumi SAS',
-    period: 'Ene 2021 – Dic 2024',
+    period: 'Ene 2021 – May 2024',
     location: 'Medellín, Colombia',
     bullets: [
       'Sitios y landings con HTML, CSS y JavaScript',
-      'Interfaces con Tailwind CSS, enfoque en responsive',
+      'Interfaces con Tailwind CSS; enfoque en responsive',
       'Mantenimiento y evolución de sitios corporativos',
     ],
     tech: ['HTML5', 'CSS3', 'JavaScript', 'Tailwind CSS', 'Git'],
@@ -35,11 +35,25 @@ const experiences = [
     period: 'Mar 2020 – Dic 2020',
     location: 'Medellín, Colombia (Remoto)',
     bullets: [
-      'UI para aplicación web',
-      'Integración con API de Mapbox',
-      'Rutas de onboarding “app sin app”',
+      'Desarrollo de interfaz (UI) para aplicación web',
+      'Integración con Mapbox API para mapas',
+      'Implementación de diseño responsive y rutas de navegación',
     ],
-    tech: ['HTML5', 'CSS3', 'JavaScript', 'Mapbox API', 'Git'],
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'Mapbox', 'Git'],
+  },
+  {
+    title: 'Freelance – Automatización n8n e Integraciones IA',
+    company: 'Proyectos varios',
+    period: '2023 – Actualidad',
+    location: 'Remoto',
+    bullets: [
+      'Flujos automatizados con n8n, APIs REST y bots en Telegram/WhatsApp',
+      'Creación de agentes de voz y conexión de LLMs mediante MCP',
+      'Supabase para autenticación, storage y base de datos',
+      'Despliegues en AWS e integraciones con LLMs locales (Ollama, Router)',
+      'Proyectos: BunnyGymWear, CarlJung.app, Restobelge, To‑Do Automation Challenge',
+    ],
+    tech: ['n8n', 'APIs', 'Telegram', 'Supabase', 'AWS', 'Ollama'],
   },
 ];
 
@@ -58,7 +72,7 @@ export default function Experience() {
                 <div>
                   <h3 className="text-xl font-semibold" style={{ color: 'var(--neo-text)' }}>{exp.title}</h3>
                   <p style={{ color: 'var(--neo-muted)' }}>
-                    {exp.company} • {exp.location}
+                    {exp.company} · {exp.location}
                   </p>
                 </div>
                 <div className="text-sm" style={{ color: 'var(--neo-muted)' }}>

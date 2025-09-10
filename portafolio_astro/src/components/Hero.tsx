@@ -30,7 +30,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              Desarrollador Full-Stack
+              Desarrollador Full‑Stack | Automatización con n8n
             </motion.p>
 
             <motion.p
@@ -39,7 +39,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
-              Construyo experiencias digitales modernas y funcionales. Especializado en desarrollo web con más de 4 años de experiencia en tecnologías frontend y backend.
+              Construyo soluciones modernas combinando automatización con n8n, integración de LLMs (Ollama, Router) y MCP con desarrollo web Full‑Stack. Experiencia con Supabase (BD, auth, storage) y despliegues en AWS.
             </motion.p>
 
             {/* Removed CTA buttons (Ver Proyectos / Contacto) */}
@@ -49,7 +49,7 @@ export default function Hero() {
                 Tecnologías principales
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-                {['PHP', 'JavaScript', 'React', 'CakePHP', 'MySQL', 'Tailwind CSS'].map((tech) => (
+                {['n8n', 'Supabase', 'PHP', 'CakePHP', 'Node.js', 'Docker'].map((tech) => (
                   <span key={tech} className="neo-chip" title={tech} aria-label={tech}>
                     <TechIcon name={tech} size={28} />
                   </span>
@@ -67,7 +67,7 @@ export default function Hero() {
           >
             <div className="neo-card flex items-center gap-4">
               <div className="neo-avatar">
-                <img src="/profile.png" alt="Alexis Palacio - Desarrollador Full-Stack" className="w-20 h-20 rounded-full object-cover" />
+                <img src="/profile.png" alt="Alexis Palacio - Desarrollador Full-Stack" width="80" height="80" className="w-20 h-20 rounded-full object-cover" />
               </div>
               <div>
                 <div className="text-xl font-semibold">Alexis Palacio</div>
@@ -80,3 +80,4 @@ export default function Hero() {
     </section>
   );
 }
+

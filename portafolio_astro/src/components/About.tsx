@@ -1,24 +1,31 @@
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TechIcon } from './icons/TechIcons';
 
 const skills = [
-  { name: 'HTML5', level: 95, category: 'Frontend' },
-  { name: 'CSS3', level: 95, category: 'Frontend' },
-  { name: 'JavaScript', level: 90, category: 'Frontend' },
-  { name: 'React', level: 75, category: 'Frontend' },
-  { name: 'Tailwind CSS', level: 90, category: 'Frontend' },
+  { name: 'n8n', level: 90, category: 'Automatización' },
+  { name: 'Supabase', level: 85, category: 'Backend' },
+  { name: 'MySQL', level: 85, category: 'Backend' },
   { name: 'PHP', level: 88, category: 'Backend' },
   { name: 'CakePHP', level: 85, category: 'Backend' },
-  { name: 'MySQL', level: 85, category: 'Backend' },
-  { name: 'Git', level: 85, category: 'Tools' },
-  { name: 'n8n', level: 80, category: 'Tools' }
+  { name: 'Node.js', level: 80, category: 'Backend' },
+  { name: 'Python', level: 75, category: 'Backend' },
+  { name: 'Next.js', level: 70, category: 'Frontend' },
+  { name: 'React', level: 75, category: 'Frontend' },
+  { name: 'Tailwind CSS', level: 90, category: 'Frontend' },
+  { name: 'HTML5', level: 95, category: 'Frontend' },
+  { name: 'CSS3', level: 95, category: 'Frontend' },
+  { name: 'Docker', level: 70, category: 'Infra' },
+  { name: 'Git', level: 85, category: 'Herramientas' },
+  { name: 'Shopify', level: 70, category: 'Herramientas' },
+  { name: 'WordPress', level: 75, category: 'Herramientas' },
+  { name: 'Figma', level: 70, category: 'Herramientas' },
 ];
 
 const stats = [
   { number: '4+', label: 'Años de Experiencia' },
   { number: '15+', label: 'Proyectos Completados' },
   { number: '10+', label: 'Tecnologías' },
-  { number: '3', label: 'Empresas' }
 ];
 
 export default function About() {
@@ -31,7 +38,7 @@ export default function About() {
             Desarrollador <span className="text-gradient">Apasionado</span>
           </h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--neo-muted)' }}>
-            Construyo soluciones web modernas y funcionales con más de 4 años de experiencia
+            Automatización con n8n, integración de LLMs (Ollama, Router) y MCP; desarrollo web de extremo a extremo.
           </p>
         </motion.div>
 
@@ -43,28 +50,28 @@ export default function About() {
               </h3>
               <div className="space-y-4" style={{ color: 'var(--neo-muted)' }}>
                 <p>
-                  Soy un desarrollador Full-Stack con <strong>4+ años de experiencia</strong> creando soluciones web desde interfaces de usuario hasta sistemas backend robustos.
+                  Desarrollador Full‑Stack con <strong>4+ años de experiencia</strong>, enfocado en <strong>automatización con n8n</strong> e integración de modelos de lenguaje en nube y local.
                 </p>
                 <p>
-                  Actualmente me especializo en desarrollo backend con <strong>PHP y CakePHP</strong>, mientras mantengo un enfoque integral en tecnologías frontend modernas.
+                  Experiencia creando <strong>agentes de voz</strong> y conectándolos a fuentes externas mediante <strong>MCP</strong>; uso de <strong>Supabase</strong> para BD, autenticación y storage; despliegues en <strong>AWS</strong>.
                 </p>
                 <p>
-                  Mi pasión es crear aplicaciones que no solo funcionen bien, sino que también ofrezcan una experiencia de usuario excepcional y código mantenible.
+                  Base sólida en <strong>PHP/CakePHP</strong>, <strong>Node.js</strong> y frontend moderno (React, Tailwind).
                 </p>
               </div>
 
               <div className="mt-8 space-y-4">
                 <div className="neo-inset p-4 rounded-[var(--neo-radius)]">
                   <h4 className="font-semibold mb-2" style={{ color: 'var(--neo-text)' }}>Frontend</h4>
-                  <p className="text-sm" style={{ color: 'var(--neo-muted)' }}>HTML5 · CSS3 · JavaScript · React · Tailwind CSS</p>
+                  <p className="text-sm" style={{ color: 'var(--neo-muted)' }}>HTML5 · CSS3 · JavaScript · React · Tailwind CSS · Next.js</p>
                 </div>
                 <div className="neo-inset p-4 rounded-[var(--neo-radius)]">
                   <h4 className="font-semibold mb-2" style={{ color: 'var(--neo-text)' }}>Backend</h4>
-                  <p className="text-sm" style={{ color: 'var(--neo-muted)' }}>PHP 7+ · CakePHP 4.6 · MySQL · Clean Code</p>
+                  <p className="text-sm" style={{ color: 'var(--neo-muted)' }}>PHP 7+ · CakePHP 4.6 · Node.js · Python · MySQL · Supabase</p>
                 </div>
                 <div className="neo-inset p-4 rounded-[var(--neo-radius)]">
-                  <h4 className="font-semibold mb-2" style={{ color: 'var(--neo-text)' }}>Herramientas</h4>
-                  <p className="text-sm" style={{ color: 'var(--neo-muted)' }}>Git · Docker · n8n · Shopify · WordPress</p>
+                  <h4 className="font-semibold mb-2" style={{ color: 'var(--neo-text)' }}>Automatización e Infra</h4>
+                  <p className="text-sm" style={{ color: 'var(--neo-muted)' }}>n8n · APIs REST · Telegram API · MCP · AWS · Docker · Git/GitHub · Shopify · WordPress · Figma</p>
                 </div>
               </div>
             </div>
@@ -104,10 +111,10 @@ export default function About() {
           </motion.div>
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {stats.map((stat) => (
             <div key={stat.label} className="neo-card text-center">
-              <div className="text-3xl font-bold mb-1" style={{ color: 'var(--neo-text)' }}>{stat.number}</div>
+              <Counter text={stat.number} className="text-3xl font-bold mb-1" />
               <div className="text-sm" style={{ color: 'var(--neo-muted)' }}>{stat.label}</div>
             </div>
           ))}
@@ -116,3 +123,45 @@ export default function About() {
     </section>
   );
 }
+
+function Counter({ text, className = '', duration = 1200 }: { text: string; className?: string; duration?: number }) {
+  const [display, setDisplay] = useState('0');
+  const ref = useRef<HTMLDivElement | null>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const m = text.trim().match(/^(\d+)(.*)$/);
+    const target = m ? parseInt(m[1], 10) : 0;
+    const suffix = m ? m[2] : '';
+    if (!ref.current || !('IntersectionObserver' in window)) {
+      setDisplay(text);
+      return;
+    }
+    const el = ref.current;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          const start = performance.now();
+          const step = (now: number) => {
+            const t = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+            const val = Math.round(eased * target);
+            setDisplay(`${val}${suffix}`);
+            if (t < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        }
+      });
+    }, { threshold: 0.4 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [text, duration]);
+
+  return (
+    <div ref={ref} className={className} style={{ color: 'var(--neo-text)' }}>
+      {display}
+    </div>
+  );
+}
+

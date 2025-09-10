@@ -1,38 +1,7 @@
 import { motion } from 'framer-motion';
 import { TechIcon } from './icons/TechIcons';
-
-const projects = [
-  {
-    title: 'Carl Jung AI',
-    description: 'Plataforma educativa que genera contenido formativo basado en arquetipos de Carl Jung.',
-    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Supabase', 'OpenAI API'],
-    image: 'https://picsum.photos/seed/carljung/800/450',
-    github: '#',
-    demo: 'https://carljung.app/home',
-    category: 'Full-Stack',
-    status: 'Activo',
-  },
-  {
-    title: 'PoisoneD Merch',
-    description: 'Tienda online personalizada con Shopify para venta de merchandise.',
-    technologies: ['Shopify', 'JavaScript', 'CSS3', 'Liquid'],
-    image: 'https://picsum.photos/seed/merch/800/450',
-    github: '#',
-    demo: '#',
-    category: 'E-commerce',
-    status: 'Completado',
-  },
-  {
-    title: 'Portfolio Personal',
-    description: 'Sitio web personal con tecnologías modernas y diseño responsive.',
-    technologies: ['Astro', 'React', 'Tailwind CSS', 'Framer Motion'],
-    image: 'https://picsum.photos/seed/portfolio/800/450',
-    github: 'https://github.com/alexispalaciodev',
-    demo: 'https://alexispalaciodev.github.io/portfolio/',
-    category: 'Frontend',
-    status: 'Activo',
-  },
-];
+import SitePreview from './SitePreview';
+import { projects as projectsData } from '../data/projects';
 
 const categories = ['Todos', 'Full-Stack', 'Frontend', 'E-commerce'];
 
@@ -58,13 +27,18 @@ export default function Projects() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {projects.map((project, index) => (
-            <motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }} viewport={{ once: true }} className="group">
+          {projectsData.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group"
+            >
               <div className="neo-card h-full flex flex-col">
                 <div className="relative mb-6">
-                  <div className="w-full h-48 neo-inset rounded-[var(--neo-radius)] overflow-hidden">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                  </div>
+                  <SitePreview url={project.demo || project.github} fallbackImage={project.image} title={project.title} />
                   <div className="absolute top-3 right-3">
                     <span className="neo-chip text-xs">{project.status}</span>
                   </div>
@@ -93,7 +67,14 @@ export default function Projects() {
         </div>
 
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center">
-          <motion.a href="https://github.com/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <motion.a
+            href="https://github.com/alexispalaciodev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="neo-btn inline-flex items-center gap-2"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
             Ver más proyectos en GitHub
           </motion.a>
         </motion.div>
@@ -101,3 +82,4 @@ export default function Projects() {
     </section>
   );
 }
+

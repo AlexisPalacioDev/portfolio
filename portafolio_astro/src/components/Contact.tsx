@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { MailIcon, LocationIcon, GlobeIcon } from './icons/UiIcons';
 import { TechIcon } from './icons/TechIcons';
 
@@ -47,22 +47,27 @@ export default function Contact() {
             <div className="neo-card">
               <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--neo-text)' }}>Información</h3>
               <ul className="space-y-3" style={{ color: 'var(--neo-muted)' }}>
-                <li className="flex items-center gap-2"><MailIcon /> alexispalaciodev@gmail.com</li>
+                <li className="flex items-center gap-2"><MailIcon /> alexis26-93@live.com</li>
                 <li className="flex items-center gap-2"><LocationIcon /> Medellín, Colombia</li>
+                <li className="flex items-center gap-2">📞 +57 321 655 1350</li>
                 <li className="flex items-center gap-2"><GlobeIcon /> Disponible remoto / híbrido</li>
               </ul>
             </div>
-              <div className="neo-card">
-                <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--neo-text)' }}>Redes</h3>
-                <div className="flex gap-3">
-                  <a href="https://github.com/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2">
-                    <TechIcon name="GitHub" size={20} /> GitHub
-                  </a>
-                  <a href="https://www.linkedin.com/in/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2">
-                    <TechIcon name="LinkedIn" size={20} /> LinkedIn
-                  </a>
-                </div>
+            <div className="neo-card">
+              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--neo-text)' }}>Currículum</h3>
+              <a href="/AlexisPalacio_ATS.pdf" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2">Descargar CV (PDF)</a>
+            </div>
+            <div className="neo-card">
+              <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--neo-text)' }}>Redes</h3>
+              <div className="flex gap-3">
+                <a href="https://github.com/alexispalaciodev" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2">
+                  <TechIcon name="GitHub" size={20} /> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/poisoneddog/" target="_blank" rel="noopener noreferrer" className="neo-btn inline-flex items-center gap-2">
+                  <TechIcon name="LinkedIn" size={20} /> LinkedIn
+                </a>
               </div>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -170,6 +170,11 @@ function brandSlug(n: string): string | null {
     html5: 'html5',
     mapbox: 'mapbox',
     openai: 'openai',
+    wordpress: 'wordpress',
+    telegram: 'telegram',
+    instagram: 'instagram',
+    'node.js': 'nodedotjs',
+    node: 'nodedotjs',
   };
   // handle variants like 'php 7+', 'cakephp 4.6'
   for (const key of Object.keys(map)) {
