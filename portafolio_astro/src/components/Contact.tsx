@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import React, { useState } from 'react';
 import { MailIcon, LocationIcon, GlobeIcon } from './icons/UiIcons';
 import { TechIcon } from './icons/TechIcons';
 import { useLanguage } from '../utils/useLanguage';
@@ -7,6 +8,37 @@ import FadeText from './FadeText';
 export default function Contact() {
   const lang = useLanguage();
   const isEN = lang === 'en';
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
+
+  const email = 'alexis26-93@live.com';
+  const phoneDisplay = '+57 321 655 1350';
+  const phoneDigits = '573216551350';
+
+  const copyText = async (text: string, which: 'email' | 'phone') => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      if (which === 'email') {
+        setCopiedEmail(true);
+        setTimeout(() => setCopiedEmail(false), 1500);
+      } else {
+        setCopiedPhone(true);
+        setTimeout(() => setCopiedPhone(false), 1500);
+      }
+    } catch {}
+  };
   return (
     <section id="contact" className="section-container">
       <div className="section-content">
@@ -43,9 +75,41 @@ export default function Contact() {
                 <FadeText text={isEN ? 'Information' : 'Información'} />
               </h3>
               <ul className="space-y-3" style={{ color: 'var(--neo-muted)' }}>
-                <li className="flex items-center gap-2"><MailIcon /> alexis26-93@live.com</li>
+                <li className="flex items-center gap-3 flex-wrap">
+                  <span className="flex items-center gap-2"><MailIcon /> {email}</span>
+                  <button
+                    type="button"
+                    className="neo-chip neo-chip-sm"
+                    onClick={() => copyText(email, 'email')}
+                    aria-label={isEN ? 'Copy email' : 'Copiar correo'}
+                    title={isEN ? 'Copy email' : 'Copiar correo'}
+                  >
+                    {copiedEmail ? (isEN ? 'Copied ✓' : 'Copiado ✓') : (isEN ? 'Copy' : 'Copiar')}
+                  </button>
+                </li>
+                <li className="flex items-center gap-3 flex-wrap">
+                  <span className="flex items-center gap-2">📞 {phoneDisplay}</span>
+                  <button
+                    type="button"
+                    className="neo-chip neo-chip-sm"
+                    onClick={() => copyText(phoneDisplay.replace(/\s+/g, ''), 'phone')}
+                    aria-label={isEN ? 'Copy phone' : 'Copiar teléfono'}
+                    title={isEN ? 'Copy phone' : 'Copiar teléfono'}
+                  >
+                    {copiedPhone ? (isEN ? 'Copied ✓' : 'Copiado ✓') : (isEN ? 'Copy' : 'Copiar')}
+                  </button>
+                  <a
+                    href={`https://wa.me/${phoneDigits}?text=${encodeURIComponent(isEN ? 'Hi Alexis, I saw your portfolio.' : 'Hola Alexis, vi tu portafolio.')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="neo-chip neo-chip-sm"
+                    aria-label={isEN ? 'Open WhatsApp' : 'Abrir WhatsApp'}
+                    title="WhatsApp"
+                  >
+                    🟢 WhatsApp
+                  </a>
+                </li>
                 <li className="flex items-center gap-2"><LocationIcon /> Medellín, Colombia</li>
-                <li className="flex items-center gap-2">📞 +57 321 655 1350</li>
                 <li className="flex items-center gap-2"><GlobeIcon /> {isEN ? 'Available remote / hybrid' : 'Disponible remoto / híbrido'}</li>
               </ul>
             </div>
@@ -93,4 +157,3 @@ export default function Contact() {
     </section>
   );
 }
-
