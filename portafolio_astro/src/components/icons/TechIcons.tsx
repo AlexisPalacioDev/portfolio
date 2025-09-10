@@ -179,6 +179,9 @@ function brandSlug(n: string): string | null {
     nodejs: 'nodedotjs',
     'framer motion': 'framer',
     framer: 'framer',
+    aws: 'amazonaws',
+    'amazon web services': 'amazonaws',
+    ollama: 'ollama',
   };
   // handle variants like 'php 7+', 'cakephp 4.6'
   for (const key of Object.keys(map)) {

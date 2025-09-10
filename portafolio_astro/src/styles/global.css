@@ -6,6 +6,7 @@
 :root {
   --icon-accent: #0ea5e9; /* cyan-blue */
   --icon-accent-2: #2563eb; /* vibrant blue */
+  
   /* Neumorphism base */
   --neo-base: #e9edf3; /* light, uniform base */
   --neo-shadow-dark: #c5cad3; /* bottom-right shadow */
@@ -334,6 +335,7 @@
 }
 
 .dark body { background-color: var(--neo-base); color: var(--neo-text); }
+
 
 .dark .neo-card { box-shadow: 14px 14px 28px var(--neo-shadow-dark), -12px -12px 24px var(--neo-shadow-light); }
 .dark .neo-inset { box-shadow: inset 10px 10px 20px var(--neo-shadow-dark), inset -10px -10px 20px var(--neo-shadow-light); }
