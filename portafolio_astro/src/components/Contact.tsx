@@ -17,7 +17,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid gap-12 max-w-6xl mx-auto">
           {/* Form */}
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="neo-card">
             <h3 className="text-2xl font-bold mb-8" style={{ color: 'var(--neo-text)' }}><FadeText text={isEN ? 'Send me a message' : 'Envíame un mensaje'} /></h3>
@@ -78,3 +78,4 @@ export default function Contact() {
     </section>
   );
 }
+
