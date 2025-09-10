@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
-    <circle cx="64" cy="64" r="56" fill="#3b82f6" stroke="#2563eb" stroke-width="4"/>
-    <text x="64" y="78" text-anchor="middle" font-family="monospace" font-size="48" font-weight="bold" fill="white">AP</text>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            circle { fill: #1e40af; stroke: #3b82f6; }
-        }
-    </style>
-</svg>
