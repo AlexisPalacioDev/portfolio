@@ -2,17 +2,20 @@ import { motion } from 'framer-motion';
 import { TechIcon } from './icons/TechIcons';
 import SitePreview from './SitePreview';
 import { projects as projectsData } from '../data/projects';
+import { useLanguage } from '../utils/useLanguage';
 
 const categories = ['Todos', 'Full-Stack', 'Frontend', 'E-commerce'];
 
 export default function Projects() {
+  const lang = useLanguage();
+  const isEN = lang === 'en';
   return (
     <section className="section-container">
       <div className="section-content">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-          <h2 className="modern-heading text-4xl lg:text-5xl mb-6">Proyectos Destacados</h2>
+          <h2 className="modern-heading text-4xl lg:text-5xl mb-6">{isEN ? 'Featured Projects' : 'Proyectos Destacados'}</h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--neo-muted)' }}>
-            Una selección de mis trabajos más destacados y soluciones innovadoras
+            {isEN ? 'A selection of my most notable work and innovative solutions' : 'Una selección de mis trabajos más destacados y soluciones innovadoras'}
           </p>
         </motion.div>
 
@@ -48,7 +51,15 @@ export default function Projects() {
                     <h3 className="modern-subheading text-xl" style={{ color: 'var(--neo-text)' }}>{project.title}</h3>
                     <span className="neo-chip text-xs flex-shrink-0">{project.category}</span>
                   </div>
-                  <p className="mb-6 flex-1" style={{ color: 'var(--neo-muted)' }}>{project.description}</p>
+                  <p className="mb-6 flex-1" style={{ color: 'var(--neo-muted)' }}>
+                    {isEN ?
+                      (project.title === 'Carl Jung AI' ? 'Educational platform that generates course and lesson content based on Carl Jung archetypes.' :
+                       project.title === 'BunnyGymWear' ? 'E‑commerce with a Telegram admin panel that automates product creation and Instagram posts.' :
+                       project.title === 'To‑Do Automation Challenge' ? 'To‑do app with AI: fixes text, detects language and manages the task via n8n and Supabase.' :
+                       project.title === 'Restobelge' ? 'Restaurant landing page with responsive web design.' :
+                       project.description)
+                      : project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, i) => (
                       <span key={i} className="neo-chip" title={tech} aria-label={tech}>
@@ -58,7 +69,7 @@ export default function Projects() {
                   </div>
                 </div>
                 <div className="mt-6 flex items-center gap-3">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="neo-btn">Código</a>
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="neo-btn">{isEN ? 'Code' : 'Código'}</a>
                   <a href={project.demo} target="_blank" rel="noopener noreferrer" className="neo-btn">Demo</a>
                 </div>
               </div>
@@ -75,11 +86,10 @@ export default function Projects() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            Ver más proyectos en GitHub
+            {isEN ? 'See more projects on GitHub' : 'Ver más proyectos en GitHub'}
           </motion.a>
         </motion.div>
       </div>
     </section>
   );
 }
-

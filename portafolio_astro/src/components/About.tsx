@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TechIcon } from './icons/TechIcons';
+import { useLanguage } from '../utils/useLanguage';
 
 const skills = [
   { name: 'n8n', level: 90, category: 'Automatización' },
@@ -29,16 +30,24 @@ const stats = [
 ];
 
 export default function About() {
+  const lang = useLanguage();
+  const isEN = lang === 'en';
   return (
     <section className="section-container">
       <div className="section-content">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-          <span className="neo-chip">Sobre mí</span>
+          <span className="neo-chip">{isEN ? 'About me' : 'Sobre mí'}</span>
           <h2 className="modern-heading text-4xl lg:text-5xl mb-6 mt-4" style={{ color: 'var(--neo-text)' }}>
-            Desarrollador <span className="text-gradient">Apasionado</span>
+            {isEN ? (
+              <>Passionate <span className="text-gradient">Developer</span></>
+            ) : (
+              <>Desarrollador <span className="text-gradient">Apasionado</span></>
+            )}
           </h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--neo-muted)' }}>
-            Automatización con n8n, integración de LLMs (Ollama, Router) y MCP; desarrollo web de extremo a extremo.
+            {isEN
+              ? 'Automation with n8n, LLM integration (Ollama, Router) and MCP; end‑to‑end web development.'
+              : 'Automatización con n8n, integración de LLMs (Ollama, Router) y MCP; desarrollo web de extremo a extremo.'}
           </p>
         </motion.div>
 
@@ -50,28 +59,38 @@ export default function About() {
               </h3>
               <div className="space-y-4" style={{ color: 'var(--neo-muted)' }}>
                 <p>
-                  Desarrollador Full‑Stack con <strong>4+ años de experiencia</strong>, enfocado en <strong>automatización con n8n</strong> e integración de modelos de lenguaje en nube y local.
+                  {isEN
+                    ? (<>
+                        Full‑Stack Developer with <strong>4+ years of experience</strong>, focused on <strong>n8n automation</strong> and LLM integration (cloud and local).
+                      </>)
+                    : (<>Desarrollador Full‑Stack con <strong>4+ años de experiencia</strong>, enfocado en <strong>automatización con n8n</strong> e integración de modelos de lenguaje en nube y local.</>)}
                 </p>
                 <p>
-                  Experiencia creando <strong>agentes de voz</strong> y conectándolos a fuentes externas mediante <strong>MCP</strong>; uso de <strong>Supabase</strong> para BD, autenticación y storage; despliegues en <strong>AWS</strong>.
+                  {isEN
+                    ? (<>
+                        Built <strong>voice agents</strong> connected to external sources via <strong>MCP</strong>; use of <strong>Supabase</strong> for DB, auth and storage; deployments on <strong>AWS</strong>.
+                      </>)
+                    : (<>Experiencia creando <strong>agentes de voz</strong> y conectándolos a fuentes externas mediante <strong>MCP</strong>; uso de <strong>Supabase</strong> para BD, autenticación y storage; despliegues en <strong>AWS</strong>.</>)}
                 </p>
                 <p>
-                  Base sólida en <strong>PHP/CakePHP</strong>, <strong>Node.js</strong> y frontend moderno (React, Tailwind).
+                  {isEN
+                    ? (<>Solid base in <strong>PHP/CakePHP</strong>, <strong>Node.js</strong>, and modern frontend (React, Tailwind).</>)
+                    : (<>Base sólida en <strong>PHP/CakePHP</strong>, <strong>Node.js</strong> y frontend moderno (React, Tailwind).</>)}
                 </p>
               </div>
 
               <div className="mt-8 space-y-4">
                 <div className="neo-inset p-4 rounded-[var(--neo-radius)]">
-                  <h4 className="font-semibold mb-2" style={{ color: 'var(--neo-text)' }}>Frontend</h4>
+                  <h4 className="font-semibold mb-2" style={{ color: 'var(--neo-text)' }}>{isEN ? 'Frontend' : 'Frontend'}</h4>
                   <p className="text-sm" style={{ color: 'var(--neo-muted)' }}>HTML5 · CSS3 · JavaScript · React · Tailwind CSS · Next.js</p>
                 </div>
                 <div className="neo-inset p-4 rounded-[var(--neo-radius)]">
-                  <h4 className="font-semibold mb-2" style={{ color: 'var(--neo-text)' }}>Backend</h4>
+                  <h4 className="font-semibold mb-2" style={{ color: 'var(--neo-text)' }}>{isEN ? 'Backend' : 'Backend'}</h4>
                   <p className="text-sm" style={{ color: 'var(--neo-muted)' }}>PHP 7+ · CakePHP 4.6 · Node.js · Python · MySQL · Supabase</p>
                 </div>
                 <div className="neo-inset p-4 rounded-[var(--neo-radius)]">
-                  <h4 className="font-semibold mb-2" style={{ color: 'var(--neo-text)' }}>Automatización e Infra</h4>
-                  <p className="text-sm" style={{ color: 'var(--neo-muted)' }}>n8n · APIs REST · Telegram API · MCP · AWS · Docker · Git/GitHub · Shopify · WordPress · Figma</p>
+                  <h4 className="font-semibold mb-2" style={{ color: 'var(--neo-text)' }}>{isEN ? 'Automation & Infra' : 'Automatización e Infra'}</h4>
+                  <p className="text-sm" style={{ color: 'var(--neo-muted)' }}>n8n · REST APIs · Telegram API · MCP · AWS · Docker · Git/GitHub · Shopify · WordPress · Figma</p>
                 </div>
               </div>
             </div>
@@ -164,4 +183,3 @@ function Counter({ text, className = '', duration = 1200 }: { text: string; clas
     </div>
   );
 }
-

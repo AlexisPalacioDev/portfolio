@@ -1,22 +1,34 @@
 ﻿import { motion } from 'framer-motion';
 import type { NavLinksProps, NavLink } from '../types';
 import { HomeIcon, UserIcon, BriefcaseIcon, FolderIcon, MailSmallIcon } from './icons/UiIcons';
+import { useLanguage } from '../utils/useLanguage';
 
-const navItems: NavLink[] = [
-  { href: '#home', label: 'Inicio' },
-  { href: '#about', label: 'Sobre mí' },
-  { href: '#experience', label: 'Experiencia' },
-  { href: '#projects', label: 'Proyectos' },
-  { href: '#contact', label: 'Contacto' },
-];
+function itemsFor(lang: 'es' | 'en'): NavLink[] {
+  return lang === 'en'
+    ? [
+        { href: '#home', label: 'Home' },
+        { href: '#about', label: 'About' },
+        { href: '#experience', label: 'Experience' },
+        { href: '#projects', label: 'Projects' },
+        { href: '#contact', label: 'Contact' },
+      ]
+    : [
+        { href: '#home', label: 'Inicio' },
+        { href: '#about', label: 'Sobre mí' },
+        { href: '#experience', label: 'Experiencia' },
+        { href: '#projects', label: 'Proyectos' },
+        { href: '#contact', label: 'Contacto' },
+      ];
+}
 
 export default function NavLinks({ mobile = false, onClose = () => {} }: NavLinksProps) {
+  const lang = useLanguage();
   const ulClass = mobile
     ? 'flex flex-col items-center gap-3'
     : 'inline-flex items-center gap-2 flex-nowrap whitespace-nowrap justify-center';
   return (
     <ul className={ulClass}>
-      {navItems.map(({ href, label }) => (
+      {itemsFor(lang).map(({ href, label }) => (
         <motion.li key={href}>
           <motion.a
             href={href}
