@@ -18,7 +18,9 @@ export default function HeaderWrapper() {
     setCurrentLang(lang);
     localStorage.setItem('language', lang);
     document.documentElement.setAttribute('lang', lang);
-    document.dispatchEvent(new CustomEvent(LANG_EVENT, { detail: lang }));
+    const evt = new CustomEvent(LANG_EVENT, { detail: lang });
+    document.dispatchEvent(evt);
+    window.dispatchEvent(evt);
   };
 
   return (

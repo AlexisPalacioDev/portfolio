@@ -324,6 +324,39 @@
   }
 }
 
+/* Dark Mode – variables + component tuning */
+.dark :root, :root.dark {
+  --neo-base: #10151c;
+  --neo-shadow-dark: #0b0f14;
+  --neo-shadow-light: #1a212b;
+  --neo-text: #e6ebf2;
+  --neo-muted: #9aa3b2;
+}
+
+.dark body { background-color: var(--neo-base); color: var(--neo-text); }
+
+.dark .neo-card { box-shadow: 14px 14px 28px var(--neo-shadow-dark), -12px -12px 24px var(--neo-shadow-light); }
+.dark .neo-inset { box-shadow: inset 10px 10px 20px var(--neo-shadow-dark), inset -10px -10px 20px var(--neo-shadow-light); }
+.dark .neo-btn { box-shadow: 10px 10px 20px var(--neo-shadow-dark), -10px -10px 20px var(--neo-shadow-light); }
+.dark .neo-btn:hover { box-shadow: inset 10px 10px 20px var(--neo-shadow-dark), inset -10px -10px 20px var(--neo-shadow-light); }
+.dark .neo-chip { box-shadow: 8px 8px 16px var(--neo-shadow-dark), -8px -8px 16px var(--neo-shadow-light); }
+.dark .neo-chip:hover { box-shadow: inset 8px 8px 16px var(--neo-shadow-dark), inset -8px -8px 16px var(--neo-shadow-light); }
+.dark .neo-input { box-shadow: inset 10px 10px 20px var(--neo-shadow-dark), inset -10px -10px 20px var(--neo-shadow-light); }
+
+/* Subtle theming crossfade */
+.theming .neo-card,
+.theming .neo-inset,
+.theming .neo-btn,
+.theming .neo-chip,
+.theming .neo-avatar,
+.theming .neo-input,
+.theming header,
+.theming footer,
+.theming section {
+  transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+
 @layer utilities {
   /* Custom animations */
   @keyframes fade-in-up {
