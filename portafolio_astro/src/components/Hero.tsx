@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { TechIcon } from './icons/TechIcons';
 import { useLanguage } from '../utils/useLanguage';
 import FadeText from './FadeText';
@@ -36,19 +36,7 @@ export default function Hero() {
             >
               <FadeText text={isEN ? 'Full‑Stack Developer | n8n Automation' : 'Desarrollador Full‑Stack | Automatización con n8n'} />
             </motion.p>
-
-            <motion.p
-              className="text-lg max-w-2xl lg:max-w-none mb-12 leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.8 }}
-            >
-              <FadeText
-                text={isEN
-                  ? 'I build modern solutions combining n8n automation, LLM integration (Ollama, Router) and MCP with Full‑Stack web development. Experience with Supabase (DB, auth, storage) and deployments on AWS.'
-                  : 'Construyo soluciones modernas combinando automatización con n8n, integración de LLMs (Ollama, Router) y MCP con desarrollo web Full‑Stack. Experiencia con Supabase (BD, auth, storage) y despliegues en AWS.'}
-              />
-            </motion.p>
+            {/* Summary paragraph removed */}
 
             {/* Removed CTA buttons (Ver Proyectos / Contacto) */}
 
@@ -88,3 +76,4 @@ export default function Hero() {
     </section>
   );
 }
+

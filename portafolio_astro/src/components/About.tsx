@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TechIcon } from './icons/TechIcons';
 import { useLanguage } from '../utils/useLanguage';
@@ -45,11 +45,6 @@ export default function About() {
               <>Full‑Stack y <span className="text-gradient">Automatización con n8n</span></>
             )}
           </h2>
-          <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--neo-muted)' }}>
-            <FadeText text={isEN
-              ? 'Automation with n8n, LLM integration (Ollama, Router) and MCP; end‑to‑end web development.'
-              : 'Automatización con n8n, integración de LLMs (Ollama, Router) y MCP; desarrollo web de extremo a extremo.'} />
-          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
@@ -184,3 +179,4 @@ function Counter({ text, className = '', duration = 1200 }: { text: string; clas
     </div>
   );
 }
+
