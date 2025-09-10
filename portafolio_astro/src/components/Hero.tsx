@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { TechIcon } from './icons/TechIcons';
 import { useLanguage } from '../utils/useLanguage';
+import AnimatedText from './AnimatedText';
 
 export default function Hero() {
   const lang = useLanguage();
@@ -33,7 +34,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              {isEN ? 'Full‑Stack Developer | n8n Automation' : 'Desarrollador Full‑Stack | Automatización con n8n'}
+              <AnimatedText text={isEN ? 'Full‑Stack Developer | n8n Automation' : 'Desarrollador Full‑Stack | Automatización con n8n'} />
             </motion.p>
 
             <motion.p
@@ -42,16 +43,19 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
             >
-              {isEN
-                ? 'I build modern solutions combining n8n automation, LLM integration (Ollama, Router) and MCP with Full‑Stack web development. Experience with Supabase (DB, auth, storage) and deployments on AWS.'
-                : 'Construyo soluciones modernas combinando automatización con n8n, integración de LLMs (Ollama, Router) y MCP con desarrollo web Full‑Stack. Experiencia con Supabase (BD, auth, storage) y despliegues en AWS.'}
+              <AnimatedText
+                as="span"
+                text={isEN
+                  ? 'I build modern solutions combining n8n automation, LLM integration (Ollama, Router) and MCP with Full‑Stack web development. Experience with Supabase (DB, auth, storage) and deployments on AWS.'
+                  : 'Construyo soluciones modernas combinando automatización con n8n, integración de LLMs (Ollama, Router) y MCP con desarrollo web Full‑Stack. Experiencia con Supabase (BD, auth, storage) y despliegues en AWS.'}
+              />
             </motion.p>
 
             {/* Removed CTA buttons (Ver Proyectos / Contacto) */}
 
             <motion.div className="mt-16 pt-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }}>
               <p className="text-sm mb-4" style={{ color: 'var(--neo-muted)' }}>
-                {isEN ? 'Key technologies' : 'Tecnologías principales'}
+                <AnimatedText text={isEN ? 'Key technologies' : 'Tecnologías principales'} />
               </p>
               <div className="flex flex-wrap justify-center lg:justify-start gap-3">
                 {['n8n', 'Supabase', 'PHP', 'CakePHP', 'Node.js', 'Docker'].map((tech) => (

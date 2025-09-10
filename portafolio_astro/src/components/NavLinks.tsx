@@ -2,6 +2,7 @@
 import type { NavLinksProps, NavLink } from '../types';
 import { HomeIcon, UserIcon, BriefcaseIcon, FolderIcon, MailSmallIcon } from './icons/UiIcons';
 import { useLanguage } from '../utils/useLanguage';
+import AnimatedText from './AnimatedText';
 
 function itemsFor(lang: 'es' | 'en'): NavLink[] {
   return lang === 'en'
@@ -42,7 +43,7 @@ export default function NavLinks({ mobile = false, onClose = () => {} }: NavLink
             {href === '#experience' && <BriefcaseIcon />}
             {href === '#projects' && <FolderIcon />}
             {href === '#contact' && <MailSmallIcon />}
-            <span>{label}</span>
+            <AnimatedText text={label} />
           </motion.a>
         </motion.li>
       ))}

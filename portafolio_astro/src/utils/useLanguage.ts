@@ -30,13 +30,16 @@ export function useLanguage(): Language {
       }
     };
     document.addEventListener(LANG_EVENT, onCustom as EventListener);
+    window.addEventListener(LANG_EVENT, onCustom as EventListener);
     window.addEventListener('storage', onStorage);
+    // ensure <html lang> reflects current value
+    document.documentElement.setAttribute('lang', lang);
     return () => {
       document.removeEventListener(LANG_EVENT, onCustom as EventListener);
+      window.removeEventListener(LANG_EVENT, onCustom as EventListener);
       window.removeEventListener('storage', onStorage);
     };
-  }, []);
+  }, [lang]);
 
   return lang;
 }
-

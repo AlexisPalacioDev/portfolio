@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TechIcon } from './icons/TechIcons';
 import { useLanguage } from '../utils/useLanguage';
+import AnimatedText from './AnimatedText';
 
 const skills = [
   { name: 'n8n', level: 90, category: 'Automatización' },
@@ -36,7 +37,7 @@ export default function About() {
     <section className="section-container">
       <div className="section-content">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-16">
-          <span className="neo-chip">{isEN ? 'About me' : 'Sobre mí'}</span>
+          <span className="neo-chip"><AnimatedText text={isEN ? 'About me' : 'Sobre mí'} /></span>
           <h2 className="modern-heading text-4xl lg:text-5xl mb-6 mt-4" style={{ color: 'var(--neo-text)' }}>
             {isEN ? (
               <>Full‑Stack & <span className="text-gradient">n8n Automation</span></>
@@ -45,9 +46,9 @@ export default function About() {
             )}
           </h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--neo-muted)' }}>
-            {isEN
+            <AnimatedText text={isEN
               ? 'Automation with n8n, LLM integration (Ollama, Router) and MCP; end‑to‑end web development.'
-              : 'Automatización con n8n, integración de LLMs (Ollama, Router) y MCP; desarrollo web de extremo a extremo.'}
+              : 'Automatización con n8n, integración de LLMs (Ollama, Router) y MCP; desarrollo web de extremo a extremo.'} />
           </p>
         </motion.div>
 
