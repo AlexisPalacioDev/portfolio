@@ -63,7 +63,7 @@ export default function Hero() {
           >
             <div className="neo-card flex items-center gap-4">
               <div className="neo-avatar">
-                <img src="/profile.png" alt="Alexis Palacio - Desarrollador Full-Stack" width="80" height="80" className="w-20 h-20 rounded-full object-cover" />
+                <img src={`${import.meta.env.BASE_URL}profile.png`} alt="Alexis Palacio - Desarrollador Full-Stack" width="80" height="80" className="w-20 h-20 rounded-full object-cover" />
               </div>
               <div>
                 <div className="text-xl font-semibold">Alexis Palacio</div>
