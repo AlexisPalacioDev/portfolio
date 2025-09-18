@@ -1,1 +1,0 @@
-const fs = require('fs');\nconst content = fs.readFileSync('./scripts.js', 'utf8');\nconst lines = content.split('\\n');\nfor (let i = 290; i < 320; i++) {\n  if (lines[i]) console.log(`${i+1}: ${lines[i]}`);\n}

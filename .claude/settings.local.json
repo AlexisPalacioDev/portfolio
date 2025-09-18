@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(python:*)",
+      "Bash(rm:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
