@@ -40,6 +40,38 @@ jobs:
         working-directory: portafolio_astro
         run: npm run build
 
+      - name: Generate redirect to Vercel
+        working-directory: portafolio_astro/dist
+        run: |
+          rm -rf ./*
+          cat <<'EOF' > index.html
+          <!DOCTYPE html>
+          <html lang="es">
+            <head>
+              <meta charset="UTF-8" />
+              <meta http-equiv="refresh" content="0;url=https://alexispalacio.vercel.app/" />
+              <title>Redirigiendo...</title>
+              <style>
+                body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; display: grid; place-content: center; min-height: 100vh; margin: 0; }
+                a { color: #38bdf8; }
+              </style>
+            </head>
+            <body>
+              <noscript>
+                <p>Estas siendo redirigido a <a href="https://alexispalacio.vercel.app/">alexispalacio.vercel.app</a>.</p>
+              </noscript>
+              <script>
+                const targetOrigin = 'https://alexispalacio.vercel.app';
+                const stripPrefix = (path) => path.replace(/^\\/portfolio/, '/');
+                const path = stripPrefix(window.location.pathname);
+                const url = `${targetOrigin}${path}${window.location.search}${window.location.hash}`;
+                window.location.replace(url);
+              </script>
+            </body>
+          </html>
+          EOF
+          cp index.html 404.html
+
       - name: Add .nojekyll
         working-directory: portafolio_astro/dist
         run: touch .nojekyll
@@ -59,3 +91,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
