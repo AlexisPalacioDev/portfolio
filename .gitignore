@@ -4,3 +4,13 @@ dist/
 .env
 .DS_Store
 Thumbs.db
+/_astro/
+/index.html
+/sitemap-0.xml
+/sitemap-index.xml
+/robots.txt
+/favicon.ico
+/og-image.svg
+/profile.jpg
+/profile.png
+/AlexisPalacio_ATS.pdf

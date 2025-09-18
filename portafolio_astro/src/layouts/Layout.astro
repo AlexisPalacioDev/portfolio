@@ -1,13 +1,18 @@
-﻿---
+---
 import '../styles/global.css';
 import { ViewTransitions } from 'astro:transitions';
 import NetworkAnimation from '../components/NetworkAnimation';
 import type { LayoutProps } from '../types';
 
-const { 
-  title, 
-  description = "Portafolio de Alexis Palacio — Full‑Stack y automatización con n8n, LLMs (Ollama/Router), MCP, Supabase y AWS"
+const {
+  title,
+  description = "Portafolio de Alexis Palacio - Full-Stack y automatizaci�n con n8n, LLMs (Ollama/Router), MCP, Supabase y AWS"
 } = Astro.props as LayoutProps;
+
+const siteUrl = Astro.site?.toString() ?? 'http://localhost:4321/';
+const normalizedSiteUrl = siteUrl.endsWith('/') ? siteUrl : `${siteUrl}/`;
+const faviconUrl = new URL('favicon.ico', normalizedSiteUrl).toString();
+const ogImageUrl = new URL('og-image.svg', normalizedSiteUrl).toString();
 ---
 
 <!doctype html>
@@ -16,11 +21,11 @@ const {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/portfolio/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href={faviconUrl} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="canonical" href={Astro.site} />
-    <meta property="og:url" content={Astro.site} />
+    <link rel="canonical" href={normalizedSiteUrl} />
+    <meta property="og:url" content={normalizedSiteUrl} />
     <meta property="og:site_name" content="Alexis Palacio" />
     <ViewTransitions />
     <script>
@@ -34,7 +39,7 @@ const {
         }
         return 'light';
       })();
-      
+
       if (theme === 'light') {
         document.documentElement.classList.remove('dark');
       } else {
@@ -42,7 +47,6 @@ const {
       }
 
       window.localStorage.setItem('theme', theme);
-
 
       // Theme transition: instant change
       const handleThemeSwitch = () => {
@@ -64,17 +68,17 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={`${Astro.site}og-image.svg`} />
+    <meta property="og:image" content={ogImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content={`${Astro.site}og-image.svg`} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="preconnect" href="https://s.wordpress.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Alexis Palacio",
-      "url": Astro.site,
-      "jobTitle": "Full-Stack Developer | Automatización con n8n",
+      "url": normalizedSiteUrl,
+      "jobTitle": "Full-Stack Developer | Automatizaci�n con n8n",
       "sameAs": [
         "https://github.com/alexispalaciodev",
         "https://www.linkedin.com/in/poisoneddog/"
@@ -84,7 +88,7 @@ const {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Portafolio de Alexis Palacio",
-      "url": Astro.site
+      "url": normalizedSiteUrl
     })}></script>
   </head>
   <body class="neo-surface">

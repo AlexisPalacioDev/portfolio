@@ -58,3 +58,27 @@
 21:48:57 [content] Synced content
 21:48:57 [types] Generated 176ms
 21:48:57 [vite] Re-optimizing dependencies because vite config has changed
+21:54:02 Configuration file updated. Restarting...
+21:54:02 [vite] Re-optimizing dependencies because vite config has changed
+21:54:02 [content] Syncing content
+21:54:02 [content] Astro config changed
+21:54:02 [content] Clearing content store
+21:54:02 [content] Synced content
+21:54:02 [types] Generated 175ms
+21:54:02 [vite] Re-optimizing dependencies because vite config has changed
+22:33:08 Configuration file updated. Restarting...
+22:33:08 [vite] Re-optimizing dependencies because vite config has changed
+22:33:08 [content] Syncing content
+22:33:08 [content] Astro config changed
+22:33:08 [content] Clearing content store
+22:33:08 [content] Synced content
+22:33:08 [types] Generated 204ms
+22:33:08 [vite] Re-optimizing dependencies because lockfile has changed
+22:33:35 Configuration file updated. Restarting...
+22:33:35 [vite] Re-optimizing dependencies because vite config has changed
+22:33:35 [content] Syncing content
+22:33:35 [content] Astro config changed
+22:33:35 [content] Clearing content store
+22:33:35 [content] Synced content
+22:33:35 [types] Generated 154ms
+22:33:35 [vite] Re-optimizing dependencies because vite config has changed
