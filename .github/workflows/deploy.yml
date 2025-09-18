@@ -17,6 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: portafolio_astro
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,6 +29,7 @@ jobs:
         with:
           node-version: "18"
           cache: npm
+          cache-dependency-path: portafolio_astro/package-lock.json
 
       - name: Setup Pages
         id: pages
@@ -40,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./dist
+          path: portafolio_astro/dist
 
   deploy:
     environment:

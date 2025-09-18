@@ -12,7 +12,7 @@ const vercelSite = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` 
 
 const config = {
   site: isVercel ? vercelSite ?? githubSite : githubSite,
-  base: isVercel ? '/' : '/portfolio',
+  base: isVercel ? '/' : '/portfolio/',
   integrations: [react(), tailwind(), sitemap()]
 };
 
