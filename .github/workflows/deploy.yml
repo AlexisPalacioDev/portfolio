@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+﻿name: Deploy redirect to GitHub Pages
 
 on:
   push:
@@ -18,68 +18,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - name: Upload redirect artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          node-version: "18"
-          cache: npm
-          cache-dependency-path: portafolio_astro/package-lock.json
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v4
-
-      - name: Install dependencies
-        working-directory: portafolio_astro
-        run: npm ci
-
-      - name: Build with Astro
-        working-directory: portafolio_astro
-        run: npm run build
-
-      - name: Generate redirect to Vercel
-        working-directory: portafolio_astro/dist
-        run: |
-          rm -rf ./*
-          cat <<'EOF' > index.html
-          <!DOCTYPE html>
-          <html lang="es">
-            <head>
-              <meta charset="UTF-8" />
-              <meta http-equiv="refresh" content="0;url=https://alexispalacio.vercel.app/" />
-              <title>Redirigiendo...</title>
-              <style>
-                body { font-family: system-ui, sans-serif; background: #0f172a; color: #f8fafc; display: grid; place-content: center; min-height: 100vh; margin: 0; }
-                a { color: #38bdf8; }
-              </style>
-            </head>
-            <body>
-              <noscript>
-                <p>Estas siendo redirigido a <a href="https://alexispalacio.vercel.app/">alexispalacio.vercel.app</a>.</p>
-              </noscript>
-              <script>
-                const targetOrigin = 'https://alexispalacio.vercel.app';
-                const stripPrefix = (path) => path.replace(/^\\/portfolio/, '/');
-                const path = stripPrefix(window.location.pathname);
-                const url = `${targetOrigin}${path}${window.location.search}${window.location.hash}`;
-                window.location.replace(url);
-              </script>
-            </body>
-          </html>
-          EOF
-          cp index.html 404.html
-
-      - name: Add .nojekyll
-        working-directory: portafolio_astro/dist
-        run: touch .nojekyll
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: portafolio_astro/dist
+          path: redirect
 
   deploy:
     environment:
@@ -91,4 +34,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
