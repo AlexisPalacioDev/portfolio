@@ -9,7 +9,8 @@
       "Bash(git push:*)",
       "WebFetch(domain:alexispalaciodev.github.io)",
       "Bash(npm run build:*)",
-      "Bash(touch:*)"
+      "Bash(touch:*)",
+      "Bash(gh workflow:*)"
     ],
     "deny": [],
     "ask": []
