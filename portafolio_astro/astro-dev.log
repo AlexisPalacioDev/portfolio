@@ -26,3 +26,11 @@
 17:26:48 [content] Synced content
 17:26:48 [types] Generated 171ms
 17:26:48 [vite] Re-optimizing dependencies because vite config has changed
+21:13:58 Configuration file updated. Restarting...
+21:13:58 [vite] Re-optimizing dependencies because vite config has changed
+21:13:59 [content] Syncing content
+21:13:59 [content] Astro config changed
+21:13:59 [content] Clearing content store
+21:13:59 [content] Synced content
+21:13:59 [types] Generated 155ms
+21:13:59 [vite] Re-optimizing dependencies because vite config has changed
