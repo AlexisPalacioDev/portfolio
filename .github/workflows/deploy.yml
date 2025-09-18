@@ -40,6 +40,10 @@ jobs:
         working-directory: portafolio_astro
         run: npm run build
 
+      - name: Add .nojekyll
+        working-directory: portafolio_astro/dist
+        run: touch .nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
