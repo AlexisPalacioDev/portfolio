@@ -17,9 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: portafolio_astro
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,9 +33,11 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Install dependencies
+        working-directory: portafolio_astro
         run: npm ci
 
       - name: Build with Astro
+        working-directory: portafolio_astro
         run: npm run build
 
       - name: Upload artifact
