@@ -11,9 +11,25 @@ const {
 
 const siteUrl = Astro.site?.toString() ?? 'http://localhost:4321/';
 const normalizedSiteUrl = siteUrl.endsWith('/') ? siteUrl : `${siteUrl}/`;
-const assetBase = import.meta.env.BASE_URL ?? '/';
-const faviconPath = `${assetBase}favicon.ico`;
-const ogImageUrl = new URL('og-image.svg', normalizedSiteUrl).toString();
+const basePath = import.meta.env.BASE_URL ?? '/';
+
+const normalizedBasePath = (() => {
+
+  const withLeadingSlash = basePath.startsWith('/') ? basePath : `/${basePath}`;
+
+  return withLeadingSlash.endsWith('/') ? withLeadingSlash : `${withLeadingSlash}/`;
+
+})();
+
+const canonicalUrl = normalizedBasePath === '/'
+
+  ? normalizedSiteUrl
+
+  : new URL(normalizedBasePath.slice(1), normalizedSiteUrl).toString();
+
+const faviconUrl = new URL('favicon.ico', canonicalUrl).toString();
+
+const ogImageUrl = new URL('og-image.svg', canonicalUrl).toString();
 ---
 
 <!doctype html>
@@ -22,11 +38,11 @@ const ogImageUrl = new URL('og-image.svg', normalizedSiteUrl).toString();
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href={faviconPath} />
+    <link rel="icon" type="image/x-icon" href={faviconUrl} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="canonical" href={normalizedSiteUrl} />
-    <meta property="og:url" content={normalizedSiteUrl} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Alexis Palacio" />
     <ViewTransitions />
     <script>
@@ -78,7 +94,7 @@ const ogImageUrl = new URL('og-image.svg', normalizedSiteUrl).toString();
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Alexis Palacio",
-      "url": normalizedSiteUrl,
+      "url": canonicalUrl,
       "jobTitle": "Full-Stack Developer | Automatización con n8n",
       "sameAs": [
         "https://github.com/alexispalaciodev",
@@ -89,7 +105,7 @@ const ogImageUrl = new URL('og-image.svg', normalizedSiteUrl).toString();
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Portafolio de Alexis Palacio",
-      "url": normalizedSiteUrl
+      "url": canonicalUrl
     })}></script>
   </head>
   <body class="neo-surface">
