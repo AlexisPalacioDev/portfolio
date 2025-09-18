@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 
 # Update to your final production URL
-Sitemap: https://alexispalaciodev.github.io/portfolio/sitemap-index.xml
+Sitemap: https://AlexisPalacioDev.github.io/portfolio/sitemap-index.xml
 

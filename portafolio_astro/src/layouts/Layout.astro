@@ -19,8 +19,8 @@ const {
     <link rel="icon" type="image/x-icon" href="/portfolio/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="canonical" href="https://alexispalaciodev.github.io/portfolio/" />
-    <meta property="og:url" content="https://alexispalaciodev.github.io/portfolio/" />
+    <link rel="canonical" href={Astro.site} />
+    <meta property="og:url" content={Astro.site} />
     <meta property="og:site_name" content="Alexis Palacio" />
     <ViewTransitions />
     <script>
@@ -64,32 +64,28 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://alexispalaciodev.github.io/portfolio/og-image.svg" />
+    <meta property="og:image" content={`${Astro.site}og-image.svg`} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://alexispalaciodev.github.io/portfolio/og-image.svg" />
+    <meta name="twitter:image" content={`${Astro.site}og-image.svg`} />
     <link rel="preconnect" href="https://s.wordpress.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Alexis Palacio",
-        "url": "https://alexispalaciodev.github.io/portfolio/",
-        "jobTitle": "Full-Stack Developer | Automatización con n8n",
-        "sameAs": [
-          "https://github.com/alexispalaciodev",
-          "https://www.linkedin.com/in/poisoneddog/"
-        ]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Portafolio de Alexis Palacio",
-        "url": "https://alexispalaciodev.github.io/portfolio/"
-      }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alexis Palacio",
+      "url": Astro.site,
+      "jobTitle": "Full-Stack Developer | Automatización con n8n",
+      "sameAs": [
+        "https://github.com/alexispalaciodev",
+        "https://www.linkedin.com/in/poisoneddog/"
+      ]
+    })}></script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Portafolio de Alexis Palacio",
+      "url": Astro.site
+    })}></script>
   </head>
   <body class="neo-surface">
     <NetworkAnimation client:load />

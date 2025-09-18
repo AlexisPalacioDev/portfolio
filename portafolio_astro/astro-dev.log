@@ -1,0 +1,28 @@
+
+> portafolio_astro@0.0.1 dev
+> astro dev --host 0.0.0.0
+
+17:17:37 [types] Generated 1ms
+17:17:38 [content] Syncing content
+17:17:38 [content] Synced content
+
+ astro  v5.12.9 ready in 523 ms
+
+┃ Local    http://localhost:4321/portfolio/
+┃ Network  http://10.5.0.2:4321/portfolio/
+           http://192.168.56.1:4321/portfolio/
+           http://192.168.1.33:4321/portfolio/
+           http://172.23.240.1:4321/portfolio/
+           http://172.21.96.1:4321/portfolio/
+
+17:17:38 watching for file changes...
+17:17:59 [200] / 172ms
+17:18:57 [200] / 5ms
+17:26:48 Configuration file updated. Restarting...
+17:26:48 [vite] Re-optimizing dependencies because vite config has changed
+17:26:48 [content] Syncing content
+17:26:48 [content] Astro config changed
+17:26:48 [content] Clearing content store
+17:26:48 [content] Synced content
+17:26:48 [types] Generated 171ms
+17:26:48 [vite] Re-optimizing dependencies because vite config has changed

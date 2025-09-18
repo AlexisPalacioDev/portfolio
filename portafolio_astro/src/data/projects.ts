@@ -80,7 +80,7 @@ export const projects: ProjectItem[] = [
       en: 'Personal website with modern technologies and responsive design.'
     },
     technologies: ['Astro', 'React', 'Tailwind CSS', 'Framer Motion'],
-    demo: 'https://alexispalaciodev.github.io/portfolio/',
+    demo: 'https://AlexisPalacioDev.github.io/portfolio/',
     github: 'https://github.com/alexispalaciodev',
     category: 'Frontend',
     status: 'Activo',
