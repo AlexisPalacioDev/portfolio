@@ -1,22 +1,20 @@
 # Portafolio Astro
 
-Sitio desplegado en Vercel. GitHub Pages solo redirige a la versión activa.
+Código fuente del sitio personal de Alexis Palacio construido con Astro y Tailwind.
 
 ## Requisitos
-- Node.js 20 o superior
-- npm 9 o superior
+- Node.js 20+
+- npm 9+
 
 ## Desarrollo local
-1. Ejecuta npm install
-2. Ejecuta npm run dev
-3. Abre http://localhost:4321/ (el base cambia a / en modo desarrollo).
+1. npm install
+2. npm run dev
+3. Abre http://localhost:4321/
 
-## Build de produccion
+## Build de producción
 - npm run build
 - npm run preview
 
 ## Despliegue
-- Vercel: se despliega automáticamente al hacer push a master.
-- GitHub Pages: el workflow .github/workflows/deploy.yml publica un redirect hacia https://alexispalacio.vercel.app/.
-
-La URL https://alexispalaciodev.github.io/portfolio/ redirige automáticamente a la versión alojada en Vercel, preservando rutas, queries y anchors.
+- GitHub Pages: el workflow `.github/workflows/deploy.yml` construye `dist/`, crea `.nojekyll` y publica el sitio.
+- Vercel: conecta este repositorio y habilita los deploys automáticos (build `npm run build`, output `dist`).
