@@ -8,7 +8,7 @@ import vercel from '@astrojs/vercel/static';
 
 const isVercel = Boolean(process.env.VERCEL);
 const githubSite = 'https://alexispalaciodev.github.io';
-const githubBase = '/portfolio';
+const githubBase = '/portafoliov2';
 const vercelSite = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined;
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -24,3 +24,4 @@ if (isVercel) {
 
 // https://astro.build/config
 export default defineConfig(config);
+
