@@ -16,5 +16,5 @@ Código fuente del sitio personal de Alexis Palacio construido con Astro y Tailwi
 - npm run preview
 
 ## Despliegue
-- GitHub Pages: el workflow `.github/workflows/deploy.yml` construye `dist/`, crea `.nojekyll` y publica el sitio en https://alexispalaciodev.github.io/portafoliov2/.
+- GitHub Pages: el workflow `.github/workflows/deploy.yml` construye `dist/`, crea `.nojekyll` y publica el sitio en https://alexispalaciodev.github.io/portfolio/.
 - Vercel: conecta este repositorio y habilita los deploys automáticos (build `npm run build`, output `dist`).
