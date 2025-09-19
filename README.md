@@ -1,32 +1,24 @@
+# Portafolio Astro
 
-# Portafolio Profesional - Alexis Palacio
+Repositorio preparado para que el proyecto se use como repositorio independiente y se despliegue en GitHub Pages en https://alexispalaciodev.github.io/portfolio/.
 
-## 🚀 Descripción
-Este es un portafolio web diseñado para presentar mis habilidades como desarrollador Frontend especializado en Shopify, optimización de rendimiento y soluciones e-commerce.
+## Requisitos
+- Node.js 20 o superior
+- npm 9 o superior
 
-El sitio presenta una navegación clara, animaciones ligeras y un formulario de contacto funcional que permite a los potenciales clientes contactarme directamente.
+## Desarrollo local
+1. `npm install`
+2. `npm run dev`
+3. Abre http://localhost:4321/ (el `base` se ajusta automaticamente en modo desarrollo).
 
-## 🛠 Tecnologías usadas
-- HTML5 semántico
-- CSS3 con variables personalizadas y diseño responsive
-- JavaScript ES6 (con IntersectionObserver y mejoras de accesibilidad)
-- Font Awesome (íconos)
-- Google Fonts
-- FormSubmit (para funcionalidad de formulario sin servidor)
-- Git (control de versiones)
+## Build de produccion
+- `npm run build`
+- `npm run preview`
 
-## ✅ Buenas prácticas aplicadas
-- Uso de `DOMContentLoaded` para garantizar que el DOM esté completamente cargado antes de ejecutar scripts.
-- Variables CSS centralizadas para una gestión eficiente de colores, sombras y tamaños.
-- Diseño responsive con `clamp()` y media queries.
-- Accesibilidad: atributos `aria-label`, outline en elementos enfocados y contraste ajustado.
-- Optimización de rendimiento:
-  - `preconnect` a fuentes e íconos.
-  - `loading="lazy"` en todas las imágenes.
-  - Código CSS y JS limpio y organizado.
+## Despliegue en GitHub Pages
+1. Crea un nuevo repositorio en GitHub (por ejemplo `portfolio`).
+2. A�ade este repo como origen: `git remote add origin git@github.com:USER/REPO.git`.
+3. Sube la rama principal (`master` o `main`).
+4. GitHub Pages debe apuntar a la rama `gh-pages` que genera el workflow incluido.
 
-## 🔎 Decisiones técnicas clave
-- Se utilizó FormSubmit para gestionar el envío de correos desde el formulario sin necesidad de backend propio.
-- Se implementaron animaciones solo cuando el elemento entra en viewport usando Intersection Observer, evitando impacto en el rendimiento por scroll listeners pesados.
-- Mobile-first design para garantizar compatibilidad con pantallas pequeñas.
-
+El workflow `.github/workflows/deploy.yml` construye el sitio con Astro y publica el contenido de `dist/` en GitHub Pages cada vez que se hace push a la rama principal.

@@ -10,10 +10,11 @@ const isVercel = Boolean(process.env.VERCEL);
 const githubSite = 'https://alexispalaciodev.github.io';
 const githubBase = '/portfolio';
 const vercelSite = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined;
+const isDev = process.env.NODE_ENV === 'development';
 
 const config = {
   site: isVercel ? vercelSite ?? githubSite : githubSite,
-  base: isVercel ? '/' : githubBase,
+  base: isVercel || isDev ? '/' : githubBase,
   integrations: [react(), tailwind(), sitemap()]
 };
 
