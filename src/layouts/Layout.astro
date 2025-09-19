@@ -27,9 +27,10 @@ const canonicalUrl = normalizedBasePath === '/'
 
   : new URL(normalizedBasePath.slice(1), normalizedSiteUrl).toString();
 
-const faviconUrl = new URL('favicon.ico', canonicalUrl).toString();
+const assetBasePath = normalizedBasePath === '/' ? '/' : normalizedBasePath;
+const faviconHref = `${assetBasePath}favicon.ico`;
 
-const ogImageUrl = new URL('og-image.svg', canonicalUrl).toString();
+const ogImageUrl = new URL(`${normalizedBasePath}og-image.svg`, normalizedSiteUrl).toString();
 ---
 
 <!doctype html>
@@ -38,7 +39,7 @@ const ogImageUrl = new URL('og-image.svg', canonicalUrl).toString();
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href={faviconUrl} />
+    <link rel="icon" type="image/x-icon" href={faviconHref} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="canonical" href={canonicalUrl} />
