@@ -1,6 +1,6 @@
 # Portafolio Astro
 
-Repositorio listo para publicarse en https://alexispalaciodev.github.io/portfolio/ usando GitHub Pages.
+Sitio desplegado en Vercel. GitHub Pages solo redirige a la versión activa.
 
 ## Requisitos
 - Node.js 20 o superior
@@ -15,9 +15,8 @@ Repositorio listo para publicarse en https://alexispalaciodev.github.io/portfoli
 - npm run build
 - npm run preview
 
-## Despliegue en GitHub Pages
-1. En GitHub ve a Settings -> Pages y deja "GitHub Actions" como Source.
-2. Haz push a la rama principal (master o main).
-3. El workflow .github/workflows/deploy.yml instala dependencias, ejecuta npm run build, crea .nojekyll y publica dist/.
-4. Tras el primer despliegue, Pages servira el sitio desde https://alexispalaciodev.github.io/portfolio/.
+## Despliegue
+- Vercel: se despliega automáticamente al hacer push a master.
+- GitHub Pages: el workflow .github/workflows/deploy.yml publica un redirect hacia https://alexispalacio.vercel.app/.
 
+La URL https://alexispalaciodev.github.io/portfolio/ redirige automáticamente a la versión alojada en Vercel, preservando rutas, queries y anchors.

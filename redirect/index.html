@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Redirigiendo…</title>
+  <link rel="canonical" href="https://alexispalacio.vercel.app/" />
+  <meta name="robots" content="noindex,follow" />
+  <meta http-equiv="refresh" content="0; url=https://alexispalacio.vercel.app/" />
+  <script>
+    (function () {
+      var target = new URL('https://alexispalacio.vercel.app/');
+      var path = location.pathname.replace(/^\/portfolio\/?/, '');
+      var dest = new URL(path + location.search + location.hash, target);
+      location.replace(dest.href);
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirigiendo a <a href="https://alexispalacio.vercel.app/">alexispalacio.vercel.app</a>…</p>
+</body>
+</html>
