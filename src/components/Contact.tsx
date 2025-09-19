@@ -134,7 +134,7 @@ export default function Contact() {
                 <FadeText text={isEN ? 'Resume' : 'Currículum'} />
               </h3>
               <a
-                href="/AlexisPalacio_ATS.pdf"
+                href={isEN ? '/AlexisPalacio_ATS_en.pdf' : '/AlexisPalacio_ATS.pdf'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="neo-btn inline-flex items-center gap-2"
