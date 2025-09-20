@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { useLanguage } from '../utils/useLanguage';
+import translations from '../data/translations';
 
 interface MobileMenuButtonProps {
   isOpen: boolean;
@@ -6,13 +8,17 @@ interface MobileMenuButtonProps {
 }
 
 export default function MobileMenuButton({ isOpen, onClick }: MobileMenuButtonProps) {
+  const lang = useLanguage();
+  const menu = translations[lang].controls.menu;
+  const label = isOpen ? menu.close : menu.open;
   const color = 'var(--neo-text)';
+
   return (
     <motion.button
       className="lg:hidden neo-btn p-0 w-11 h-11 rounded-full relative"
       onClick={onClick}
       whileTap={{ scale: 0.95 }}
-      aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+      aria-label={label}
       aria-expanded={isOpen}
     >
       <div className="relative w-6 h-6">

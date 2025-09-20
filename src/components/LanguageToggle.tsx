@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import type { Language } from '../types';
+import translations from '../data/translations';
 
 interface LanguageToggleProps {
   currentLang: Language;
@@ -8,6 +9,9 @@ interface LanguageToggleProps {
 
 export default function LanguageToggle({ currentLang, onLanguageChange }: LanguageToggleProps) {
   const toggleLanguage = () => onLanguageChange(currentLang === 'es' ? 'en' : 'es');
+  const ariaLabel = currentLang === 'es'
+    ? translations.es.controls.language.switchToEnglish
+    : translations.en.controls.language.switchToSpanish;
 
   return (
     <motion.button
@@ -15,7 +19,7 @@ export default function LanguageToggle({ currentLang, onLanguageChange }: Langua
       className="neo-chip font-medium"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      aria-label={`Switch to ${currentLang === 'es' ? 'English' : 'Spanish'}`}
+      aria-label={ariaLabel}
     >
       {currentLang.toUpperCase()}
     </motion.button>

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useLanguage } from '../utils/useLanguage';
+import translations from '../data/translations';
 
 interface ThemeToggleProps {
   onToggle: () => void;
@@ -6,6 +8,8 @@ interface ThemeToggleProps {
 
 export default function ThemeToggle({ onToggle }: ThemeToggleProps) {
   const [isDark, setIsDark] = useState(false);
+  const lang = useLanguage();
+  const label = translations[lang].controls.themeToggle;
 
   useEffect(() => {
     try {
@@ -20,9 +24,15 @@ export default function ThemeToggle({ onToggle }: ThemeToggleProps) {
   };
 
   return (
-    <label className="neo-toggle-label" title="Cambiar tema">
+    <label className="neo-toggle-label" title={label}>
       <span className="neo-toggle">
-        <input type="checkbox" className="neo-toggle-state" checked={isDark} onChange={handleChange} aria-label="Cambiar tema" />
+        <input
+          type="checkbox"
+          className="neo-toggle-state"
+          checked={isDark}
+          onChange={handleChange}
+          aria-label={label}
+        />
         <span className="neo-toggle-indicator" />
         <span className="neo-toggle-icon neo-toggle-icon--sun" aria-hidden>
           <svg width="16" height="16" viewBox="0 0 24 24" role="img">

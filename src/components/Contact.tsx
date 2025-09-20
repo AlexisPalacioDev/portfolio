@@ -1,16 +1,20 @@
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
-import { MailIcon, LocationIcon, GlobeIcon, PhoneIcon, WhatsAppIcon } from './icons/UiIcons';
+import { MailIcon, LocationIcon, GlobeIcon, PhoneIcon } from './icons/UiIcons';
 import { TechIcon } from './icons/TechIcons';
 import { useLanguage } from '../utils/useLanguage';
+import translations from '../data/translations';
 import FadeText from './FadeText';
 
 export default function Contact() {
   const lang = useLanguage();
-  const isEN = lang === 'en';
+  const t = translations[lang].contact;
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
-  // UI simplified: no popovers/menus; only inline action chips
+
+  const basePath = import.meta.env.BASE_URL ?? '/';
+  const normalizedBase = basePath.endsWith('/') ? basePath : `${basePath}/`;
+  const resumeHref = `${normalizedBase}${lang === 'en' ? 'AlexisPalacio_ATS_en.pdf' : 'AlexisPalacio_ATS_es.pdf'}`;
 
   const email = 'alexis26-93@live.com';
   const phoneDisplay = '+57 321 655 1350';
@@ -41,7 +45,9 @@ export default function Contact() {
     } catch {}
   };
 
-  // removed menu positioning logic
+  const emailButtonLabel = copiedEmail ? t.copied : t.copyEmail;
+  const phoneButtonLabel = copiedPhone ? t.copied : t.copyPhone;
+
   return (
     <section id="contact" className="section-container">
       <div className="section-content">
@@ -53,19 +59,14 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="modern-heading text-4xl lg:text-5xl">
-            <FadeText text={isEN ? 'Contact' : 'Contacto'} />
+            <FadeText text={t.title} />
           </h2>
           <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--neo-muted)' }}>
-            <FadeText
-              text={isEN
-                ? "Got a project in mind? Let's build it together!"
-                : '¿Tienes un proyecto en mente? ¡Construyámoslo juntos!'}
-            />
+            <FadeText text={t.subtitle} />
           </p>
         </motion.div>
 
         <div className="grid gap-12 max-w-6xl mx-auto">
-          {/* Info */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -75,77 +76,86 @@ export default function Contact() {
           >
             <div className="neo-card">
               <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--neo-text)' }}>
-                <FadeText text={isEN ? 'Information' : 'Información'} />
+                <FadeText text={t.infoTitle} />
               </h3>
               <ul className="space-y-3" style={{ color: 'var(--neo-muted)' }}>
-                {/* Email row with inline actions */}
                 <li className="flex items-center gap-2 flex-wrap">
                   <span className="flex items-center gap-2">
                     <button
                       type="button"
                       className="neo-chip neo-chip-sm"
                       onClick={() => copyText(email, 'email')}
-                      title={isEN ? 'Copy email' : 'Copiar correo'}
+                      title={t.copyEmail}
                     >
-                      {copiedEmail ? '✓' : '⧉'}
+                      {emailButtonLabel}
                     </button>
                     {email}
                   </span>
-                  <a href={`mailto:${email}`} className="neo-chip neo-chip-sm inline-flex items-center" title={isEN ? 'Compose email' : 'Escribir correo'}>
+                  <a
+                    href={`mailto:${email}`}
+                    className="neo-chip neo-chip-sm inline-flex items-center"
+                    title={t.composeEmail}
+                  >
                     <MailIcon size={16} />
                   </a>
                 </li>
-
-                {/* Phone row with inline actions */}
                 <li className="flex items-center gap-2 flex-wrap">
                   <span className="flex items-center gap-2">
                     <button
                       type="button"
                       className="neo-chip neo-chip-sm"
                       onClick={() => copyText(phoneDisplay.replace(/\s+/g, ''), 'phone')}
-                      title={isEN ? 'Copy number' : 'Copiar número'}
+                      title={t.copyPhone}
                     >
-                      {copiedPhone ? '✓' : '⧉'}
+                      {phoneButtonLabel}
                     </button>
                     {phoneDisplay}
                   </span>
                   <a
-                    href={`https://wa.me/${phoneDigits}?text=${encodeURIComponent(isEN ? 'Hi Alexis, I saw your portfolio.' : 'Hola Alexis, vi tu portafolio.')}`}
+                    href={`https://wa.me/${phoneDigits}?text=${encodeURIComponent(lang === 'en' ? 'Hi Alexis, I saw your portfolio.' : 'Hola Alexis, vi tu portafolio.')}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="neo-chip neo-chip-sm inline-flex items-center"
-                    title="WhatsApp"
+                    title={t.whatsapp}
                   >
                     <span style={{ filter: 'invert(49%) sepia(85%) saturate(580%) hue-rotate(93deg) brightness(96%) contrast(88%)', display: 'flex', alignItems: 'center' }}>
                       <TechIcon name="WhatsApp" size={16} />
                     </span>
                   </a>
-                  <a href={`tel:${phoneDigits}`} className="neo-chip neo-chip-sm inline-flex items-center" title={isEN ? 'Call phone' : 'Llamar teléfono'}>
+                  <a
+                    href={`tel:${phoneDigits}`}
+                    className="neo-chip neo-chip-sm inline-flex items-center"
+                    title={t.callPhone}
+                  >
                     <PhoneIcon size={16} />
                   </a>
                 </li>
-                <li className="flex items-center gap-2"><LocationIcon /> Medellín, Colombia</li>
-                <li className="flex items-center gap-2"><GlobeIcon /> {isEN ? 'Available remote / hybrid' : 'Disponible remoto / híbrido'}</li>
+                <li className="flex items-center gap-2">
+                  <LocationIcon /> {t.location}
+                </li>
+                <li className="flex items-center gap-2">
+                  <GlobeIcon /> {t.availability}
+                </li>
               </ul>
             </div>
 
             <div className="neo-card">
               <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--neo-text)' }}>
-                <FadeText text={isEN ? 'Resume' : 'Currículum'} />
+                <FadeText text={t.resumeTitle} />
               </h3>
               <a
-                href={isEN ? '/AlexisPalacio_ATS_en.pdf' : '/AlexisPalacio_ATS.pdf'}
+                href={resumeHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="neo-btn inline-flex items-center gap-2"
               >
-                <FadeText text={isEN ? 'Download CV (PDF)' : 'Descargar CV (PDF)'} />
+                <FadeText text={t.resumeCta} />
               </a>
             </div>
 
             <div className="neo-card">
               <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--neo-text)' }}>
-                <FadeText text={isEN ? 'Networks' : 'Redes'} />
+                <FadeText text={t.networksTitle} />
               </h3>
               <div className="flex gap-3">
                 <a

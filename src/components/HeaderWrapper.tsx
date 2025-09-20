@@ -20,7 +20,9 @@ export default function HeaderWrapper() {
     document.documentElement.setAttribute('lang', lang);
     const evt = new CustomEvent(LANG_EVENT, { detail: lang });
     document.dispatchEvent(evt);
-    window.dispatchEvent(evt);
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent(LANG_EVENT, { detail: lang }));
+    }
   };
 
   return (
