@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portafolio en Vercel</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #0ea5e9, #6366f1);
+        color: #0f172a;
+      }
+      .card {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 16px;
+        padding: 3rem;
+        text-align: center;
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+        max-width: 420px;
+      }
+      h1 {
+        margin-top: 0;
+        font-size: 2rem;
+      }
+      p {
+        margin: 1rem 0 2rem;
+        line-height: 1.6;
+      }
+      a {
+        display: inline-block;
+        padding: 0.85rem 1.75rem;
+        border-radius: 999px;
+        background: #0ea5e9;
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 10px 25px rgba(14, 165, 233, 0.35);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(14, 165, 233, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Portafolio desplegado en Vercel</h1>
+      <p>
+        El contenido del portafolio ahora vive en la versión optimizada para Vercel. Haz clic en el botón para visitarlo.
+      </p>
+      <a href="https://alexispalacio.vercel.app" target="_blank" rel="noopener noreferrer">Ir al sitio en Vercel</a>
+    </div>
+  </body>
+</html>
