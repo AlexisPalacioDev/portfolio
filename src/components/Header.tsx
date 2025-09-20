@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import type { HeaderProps } from '../types';
+import translations from '../data/translations';
 import NavLinks from './NavLinks';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
@@ -16,6 +17,7 @@ export default function Header({ currentLang, onLanguageChange }: HeaderProps) {
 
   const closeMenu = () => setIsMenuOpen(false);
 
+  const copy = translations[currentLang].header;
   return (
     <header className="fixed w-full top-0 z-50">
       <div className="container mx-auto px-4 py-2">
@@ -26,9 +28,10 @@ export default function Header({ currentLang, onLanguageChange }: HeaderProps) {
               className="neo-chip text-base font-bold"
               whileHover={{ scale: 0.98 }}
               whileTap={{ scale: 0.96 }}
-              aria-label="Go to home"
+              aria-label={copy.homeAria}
+              title={copy.logoLabel}
             >
-              AP
+              {copy.logoInitials}
             </motion.a>
 
             <div className="hidden lg:flex items-center gap-3 w-full justify-end">

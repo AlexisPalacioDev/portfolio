@@ -14,7 +14,7 @@ export default function Contact() {
 
   const basePath = import.meta.env.BASE_URL ?? '/';
   const normalizedBase = basePath.endsWith('/') ? basePath : `${basePath}/`;
-  const resumeHref = `${normalizedBase}${lang === 'en' ? 'AlexisPalacio_ATS_en.pdf' : 'AlexisPalacio_ATS_es.pdf'}`;
+  const resumeHref = `${normalizedBase}${t.resumeFile}`;
 
   const email = 'alexis26-93@live.com';
   const phoneDisplay = '+57 321 655 1350';
@@ -112,7 +112,7 @@ export default function Contact() {
                     {phoneDisplay}
                   </span>
                   <a
-                    href={`https://wa.me/${phoneDigits}?text=${encodeURIComponent(lang === 'en' ? 'Hi Alexis, I saw your portfolio.' : 'Hola Alexis, vi tu portafolio.')}`}
+                    href={`https://wa.me/${phoneDigits}?text=${encodeURIComponent(t.whatsappMessage)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="neo-chip neo-chip-sm inline-flex items-center"

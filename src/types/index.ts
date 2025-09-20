@@ -49,12 +49,21 @@ export interface ExperienceItem {
 }
 
 export interface Translation {
+  meta: {
+    title: string;
+    description: string;
+  };
   nav: {
     home: string;
     about: string;
     experience: string;
     projects: string;
     contact: string;
+  };
+  header: {
+    logoInitials: string;
+    logoLabel: string;
+    homeAria: string;
   };
   hero: {
     subtitle: string;
@@ -110,7 +119,9 @@ export interface Translation {
     availability: string;
     resumeTitle: string;
     resumeCta: string;
+    resumeFile: string;
     networksTitle: string;
+    whatsappMessage: string;
   };
   controls: {
     themeToggle: string;
@@ -122,6 +133,9 @@ export interface Translation {
       open: string;
       close: string;
     };
+  };
+  footer: {
+    copyright: string;
   };
 }
 

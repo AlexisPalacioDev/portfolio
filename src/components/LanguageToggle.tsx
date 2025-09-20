@@ -9,9 +9,10 @@ interface LanguageToggleProps {
 
 export default function LanguageToggle({ currentLang, onLanguageChange }: LanguageToggleProps) {
   const toggleLanguage = () => onLanguageChange(currentLang === 'es' ? 'en' : 'es');
+  const languageCopy = translations[currentLang].controls.language;
   const ariaLabel = currentLang === 'es'
-    ? translations.es.controls.language.switchToEnglish
-    : translations.en.controls.language.switchToSpanish;
+    ? languageCopy.switchToEnglish
+    : languageCopy.switchToSpanish;
 
   return (
     <motion.button

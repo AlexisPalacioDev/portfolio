@@ -2,48 +2,57 @@ import type { Translations } from '../types';
 
 const translations: Translations = {
   "es": {
+    "meta": {
+      "title": "Alexis Palacio - Portafolio",
+      "description": "Portafolio de Alexis Palacio - Full-Stack y automatizaci\u00f3n con n8n, LLMs (Ollama/Router), MCP, Supabase y AWS"
+    },
     "nav": {
       "home": "Inicio",
-      "about": "Sobre mí",
+      "about": "Sobre m\u00ed",
       "experience": "Experiencia",
       "projects": "Proyectos",
       "contact": "Contacto"
     },
+    "header": {
+      "logoInitials": "AP",
+      "logoLabel": "Alexis Palacio",
+      "homeAria": "Ir al inicio"
+    },
     "hero": {
-      "subtitle": "Desarrollador Full-Stack | Automatización con n8n",
-      "techHeading": "Tecnologías principales",
+      "subtitle": "Desarrollador Full-Stack | Automatizaci\u00f3n con n8n",
+      "techHeading": "Tecnolog\u00edas principales",
       "profileRole": "Desarrollador Full-Stack",
       "profileAlt": "Alexis Palacio - Desarrollador Full-Stack"
     },
     "about": {
-      "sectionLabel": "Sobre mí",
+      "sectionLabel": "Sobre m\u00ed",
       "storyTitle": "Mi historia",
-      "skillsTitle": "Habilidades técnicas",
+      "skillsTitle": "Habilidades t\u00e9cnicas",
       "heading": {
         "regular": "Full-Stack y",
-        "highlight": "Automatización con n8n"
+        "highlight": "Automatizaci\u00f3n con n8n"
       },
       "paragraphs": [
-        "Desarrollador Full-Stack con más de 4 años de experiencia, enfocado en automatización con n8n e integración de modelos de lenguaje en la nube y en local.",
-        "He construido agentes de voz conectados a fuentes externas mediante MCP, utilizo Supabase para bases de datos, autenticación y almacenamiento, y despliego soluciones en AWS.",
-        "Base sólida en PHP/CakePHP, Node.js y frontend moderno (React, Tailwind)."
+        "Desarrollador Full-Stack con m\u00e1s de 4 a\u00f1os de experiencia, enfocado en automatizaci\u00f3n con n8n e integraci\u00f3n de modelos de lenguaje en la nube y en local.",
+        "He construido agentes de voz conectados a fuentes externas mediante MCP, utilizo Supabase para bases de datos, autenticaci\u00f3n y almacenamiento, y despliego soluciones en AWS.",
+        "Base s\u00f3lida en PHP/CakePHP, Node.js y frontend moderno (React, Tailwind)."
       ],
       "highlights": {
         "frontend": {
           "title": "Frontend",
-          "description": "HTML5 · CSS3 · JavaScript · React · Tailwind CSS · Next.js"
+          "description": "HTML5 \u00b7 CSS3 \u00b7 JavaScript \u00b7 React \u00b7 Tailwind CSS \u00b7 Next.js"
         },
         "backend": {
           "title": "Backend",
-          "description": "PHP 7+ · CakePHP 4.6 · Node.js · Python · MySQL · Supabase"
+          "description": "PHP 7+ \u00b7 CakePHP 4.6 \u00b7 Node.js \u00b7 Python \u00b7 MySQL \u00b7 Supabase"
         },
         "automation": {
-          "title": "Automatización e Infra",
-          "description": "n8n · REST APIs · Telegram API · MCP · AWS · Docker · Git/GitHub · Shopify · WordPress · Figma"
+          "title": "Automatizaci\u00f3n e Infra",
+          "description": "n8n \u00b7 REST APIs \u00b7 Telegram API \u00b7 MCP \u00b7 AWS \u00b7 Docker \u00b7 Git/GitHub \u00b7 Shopify \u00b7 WordPress \u00b7 Figma"
         }
       },
       "skillCategories": {
-        "automation": "Automatización",
+        "automation": "Automatizaci\u00f3n",
         "backend": "Backend",
         "frontend": "Frontend",
         "infra": "Infraestructura",
@@ -52,7 +61,7 @@ const translations: Translations = {
       "stats": [
         {
           "number": "4+",
-          "label": "Años de experiencia"
+          "label": "A\u00f1os de experiencia"
         },
         {
           "number": "15+",
@@ -60,7 +69,7 @@ const translations: Translations = {
         },
         {
           "number": "10+",
-          "label": "Tecnologías"
+          "label": "Tecnolog\u00edas"
         }
       ]
     },
@@ -70,13 +79,13 @@ const translations: Translations = {
         {
           "title": "Backend PHP Developer",
           "company": "iMometrics",
-          "period": "Jun 2024 – Actualidad",
-          "location": "Medellín, Colombia (Remoto)",
+          "period": "Jun 2024 \u2013 Actualidad",
+          "location": "Medell\u00edn, Colombia (Remoto)",
           "bullets": [
             "Desarrollo de aplicaciones internas con CakePHP 4.6 y PHP 7+",
-            "Buenas prácticas (PSR, SOLID) y mejora continua",
-            "MySQL, migraciones y optimización de consultas",
-            "Automatización con n8n (incluye bots de WhatsApp)",
+            "Buenas pr?cticas (PSR, SOLID) y mejora continua",
+            "MySQL, migraciones y optimizaci\u00f3n de consultas",
+            "Automatizaci\u00f3n con n8n (incluye bots de WhatsApp)",
             "Entornos de desarrollo con Docker y Composer"
           ],
           "tech": [
@@ -92,12 +101,12 @@ const translations: Translations = {
         {
           "title": "Frontend Developer",
           "company": "K Gumi SAS",
-          "period": "Ene 2021 – May 2024",
-          "location": "Medellín, Colombia",
+          "period": "Ene 2021 \u2013 May 2024",
+          "location": "Medell\u00edn, Colombia",
           "bullets": [
             "Sitios y landings con HTML, CSS y JavaScript",
             "Interfaces con Tailwind CSS y enfoque responsive",
-            "Mantenimiento y evolución de sitios corporativos"
+            "Mantenimiento y evoluci\u00f3n de sitios corporativos"
           ],
           "tech": [
             "HTML5",
@@ -110,12 +119,12 @@ const translations: Translations = {
         {
           "title": "Frontend Developer",
           "company": "Wiptool",
-          "period": "Mar 2020 – Dic 2020",
-          "location": "Medellín, Colombia (Remoto)",
+          "period": "Mar 2020 \u2013 Dic 2020",
+          "location": "Medell\u00edn, Colombia (Remoto)",
           "bullets": [
-            "Desarrollo de interfaz (UI) para aplicación web",
-            "Integración con Mapbox API para mapas",
-            "Implementación de diseño responsive y rutas de navegación"
+            "Desarrollo de interfaz (UI) para aplicaci\u00f3n web",
+            "Integraci\u00f3n con Mapbox API para mapas",
+            "Implementaci\u00f3n de dise\u00f1o responsive y rutas de navegaci\u00f3n"
           ],
           "tech": [
             "HTML5",
@@ -126,14 +135,14 @@ const translations: Translations = {
           ]
         },
         {
-          "title": "Freelance – Automatización n8n e Integraciones IA",
+          "title": "Freelance ? Automatizaci?n n8n e Integraciones IA",
           "company": "Proyectos varios",
-          "period": "2023 – Actualidad",
+          "period": "2023 ? Actualidad",
           "location": "Remoto",
           "bullets": [
             "Flujos automatizados con n8n, APIs REST y bots en Telegram/WhatsApp",
-            "Creación de agentes de voz y conexión de LLMs mediante MCP",
-            "Supabase para autenticación, almacenamiento y base de datos",
+            "Creaci\u00f3n de agentes de voz y conexi\u00f3n de LLMs mediante MCP",
+            "Supabase para autenticaci\u00f3n, almacenamiento y base de datos",
             "Despliegues en AWS e integraciones con LLMs locales (Ollama, Router)",
             "Proyectos: BunnyGymWear, CarlJung.app, Restobelge, To-Do Automation Challenge"
           ],
@@ -150,16 +159,16 @@ const translations: Translations = {
     },
     "projects": {
       "title": "Proyectos destacados",
-      "description": "Una selección de proyectos que combinan automatización, IA y desarrollo web.",
+      "description": "Una selecci?n de proyectos que combinan automatizaci?n, IA y desarrollo web.",
       "filters": [
         "Todos",
         "Full-Stack",
         "Frontend",
         "E-commerce"
       ],
-      "githubLabel": "Código",
+      "githubLabel": "C?digo",
       "demoLabel": "Demo",
-      "cta": "Ver más proyectos en GitHub"
+      "cta": "Ver m?s proyectos en GitHub"
     },
     "sitePreview": {
       "empty": "Sin vista previa",
@@ -168,39 +177,53 @@ const translations: Translations = {
     },
     "contact": {
       "title": "Contacto",
-      "subtitle": "¿Tienes un proyecto en mente? ¡Construyámoslo juntos!",
-      "infoTitle": "Información",
+      "subtitle": "\u00bfTienes un proyecto en mente? \u00a1Construy\u00e1moslo juntos!",
+      "infoTitle": "Informaci\u00f3n",
       "copyEmail": "Copiar correo",
-      "copyPhone": "Copiar número",
+      "copyPhone": "Copiar n?mero",
       "copied": "Copiado",
       "composeEmail": "Escribir correo",
       "whatsapp": "Abrir WhatsApp",
-      "callPhone": "Llamar teléfono",
-      "location": "Medellín, Colombia",
-      "availability": "Disponible remoto / híbrido",
-      "resumeTitle": "Currículum",
+      "callPhone": "Llamar tel\u00e9fono",
+      "location": "Medell\u00edn, Colombia",
+      "availability": "Disponible remoto / h\u00edbrido",
+      "resumeTitle": "Curr?culum",
       "resumeCta": "Descargar CV (PDF)",
-      "networksTitle": "Redes"
+      "resumeFile": "AlexisPalacio_ATS_es.pdf",
+      "networksTitle": "Redes",
+      "whatsappMessage": "Hola Alexis, vi tu portafolio."
     },
     "controls": {
       "themeToggle": "Cambiar tema",
       "language": {
-        "switchToEnglish": "Cambiar a inglés",
-        "switchToSpanish": "Cambiar a español"
+        "switchToEnglish": "Cambiar a ingl?s",
+        "switchToSpanish": "Cambiar a espa?ol"
       },
       "menu": {
-        "open": "Abrir menú",
-        "close": "Cerrar menú"
+        "open": "Abrir men?",
+        "close": "Cerrar men?"
       }
+    },
+    "footer": {
+      "copyright": "2024 Alexis Palacio. Todos los derechos reservados."
     }
   },
   "en": {
+    "meta": {
+      "title": "Alexis Palacio - Portfolio",
+      "description": "Portfolio of Alexis Palacio - Full-stack developer focused on n8n automation, LLM integrations (Ollama/Router), MCP, Supabase and AWS"
+    },
     "nav": {
       "home": "Home",
       "about": "About",
       "experience": "Experience",
       "projects": "Projects",
       "contact": "Contact"
+    },
+    "header": {
+      "logoInitials": "AP",
+      "logoLabel": "Alexis Palacio",
+      "homeAria": "Go to home"
     },
     "hero": {
       "subtitle": "Full-Stack Developer | n8n Automation",
@@ -217,7 +240,7 @@ const translations: Translations = {
         "highlight": "n8n Automation"
       },
       "paragraphs": [
-        "Full-Stack developer with 4+ years of experience focused on n8n automation and LLM integration across cloud and local environments.",
+        "Full-stack developer with 4+ years of experience focused on n8n automation and LLM integration across cloud and local environments.",
         "I have built voice agents connected to external sources via MCP, rely on Supabase for databases, auth and storage, and deploy solutions on AWS.",
         "Strong foundation in PHP/CakePHP, Node.js and modern frontend (React, Tailwind)."
       ],
@@ -373,7 +396,9 @@ const translations: Translations = {
       "availability": "Available remote / hybrid",
       "resumeTitle": "Resume",
       "resumeCta": "Download CV (PDF)",
-      "networksTitle": "Networks"
+      "resumeFile": "AlexisPalacio_ATS_en.pdf",
+      "networksTitle": "Networks",
+      "whatsappMessage": "Hi Alexis, I saw your portfolio."
     },
     "controls": {
       "themeToggle": "Toggle theme",
@@ -385,6 +410,9 @@ const translations: Translations = {
         "open": "Open menu",
         "close": "Close menu"
       }
+    },
+    "footer": {
+      "copyright": "2024 Alexis Palacio. All rights reserved."
     }
   }
 };
