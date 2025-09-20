@@ -1,0 +1,119 @@
+---
+import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
+import NetworkAnimation from '../components/NetworkAnimation';
+import type { LayoutProps } from '../types';
+
+const {
+  title,
+  description = "Portafolio de Alexis Palacio - Full-Stack y automatización con n8n, LLMs (Ollama/Router), MCP, Supabase y AWS"
+} = Astro.props as LayoutProps;
+
+const siteUrl = Astro.site?.toString() ?? 'http://localhost:4321/';
+const normalizedSiteUrl = siteUrl.endsWith('/') ? siteUrl : `${siteUrl}/`;
+const basePath = import.meta.env.BASE_URL ?? '/';
+
+const normalizedBasePath = (() => {
+
+  const withLeadingSlash = basePath.startsWith('/') ? basePath : `/${basePath}`;
+
+  return withLeadingSlash.endsWith('/') ? withLeadingSlash : `${withLeadingSlash}/`;
+
+})();
+
+const canonicalUrl = normalizedBasePath === '/'
+
+  ? normalizedSiteUrl
+
+  : new URL(normalizedBasePath.slice(1), normalizedSiteUrl).toString();
+
+const assetBasePath = normalizedBasePath === '/' ? '/' : normalizedBasePath;
+const faviconHref = `${assetBasePath}favicon.ico`;
+
+const ogImageUrl = new URL(`${normalizedBasePath}og-image.svg`, normalizedSiteUrl).toString();
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href={faviconHref} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Alexis Palacio" />
+    <ViewTransitions />
+    <script>
+      // Theme handling
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+
+      window.localStorage.setItem('theme', theme);
+
+      // Theme transition: instant change
+      const handleThemeSwitch = () => {
+        const element = document.documentElement;
+        const isDark = element.classList.contains('dark');
+        element.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      };
+
+      // Listen for toggle events dispatched from React header
+      document.addEventListener('toggle-theme', handleThemeSwitch);
+
+      document.addEventListener('astro:after-swap', () => {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      });
+    </script>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <link rel="preconnect" href="https://s.wordpress.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alexis Palacio",
+      "url": canonicalUrl,
+      "jobTitle": "Full-Stack Developer | Automatización con n8n",
+      "sameAs": [
+        "https://github.com/alexispalaciodev",
+        "https://www.linkedin.com/in/poisoneddog/"
+      ]
+    })}></script>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Portafolio de Alexis Palacio",
+      "url": canonicalUrl
+    })}></script>
+  </head>
+  <body class="neo-surface">
+    <NetworkAnimation client:load />
+    <div class="min-h-screen relative">
+      <slot />
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,494 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Design System */
+:root {
+  --icon-accent: #0ea5e9; /* cyan-blue */
+  --icon-accent-2: #2563eb; /* vibrant blue */
+  
+  /* Neumorphism base */
+  --neo-base: #e9edf3; /* light, uniform base */
+  --neo-shadow-dark: #c5cad3; /* bottom-right shadow */
+  --neo-shadow-light: #ffffff; /* top-left highlight */
+  --neo-radius: 18px;
+  --neo-radius-lg: 24px;
+  --neo-gap: 16px;
+  --neo-text: #2f3441;
+  --neo-muted: #6f7686;
+
+  /* Clean, modern color palette */
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  
+  /* Semantic colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    scroll-behavior: smooth;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--neo-base);
+    color: var(--neo-text);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+@layer components {
+  /* force blue tint on external monochrome brand SVGs */
+  .tech-icon-brand {
+    filter: invert(33%) sepia(94%) saturate(2476%) hue-rotate(197deg) brightness(97%) contrast(101%);
+  }
+  /* Neumorphism primitives */
+  .neo-surface {
+    background: var(--neo-base);
+  }
+
+  .neo-elevated {
+    background: var(--neo-base);
+    border-radius: var(--neo-radius);
+    box-shadow: 9px 9px 16px var(--neo-shadow-dark), -9px -9px 16px var(--neo-shadow-light);
+  }
+
+  .neo-inset {
+    background: var(--neo-base);
+    border-radius: var(--neo-radius);
+    box-shadow: inset 9px 9px 16px var(--neo-shadow-dark), inset -9px -9px 16px var(--neo-shadow-light);
+  }
+
+  .neo-card {
+    @apply p-8; /* Tailwind spacing for convenience */
+    border-radius: var(--neo-radius-lg);
+    background: var(--neo-base);
+    box-shadow: 12px 12px 24px var(--neo-shadow-dark), -12px -12px 24px var(--neo-shadow-light);
+  }
+
+  .neo-btn {
+    @apply inline-flex items-center justify-center font-medium;
+    padding: 14px 22px;
+    border-radius: 9999px; /* fully rounded */
+    background: var(--neo-base);
+    color: var(--neo-text);
+    box-shadow: 9px 9px 16px var(--neo-shadow-dark), -9px -9px 16px var(--neo-shadow-light);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  /* Pressed feel on hover (neumorphic push-in) */
+  .neo-btn:hover {
+    transform: translateY(1px);
+    box-shadow: inset 9px 9px 16px var(--neo-shadow-dark), inset -9px -9px 16px var(--neo-shadow-light);
+  }
+
+  .neo-btn:active {
+    transform: translateY(2px);
+    box-shadow: inset 12px 12px 20px var(--neo-shadow-dark), inset -12px -12px 20px var(--neo-shadow-light);
+  }
+
+  .neo-input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: var(--neo-radius);
+    background: var(--neo-base);
+    color: var(--neo-text);
+    border: none;
+    outline: none;
+    box-shadow: inset 9px 9px 16px var(--neo-shadow-dark), inset -9px -9px 16px var(--neo-shadow-light);
+    transition: box-shadow 0.15s ease;
+  }
+
+  .neo-input:focus {
+    box-shadow: inset 7px 7px 12px var(--neo-shadow-dark), inset -7px -7px 12px var(--neo-shadow-light);
+  }
+
+  .neo-chip {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    background: var(--neo-base);
+    color: var(--neo-text);
+    box-shadow: 6px 6px 12px var(--neo-shadow-dark), -6px -6px 12px var(--neo-shadow-light);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+  }
+
+  .neo-chip-sm {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  /* Pressed feel for chips as interactive buttons */
+  .neo-chip:hover {
+    transform: translateY(1px);
+    box-shadow: inset 9px 9px 16px var(--neo-shadow-dark), inset -9px -9px 16px var(--neo-shadow-light);
+  }
+
+  .neo-chip:active {
+    transform: translateY(2px);
+    box-shadow: inset 12px 12px 20px var(--neo-shadow-dark), inset -12px -12px 20px var(--neo-shadow-light);
+  }
+
+  .neo-avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 9999px;
+    background: var(--neo-base);
+    box-shadow: 9px 9px 16px var(--neo-shadow-dark), -9px -9px 16px var(--neo-shadow-light);
+    display: grid;
+    place-items: center;
+    color: var(--neo-muted);
+    font-weight: 600;
+  }
+
+  /* Hide About header chip only, keep other chips */
+  #about .text-center.mb-16 > .neo-chip {
+    display: none;
+  }
+
+  /* Modern card component */
+  .modern-card {
+    @apply bg-white rounded-xl p-6 transition-all duration-300;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .modern-card:hover {
+    box-shadow: var(--shadow-2xl);
+    transform: translateY(-2px);
+  }
+
+  /* Modern button system */
+  .modern-btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-sm rounded-xl transition-all duration-200 cursor-pointer border-0;
+  }
+
+  .modern-btn-primary {
+    @apply modern-btn bg-blue-600 text-white;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .modern-btn-primary:hover {
+    @apply bg-blue-700;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .modern-btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .modern-btn-secondary {
+    @apply modern-btn bg-white text-gray-700 border-2 border-gray-200;
+  }
+
+  .modern-btn-secondary:hover {
+    @apply bg-gray-50 border-gray-300;
+  }
+
+  /* Typography system */
+  .modern-heading {
+    @apply font-black tracking-tight;
+  }
+
+  .modern-subheading {
+    @apply font-semibold tracking-tight;
+  }
+
+  .modern-body {
+    @apply text-gray-600 leading-relaxed;
+  }
+
+  /* Form elements */
+  .modern-input {
+    @apply w-full px-4 py-3 text-base text-gray-900 bg-white border-2 border-gray-200 rounded-lg transition-all duration-200;
+  }
+
+  .modern-input:focus {
+    @apply outline-none border-blue-500;
+    box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+  }
+
+  /* Section styles */
+  .section-container {
+    @apply py-20 px-6;
+  }
+
+  .section-content {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Neumorphic Toggle (inspired by Uiverse.io by mobinkakei) */
+  .neo-toggle-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--neo-text);
+    gap: 12px;
+  }
+
+  .neo-toggle-text {
+    font-size: 14px;
+    color: var(--neo-muted);
+  }
+
+  .neo-toggle {
+    position: relative;
+    isolation: isolate;
+    height: 30px;
+    width: 60px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: var(--neo-base);
+    box-shadow:
+      -8px -4px 8px 0 var(--neo-shadow-light),
+      8px 4px 12px 0 var(--neo-shadow-dark),
+      4px 4px 4px 0 var(--neo-shadow-dark) inset,
+      -4px -4px 4px 0 var(--neo-shadow-light) inset;
+  }
+
+  .neo-toggle-state {
+    display: none;
+  }
+
+  .neo-toggle-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200%;
+    background: var(--neo-base);
+    border-radius: 15px;
+    transform: translate3d(-75%, 0, 0);
+    transition: transform 0.35s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+    box-shadow:
+      -8px -4px 8px 0 var(--neo-shadow-light),
+      8px 4px 12px 0 var(--neo-shadow-dark);
+  }
+
+  .neo-toggle-state:checked ~ .neo-toggle-indicator {
+    transform: translate3d(25%, 0, 0);
+  }
+
+  .neo-toggle-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--neo-text);
+    opacity: 1;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+  }
+
+  .neo-toggle-icon--sun { left: 6px; }
+  .neo-toggle-icon--moon { right: 6px; opacity: 0; }
+
+  .neo-toggle-state:checked ~ .neo-toggle-icon--sun {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.9);
+  }
+
+  .neo-toggle-state:checked ~ .neo-toggle-icon--moon {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* Dark Mode – variables + component tuning */
+.dark :root, :root.dark {
+  --neo-base: #10151c;
+  --neo-shadow-dark: #0b0f14;
+  --neo-shadow-light: #1a212b;
+  --neo-text: #e6ebf2;
+  --neo-muted: #9aa3b2;
+}
+
+.dark body { background-color: var(--neo-base); color: var(--neo-text); }
+
+
+.dark .neo-card { box-shadow: 14px 14px 28px var(--neo-shadow-dark), -12px -12px 24px var(--neo-shadow-light); }
+.dark .neo-inset { box-shadow: inset 10px 10px 20px var(--neo-shadow-dark), inset -10px -10px 20px var(--neo-shadow-light); }
+.dark .neo-btn { box-shadow: 10px 10px 20px var(--neo-shadow-dark), -10px -10px 20px var(--neo-shadow-light); }
+.dark .neo-btn:hover { box-shadow: inset 10px 10px 20px var(--neo-shadow-dark), inset -10px -10px 20px var(--neo-shadow-light); }
+.dark .neo-chip { box-shadow: 8px 8px 16px var(--neo-shadow-dark), -8px -8px 16px var(--neo-shadow-light); }
+.dark .neo-chip:hover { box-shadow: inset 8px 8px 16px var(--neo-shadow-dark), inset -8px -8px 16px var(--neo-shadow-light); }
+.dark .neo-input { box-shadow: inset 10px 10px 20px var(--neo-shadow-dark), inset -10px -10px 20px var(--neo-shadow-light); }
+
+/* Subtle theming crossfade */
+.theming .neo-card,
+.theming .neo-inset,
+.theming .neo-btn,
+.theming .neo-chip,
+.theming .neo-avatar,
+.theming .neo-input,
+.theming header,
+.theming footer,
+.theming section {
+  transition: background-color 220ms ease, color 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Gradient utilities */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
+  }
+
+  .bg-gradient-subtle {
+    background: linear-gradient(135deg, var(--gray-50), white);
+  }
+
+  /* Focus styles */
+  .focus-ring:focus {
+    @apply outline-none;
+    box-shadow: 0 0 0 3px rgb(59 130 246 / 0.2);
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}
+
+/* Modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
+
+/* Dark mode disabled for consistent light neumorphism */
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .section-container {
+    @apply py-16 px-4;
+  }
+}
+
+@media (min-width: 641px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
