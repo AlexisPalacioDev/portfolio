@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { TechIcon } from './icons/TechIcons';
 import { useLanguage } from '../utils/useLanguage';
 import translations from '../data/translations';
@@ -9,6 +9,9 @@ const FEATURED_TECH = ['n8n', 'Supabase', 'HTML5', 'CakePHP', 'JavaScript', 'Doc
 export default function Hero() {
   const lang = useLanguage();
   const hero = translations[lang].hero;
+  const basePath = import.meta.env.BASE_URL ?? '/';
+  const normalizedBase = basePath.endsWith('/') ? basePath : `${basePath}/`;
+  const profileSrc = `${normalizedBase}profile.jpg`;
 
   return (
     <section className="min-h-[70vh] relative">
@@ -61,7 +64,7 @@ export default function Hero() {
             <div className="neo-card flex items-center gap-6 p-8">
               <div className="neo-avatar w-32 h-32">
                 <img
-                  src={`${import.meta.env.BASE_URL}profile.jpg`}
+                  src={profileSrc}
                   alt={hero.profileAlt}
                   width="128"
                   height="128"
